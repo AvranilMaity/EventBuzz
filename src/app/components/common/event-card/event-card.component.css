@@ -1,0 +1,57 @@
+.card {
+  font-family: "Catamaran", sans-serif;
+  display: grid;
+  grid-template-columns: 275px;
+  grid-template-rows: 210px 140px;
+  grid-template-areas: "image" "text";
+  text-align: center;
+  background-color: white;
+  width: 275px;
+  border-radius: 8px 8px 8px 8px;
+}
+.card-image {
+  grid-area: image;
+  background: url("../../../../assets/images/thumbnail.jpg");
+  background-size: cover;
+  border-radius: 8px 8px 0px 0px;
+}
+.card-text {
+  padding: 30px 5px 5px 5px;
+  grid-area: text;
+  background-color: white;
+  color: black;
+  border-radius: 0px 0px 8px 8px;
+  display: grid;
+  grid-template-columns: 80px 195px;
+  grid-template-rows: 140px;
+  grid-template-areas: "date" "content";
+}
+.date {
+  grid-area: date;
+}
+.content {
+  grid-area: content;
+  border: 1px solid;
+}
+
+.month {
+  color: #6a7c94;
+  font-weight: 500;
+  font-size: 20px;
+}
+.day {
+  color: #131315;
+  font-weight: 800;
+  font-size: 35px;
+}
+
+.about {
+  color: #6a7c94;
+  font-weight: 500;
+  font-size: 15px;
+}
+.title {
+  color: #131315;
+  font-weight: 800;
+  font-size: 20px;
+}
