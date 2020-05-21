@@ -1,12 +1,11 @@
 .card {
-  font-family: "Catamaran", sans-serif;
+  width: 350px;
   display: grid;
   grid-template-columns: 350px;
   grid-template-rows: 210px 140px;
   grid-template-areas: "image" "text";
   text-align: center;
   background-color: white;
-  width: 275px;
   border-radius: 8px 8px 8px 8px;
 }
 .card-image {

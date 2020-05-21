@@ -1,0 +1,84 @@
+.row {
+  width: 100%;
+  margin: 0px;
+}
+.content {
+  height: 100vh;
+  padding: 15vh 12vw 25vh 12vw;
+}
+.header {
+  text-align: center;
+}
+.sub-header-1 {
+  color: #7848f4;
+  font-weight: 800;
+  font-size: 30px;
+}
+.sub-header-2 {
+  font-weight: 800;
+  font-size: 40px;
+}
+.button {
+  text-align: center;
+}
+.button-1 {
+  height: 50px;
+  width: 150px;
+  background: none;
+  border-radius: 10px;
+  background-color: #7848f4;
+  border: 1px solid #fff;
+  color: white;
+}
+.button-1:focus {
+  outline: none;
+}
+.button-1:hover {
+}
+
+label {
+  margin: 0px;
+  font-size: 12px;
+  font-weight: 700;
+}
+a {
+  font-size: 12px;
+  color: #6a7c94;
+}
+input {
+  height: 50px;
+  font-size: 14px;
+  padding-left: 15px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.image {
+  height: 100vh;
+  background: linear-gradient(rgb(120, 72, 244, 0.2), rgb(120, 72, 244, 0.2)),
+    url("../../../../assets/images/sign-in.jpg");
+  background-size: cover;
+  color: white;
+}
+.sub-header-3 {
+  font-weight: 700;
+  font-size: 50px;
+  margin-bottom: 0px;
+}
+.text {
+  text-align: center;
+  font-size: 14px;
+}
+.button-2 {
+  height: 50px;
+  width: 150px;
+  background: none;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0);
+  color: white;
+}
+.button-2:focus {
+  outline: none;
+}
+.button-2:hover {
+}
