@@ -44,6 +44,16 @@ input {
   padding-left: 15px;
   border: 2px solid rgba(0, 0, 0, 0.1);
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 
 .image {
   height: 100vh;
