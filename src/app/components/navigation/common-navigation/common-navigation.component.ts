@@ -11,5 +11,4 @@ export class CommonNavigationComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

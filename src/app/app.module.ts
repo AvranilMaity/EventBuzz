@@ -19,6 +19,7 @@ import { UserDashboardComponent } from './components/user/user-dashboard/user-da
 import { OrganizerDashboardComponent } from './components/organizer/organizer-dashboard/organizer-dashboard.component';
 import { RegisterEventConfirmationComponent } from './components/user/register-event-confirmation/register-event-confirmation.component';
 import { AddEventConfirmationComponent } from './components/organizer/add-event-confirmation/add-event-confirmation.component';
+import { LandingComponent } from './components/common/landing/landing.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
@@ -40,6 +41,7 @@ import { AddEventConfirmationComponent } from './components/organizer/add-event-
     OrganizerDashboardComponent,
     RegisterEventConfirmationComponent,
     AddEventConfirmationComponent,
+    LandingComponent
   ],
   bootstrap: [AppComponent],
 })
