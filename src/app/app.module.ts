@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+
 
 import { AppComponent } from './app.component';
 import { SignInComponent } from './components/common/sign-in/sign-in.component';
@@ -16,9 +19,9 @@ import { LandingComponent } from './components/landing/landing.component';
 import { CommonNavigationComponent } from './components/navigation/common-navigation/common-navigation.component';
 import { UserNavigationComponent } from './components/navigation/user-navigation/user-navigation.component';
 import { EventDetailsOrgComponent } from './components/organizer/event-details-org/event-details-org.component';
+import { appRoutes } from './routes';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule],
   declarations: [
     AppComponent,
     SignInComponent,
@@ -35,6 +38,8 @@ import { EventDetailsOrgComponent } from './components/organizer/event-details-o
     UserNavigationComponent,
     EventDetailsOrgComponent
   ],
+  imports: [BrowserModule, FormsModule, HttpClientModule, RouterModule.forRoot(appRoutes)],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}
