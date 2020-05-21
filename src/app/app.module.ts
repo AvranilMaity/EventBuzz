@@ -12,6 +12,7 @@ import { EventRegisterComponent } from './components/user/event-register/event-r
 import { EventAddEditComponent } from './components/organizer/event-add-edit/event-add-edit.component';
 import { RegisterEventConfirmationComponent } from './components/user/register-event-confirmation/register-event-confirmation.component';
 import { AddEventConfirmationComponent } from './components/organizer/add-event-confirmation/add-event-confirmation.component';
+import { LandingComponent } from './components/common/landing/landing.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
@@ -26,6 +27,7 @@ import { AddEventConfirmationComponent } from './components/organizer/add-event-
     EventAddEditComponent,
     RegisterEventConfirmationComponent,
     AddEventConfirmationComponent,
+    LandingComponent
   ],
   bootstrap: [AppComponent],
 })
