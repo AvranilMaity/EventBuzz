@@ -1,3 +1,4 @@
-p {
-  font-family: Lato;
+* {
+  font-family: "Catamaran", sans-serif;
+  box-sizing: border-box;
 }
