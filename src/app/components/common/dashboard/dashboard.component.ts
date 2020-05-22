@@ -18,4 +18,9 @@ export class DashboardComponent implements OnInit {
     this.route.navigate(['/landing']);
   }
 
+  createEvent(){
+    console.log('Click on create event button');
+    this.route.navigate(['/eventaddedit']);
+  }
+
 }
