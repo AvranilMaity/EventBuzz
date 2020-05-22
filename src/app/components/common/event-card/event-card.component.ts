@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-event-card',
@@ -6,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./event-card.component.css'],
 })
 export class EventCardComponent implements OnInit {
-  constructor() {}
+  constructor(private route: Router) {}
 
   ngOnInit() {}
+
+  navigateToEventDetails(){
+    console.log('navigate to event details');
+    this.route.navigate(['/eventdetails']);
+  }
 }

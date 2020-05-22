@@ -20,6 +20,7 @@ import { UserNavigationComponent } from './components/navigation/user-navigation
 import { EventDetailsOrgComponent } from './components/organizer/event-details-org/event-details-org.component';
 import { appRoutes } from './routes';
 import { EventDetailsComponent } from './components/user/event-details/event-details.component';
+import { DashboardComponent } from './components/common/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { EventDetailsComponent } from './components/user/event-details/event-det
     LandingComponent,
     CommonNavigationComponent,
     UserNavigationComponent,
-    EventDetailsOrgComponent
+    EventDetailsOrgComponent,
+    DashboardComponent
   ],
   imports: [BrowserModule, FormsModule, HttpClientModule, RouterModule.forRoot(appRoutes)],
 
