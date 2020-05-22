@@ -74,8 +74,8 @@
 .button-1:focus {
   outline: none;
 }
-.button-1:hover {
-}
+/* .button-1:hover {
+} */
 .refunds {
   margin-top: 10px;
   text-align: center;
