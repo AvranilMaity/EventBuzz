@@ -13,11 +13,11 @@ export class LandingComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSignIn(){
+  navigateToSignIn(){
     console.log('Click on sign in button');
     this.route.navigate(['/signin']);
   }
-  onSignUp(){
+  navigateToSignUp(){
     console.log('Click on sign in button');
     this.route.navigate(['/signup']);
   }
