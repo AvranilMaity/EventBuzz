@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommonService } from 'src/app/services/common.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent implements OnInit {
   proceed: boolean = false;
-  constructor(private route: Router) {}
+  constructor(private route: Router, private commonService: CommonService) {}
 
   ngOnInit() {}
 

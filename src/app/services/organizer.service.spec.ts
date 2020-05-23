@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
-import { OrganizerServiceService } from './organizer-service.service';
+import { OrganizerServiceService } from './organizer.service';
 
 describe('Service: OrganizerService', () => {
   beforeEach(() => {
