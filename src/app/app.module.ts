@@ -20,6 +20,8 @@ import { UserNavigationComponent } from './components/navigation/user-navigation
 import { EventDetailsOrgComponent } from './components/organizer/event-details-org/event-details-org.component';
 import { appRoutes } from './routes';
 import { EventDetailsComponent } from './components/user/event-details/event-details.component';
+import { DashboardComponent } from './components/common/dashboard/dashboard.component';
+import { BrowseEventsComponent } from './components/common/browse-events/browse-events.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { EventDetailsComponent } from './components/user/event-details/event-det
     CommonNavigationComponent,
     UserNavigationComponent,
     EventDetailsOrgComponent,
+<<<<<<< HEAD
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,10 @@ import { EventDetailsComponent } from './components/user/event-details/event-det
     HttpClientModule,
     NgxDropzoneModule,
     RouterModule.forRoot(appRoutes),
+=======
+    DashboardComponent,
+    BrowseEventsComponent
+>>>>>>> 9a3d86338446f9b82ad5033ceee95f676c7c4f01
   ],
 
   bootstrap: [AppComponent],

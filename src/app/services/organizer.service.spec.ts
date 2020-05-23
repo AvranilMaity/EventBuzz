@@ -1,16 +1,16 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
-import { OrganizerServiceService } from './organizer-service.service';
+import { OrganizerService } from './organizer.service';
 
 describe('Service: OrganizerService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [OrganizerServiceService]
+      providers: [OrganizerService]
     });
   });
 
-  it('should ...', inject([OrganizerServiceService], (service: OrganizerServiceService) => {
+  it('should ...', inject([OrganizerService], (service: OrganizerService) => {
     expect(service).toBeTruthy();
   }));
 });

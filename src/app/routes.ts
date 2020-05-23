@@ -7,6 +7,8 @@ import { EventRegisterComponent } from './components/user/event-register/event-r
 import { EventAddEditComponent } from './components/organizer/event-add-edit/event-add-edit.component';
 import { DashboardComponent } from './components/common/dashboard/dashboard.component';
 import { EventDetailsComponent } from './components/user/event-details/event-details.component';
+import { RegisterEventConfirmationComponent } from './components/user/register-event-confirmation/register-event-confirmation.component';
+import { BrowseEventsComponent } from './components/common/browse-events/browse-events.component';
 
 export const appRoutes: Routes = [
     {path: 'landing', component: LandingComponent},
@@ -17,6 +19,8 @@ export const appRoutes: Routes = [
     {path: 'eventregister', component: EventRegisterComponent},
     {path: 'eventaddedit', component: EventAddEditComponent},
     {path: 'dashboard', component: DashboardComponent},
+    {path: 'registereventconfirmation', component: RegisterEventConfirmationComponent},
+    {path: 'browseevents', component: BrowseEventsComponent},
     {path: '**', redirectTo: 'landing', pathMatch: 'full'},
 ];
 
