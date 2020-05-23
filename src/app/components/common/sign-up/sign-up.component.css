@@ -25,6 +25,7 @@
   background-color: #7848f4;
   border: 1px solid #fff;
   color: white;
+  font-weight: 700;
 }
 .button-1:focus {
   outline: none;
@@ -85,6 +86,7 @@ input[type="number"] {
   background-color: rgba(255, 255, 255, 0.4);
   border: 1px solid rgba(255, 255, 255, 0);
   color: white;
+  font-weight: 700;
 }
 .button-2:focus {
   outline: none;

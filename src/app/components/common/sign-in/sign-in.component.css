@@ -15,8 +15,8 @@
   font-size: 30px;
 }
 .sub-header-2 {
-  font-weight: 800;
-  font-size: 40px;
+  font-weight: 200;
+  font-size: 50px;
 }
 .button {
   text-align: center;
@@ -29,6 +29,7 @@
   background-color: #7848f4;
   border: 1px solid #fff;
   color: white;
+  font-weight: 700;
 }
 .button-1:focus {
   outline: none;

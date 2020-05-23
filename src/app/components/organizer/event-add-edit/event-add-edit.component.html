@@ -1,3 +1,270 @@
-<p>
-event-add-edit works!
-</p>
+<div class="event-content">
+  <div class="container d-flex justify-content-center">
+    <form>
+      <div class="page-data p-2">
+        <div class="page-data-title">
+          Create an Event
+        </div>
+        <div class="row">
+          <div class="col-md-12 section">
+            <div class="row section-header">
+              <div class="col-md-2">
+                <div
+                  class="section-image"
+                  style="
+                    background-color: coral;
+                    border-radius: 40px;
+                    width: 80px;
+                    height: 80px;
+                    border: 1px solid;
+                  "
+                ></div>
+              </div>
+              <div class="col-md-10" style="padding-left: 20px;">
+                <div class="section-header-title">Basic Info</div>
+                <div class="section-header-content">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Explicabo vero eos quia incidunt enim nobis?
+                </div>
+              </div>
+            </div>
+            <br />
+            <hr />
+            <br />
+            <div class="row section-content">
+              <div class="col-md-12 d-flex flex-column justify-content-center">
+                <div class="form-group">
+                  <label for="title" class="p-2">EVENT NAME</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="title"
+                    placeholder="6+ characters"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="place" class="p-2">PLACE</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="place"
+                    placeholder="6+ characters"
+                  />
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6" style="width: 100%;">
+                    <label for="place" class="p-2">EVENT BEGINS</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="place"
+                      placeholder="6+ characters"
+                    />
+                  </div>
+                  <div class="form-group col-md-6" style="width: 100%;">
+                    <label for="place" class="p-2">START TIME</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="place"
+                      placeholder="6+ characters"
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6" style="width: 100%;">
+                    <label for="place" class="p-2">EVENT ENDS</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="place"
+                      placeholder="6+ characters"
+                    />
+                  </div>
+                  <div class="form-group col-md-6" style="width: 100%;">
+                    <label for="place" class="p-2">END TIME</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="place"
+                      placeholder="6+ characters"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br /><br /><br /><br />
+        <div class="row">
+          <div class="col-md-12 section">
+            <div class="row section-header">
+              <div class="col-md-2">
+                <div
+                  class="section-image"
+                  style="
+                    background-color: #d794eb;
+                    border-radius: 40px;
+                    width: 80px;
+                    height: 80px;
+                    border: 1px solid;
+                  "
+                ></div>
+              </div>
+              <div class="col-md-10" style="padding-left: 20px;">
+                <div class="section-header-title">Upload Photo</div>
+                <div class="section-header-content">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Explicabo vero eos quia incidunt enim nobis?
+                </div>
+              </div>
+            </div>
+            <br />
+            <hr />
+            <br />
+            <div class="row section-content">
+              <div class="col-md-12">
+                <div
+                  class="custom-dropzone"
+                  ngx-dropzone
+                  [accept]="'image/*'"
+                  (change)="onSelect($event)"
+                  style="margin-bottom: 40px;"
+                >
+                  <ngx-dropzone-label>
+                    <div style="margin: 0px 30px 0px 30px;">
+                      <img
+                        src="../../../../assets/images/add_photo.svg"
+                        alt=""
+                        style="margin-bottom: 10px;"
+                      />
+                      <br />
+                      <p
+                        style="
+                          color: black;
+                          font-weight: 700;
+                          margin-bottom: 5px;
+                        "
+                      >
+                        Drag and drop your images
+                      </p>
+                      <p style="font-size: 12px; font-weight: 500;">
+                        Click here to upload images
+                      </p>
+                      <br />
+
+                      <p style="font-size: 12px; font-weight: 600;">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Dolore totam suscipit asperiores provident
+                        corrupti distinctio.
+                      </p>
+                    </div>
+                  </ngx-dropzone-label>
+                  <ngx-dropzone-image-preview
+                    ngProjectAs="ngx-dropzone-preview"
+                    *ngFor="let f of files"
+                    [file]="f"
+                    [removable]="true"
+                    (removed)="onRemove(f)"
+                  >
+                    <!-- <ngx-dropzone-label
+                        >{{ f.name }} ({{ f.type }})</ngx-dropzone-label
+                      > -->
+                  </ngx-dropzone-image-preview>
+                </div>
+                <div class="form-group">
+                  <label for="title" class="p-2">EVENT TITLE</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="title"
+                    placeholder="6+ characters"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="place" class="p-2">EVENT DESCRIPTION</label>
+                  <textarea
+                    type="text"
+                    class="form-control"
+                    id="place"
+                    placeholder="Write something about the event..."
+                    style="font-size: 14px; height: 200px;"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br /><br /><br /><br />
+        <div class="row">
+          <div class="col-md-12 section">
+            <div class="row section-header">
+              <div class="col-md-2">
+                <div
+                  class="section-image"
+                  style="
+                    background-color: #babbbc;
+                    border-radius: 40px;
+                    width: 80px;
+                    height: 80px;
+                    border: 1px solid;
+                  "
+                ></div>
+              </div>
+              <div class="col-md-10" style="padding-left: 20px;">
+                <div class="section-header-title">Organizer Details</div>
+                <div class="section-header-content">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Explicabo vero eos quia incidunt enim nobis?
+                </div>
+              </div>
+            </div>
+            <br />
+            <hr />
+            <br />
+            <div class="row section-content">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="title" class="p-2">ORGANIZER NAME</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="title"
+                    placeholder="6+ characters"
+                  />
+                </div>
+                <div class="form-group radio-group">
+                  <label class="radio"
+                    ><input
+                      type="radio"
+                      name="organized-by"
+                      value="self"
+                    />SELF<span></span>
+                  </label>
+
+                  <label class="radio"
+                    ><input
+                      type="radio"
+                      name="organized-by"
+                      value="corporate"
+                    />CORPORATE
+                    <span></span>
+                  </label>
+                </div>
+                <div class="form-group">
+                  <label for="title" class="p-2">ORGANIZATION NAME</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="title"
+                    placeholder="6+ characters"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

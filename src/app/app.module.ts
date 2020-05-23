@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 import { AppComponent } from './app.component';
 import { SignInComponent } from './components/common/sign-in/sign-in.component';
@@ -36,9 +36,15 @@ import { EventDetailsComponent } from './components/user/event-details/event-det
     LandingComponent,
     CommonNavigationComponent,
     UserNavigationComponent,
-    EventDetailsOrgComponent
+    EventDetailsOrgComponent,
   ],
-  imports: [BrowserModule, FormsModule, HttpClientModule, RouterModule.forRoot(appRoutes)],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    NgxDropzoneModule,
+    RouterModule.forRoot(appRoutes),
+  ],
 
   bootstrap: [AppComponent],
 })
