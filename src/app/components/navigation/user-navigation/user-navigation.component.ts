@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from 'src/app/services/common.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-navigation',
@@ -8,9 +9,17 @@ import { CommonService } from 'src/app/services/common.service';
 })
 export class UserNavigationComponent implements OnInit {
 
-  constructor(private commonService: CommonService) { }
+  constructor(private route: Router, private commonService: CommonService) { }
 
   ngOnInit() {
   }
+  onSignOut(){
+    console.log('Click on sign in button');
+    this.route.navigate(['/landing']);
+  }
 
+  createEvent(){
+    console.log('Click on create event button');
+    this.route.navigate(['/eventaddedit']);
+  }
 }
