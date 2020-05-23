@@ -1,0 +1,102 @@
+.page-data {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+  .container {
+    margin-bottom: 100px;
+  }
+  .banner {
+    background: linear-gradient(
+        to right,
+        rgb(0, 0, 0, 0.5),
+        rgb(120, 72, 244, 0.1)
+      ),
+      url("../../../assets/images/landing.jpg");
+    background-size: cover;
+    height: 80vh;
+    border-radius: 10px;
+    color: white;
+  }
+  .event-title {
+    font-size: 50px;
+    font-weight: 700;
+  }
+  .event-organizer {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .event-address {
+    font-size: 18px;
+    font-weight: 200;
+  }
+  .event-map {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .holder {
+    display: grid;
+    grid-template-columns: 320px;
+    grid-template-rows: 335px;
+    grid-template-areas: "card";
+  }
+  .card {
+    grid-area: card;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+    color: black;
+    padding: 30px;
+  }
+  .date-time {
+    font-size: 25px;
+    font-weight: 700;
+  }
+  .date-time-data {
+    font-size: 15px;
+    font-weight: 500;
+    color: #6a7c94;
+  }
+  .button {
+    text-align: center;
+    margin-left: 5px;
+  }
+  .button-1 {
+    height: 50px;
+    width: 180px;
+    background: none;
+    border-radius: 10px;
+    background-color: #7848f4;
+    border: 1px solid rgba(0, 0, 0, 0);
+    color: white;
+    font-weight: 700;
+    margin: 10px;
+  }
+  .button-1:focus {
+    outline: none;
+  }
+  
+  .button-1:hover {
+      background-color: white;
+      color: #7848f4;
+  }
+  .refunds {
+    margin-top: 10px;
+    text-align: center;
+    color: #6a7c94;
+    font-weight: 600;
+  }
+  .page-data-title {
+    font-size: 30px;
+    font-weight: 600;
+  }
+  .page-data-content {
+    font-weight: 500;
+    color: #6a7c94;
+  }
+  .map {
+    width: 320px;
+    height: 290px;
+    border-radius: 10px;
+  }
+  

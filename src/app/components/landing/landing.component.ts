@@ -14,13 +14,14 @@ export class LandingComponent implements OnInit {
   ngOnInit() {
   }
 
-  navigateToSignIn(){
+  onSignOut(){
     console.log('Click on sign in button');
-    this.route.navigate(['/signin']);
+    this.route.navigate(['/landing']);
   }
-  navigateToSignUp(){
-    console.log('Click on sign in button');
-    this.route.navigate(['/signup']);
+
+  createEvent(){
+    console.log('Click on create event button');
+    this.route.navigate(['/eventaddedit']);
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from 'src/app/services/common.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-common-navigation',
@@ -8,9 +9,18 @@ import { CommonService } from 'src/app/services/common.service';
 })
 export class CommonNavigationComponent implements OnInit {
 
-  constructor(private commonService: CommonService) { }
+  constructor(private route: Router, private commonService: CommonService) { }
 
   ngOnInit() {
+  }
+
+  navigateToSignIn(){
+    console.log('Click on sign in button');
+    this.route.navigate(['/signin']);
+  }
+  navigateToSignUp(){
+    console.log('Click on sign in button');
+    this.route.navigate(['/signup']);
   }
 
 }
