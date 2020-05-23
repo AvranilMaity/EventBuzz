@@ -39,7 +39,8 @@ import { BrowseEventsComponent } from './components/common/browse-events/browse-
     CommonNavigationComponent,
     UserNavigationComponent,
     EventDetailsOrgComponent,
-<<<<<<< HEAD
+    DashboardComponent,
+    BrowseEventsComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,10 +48,6 @@ import { BrowseEventsComponent } from './components/common/browse-events/browse-
     HttpClientModule,
     NgxDropzoneModule,
     RouterModule.forRoot(appRoutes),
-=======
-    DashboardComponent,
-    BrowseEventsComponent
->>>>>>> 9a3d86338446f9b82ad5033ceee95f676c7c4f01
   ],
 
   bootstrap: [AppComponent],
