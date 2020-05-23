@@ -21,6 +21,7 @@ import { EventDetailsOrgComponent } from './components/organizer/event-details-o
 import { appRoutes } from './routes';
 import { EventDetailsComponent } from './components/user/event-details/event-details.component';
 import { DashboardComponent } from './components/common/dashboard/dashboard.component';
+import { BrowseEventsComponent } from './components/common/browse-events/browse-events.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { DashboardComponent } from './components/common/dashboard/dashboard.comp
     CommonNavigationComponent,
     UserNavigationComponent,
     EventDetailsOrgComponent,
-    DashboardComponent
+    DashboardComponent,
+    BrowseEventsComponent
   ],
   imports: [BrowserModule, FormsModule, HttpClientModule, RouterModule.forRoot(appRoutes)],
 
