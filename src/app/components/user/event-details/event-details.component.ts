@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommonService } from 'src/app/services/common.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-event-details',
@@ -7,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./event-details.component.css'],
 })
 export class EventDetailsComponent implements OnInit {
-  constructor(private route: Router) {}
+  constructor(private route: Router, private commonService: CommonService, private userService: UserService) {}
   ngOnInit() {
   }
   navigateToRegister(){

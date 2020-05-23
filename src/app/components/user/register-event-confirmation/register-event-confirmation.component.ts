@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommonService } from 'src/app/services/common.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-register-event-confirmation',
