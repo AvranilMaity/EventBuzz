@@ -123,6 +123,7 @@ $white: #ffffff;
       border-radius: 10px;
       font-weight: 700;
       background-color: $black;
+      border: 2px solid;
       outline: none;
       &:before,
       &:after {
@@ -158,7 +159,7 @@ $white: #ffffff;
           background-color: $white;
 
           &:before {
-            color: $white;
+            color: $black;
             transition: color 0.5s 0.2s;
           }
           &:after {
@@ -168,14 +169,14 @@ $white: #ffffff;
           & + label {
             left: 10px;
             right: 100px;
-
-            background: $black;
+            border: 2px solid;
+            background: $white;
 
             transition: left 0.5s, right 0.4s 0.2s;
           }
         }
         &:not(:checked) {
-          background: $black;
+          background: $white;
           transition: background 0.5s -0.1s;
           &:before {
             color: $grey;
@@ -190,7 +191,7 @@ $white: #ffffff;
             right: 10px;
 
             background: $white;
-
+            border: 2px solid;
             transition: left 0.4s 0.2s, right 0.5s, background 0.35s -0.1s;
           }
         }
@@ -215,6 +216,7 @@ $white: #ffffff;
     margin: 20px 0;
 
     input {
+      border: 2px solid;
       appearance: none;
       position: relative;
       width: 280px;
@@ -257,7 +259,7 @@ $white: #ffffff;
           background-color: $white;
 
           &:before {
-            color: $white;
+            color: $black;
             transition: color 0.5s 0.2s;
           }
           &:after {
@@ -268,13 +270,13 @@ $white: #ffffff;
             left: 10px;
             right: 140px;
 
-            background: $black;
-
+            background: $white;
+            border: 2px solid;
             transition: left 0.5s, right 0.4s 0.2s;
           }
         }
         &:not(:checked) {
-          background: $black;
+          background: $white;
           transition: background 0.5s -0.1s;
           &:before {
             color: $grey;
@@ -289,7 +291,7 @@ $white: #ffffff;
             right: 10px;
 
             background: $white;
-
+            border: 2px solid;
             transition: left 0.4s 0.2s, right 0.5s, background 0.35s -0.1s;
           }
         }
