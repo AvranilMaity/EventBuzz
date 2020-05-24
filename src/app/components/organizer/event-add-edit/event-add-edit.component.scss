@@ -48,6 +48,7 @@ textarea {
   font-size: 14px;
   padding-left: 15px;
   border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -96,7 +97,7 @@ ngx-dropzone,
   /* border: 3px solid rgba(0, 0, 0, 0.2); */
 }
 
-$black: #1e1e1e;
+$black: #000000;
 $grey: #cccccc;
 $white: #ffffff;
 
@@ -110,7 +111,7 @@ $white: #ffffff;
   span.switcher {
     position: relative;
 
-    width: 200px;
+    width: 280px;
     height: 50px;
     border-radius: 10px;
     margin: 20px 0;
@@ -118,12 +119,12 @@ $white: #ffffff;
     input {
       appearance: none;
       position: relative;
-      width: 200px;
+      width: 280px;
       height: 50px;
       border-radius: 10px;
       font-weight: 700;
       background-color: $black;
-      border: 2px solid;
+      border: 2px solid rgba(0, 0, 0, 0.1);
       outline: none;
       &:before,
       &:after {
@@ -137,11 +138,11 @@ $white: #ffffff;
       }
       &:before {
         content: "OPEN";
-        left: 34px;
+        left: 52px;
       }
       &:after {
         content: "CLOSE";
-        right: 32px;
+        right: 53px;
       }
     }
     label {
@@ -168,8 +169,8 @@ $white: #ffffff;
           }
           & + label {
             left: 10px;
-            right: 100px;
-            border: 2px solid;
+            right: 140px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
             background: $white;
 
             transition: left 0.5s, right 0.4s 0.2s;
@@ -187,11 +188,11 @@ $white: #ffffff;
             transition: color 0.5s 0.2s;
           }
           & + label {
-            left: 100px;
+            left: 140px;
             right: 10px;
 
             background: $white;
-            border: 2px solid;
+            border: 2px solid rgba(0, 0, 0, 0.1);
             transition: left 0.4s 0.2s, right 0.5s, background 0.35s -0.1s;
           }
         }
@@ -216,7 +217,7 @@ $white: #ffffff;
     margin: 20px 0;
 
     input {
-      border: 2px solid;
+      border: 2px solid rgba(0, 0, 0, 0.1);
       appearance: none;
       position: relative;
       width: 280px;
@@ -271,7 +272,7 @@ $white: #ffffff;
             right: 140px;
 
             background: $white;
-            border: 2px solid;
+            border: 2px solid rgba(0, 0, 0, 0.1);
             transition: left 0.5s, right 0.4s 0.2s;
           }
         }
@@ -291,7 +292,7 @@ $white: #ffffff;
             right: 10px;
 
             background: $white;
-            border: 2px solid;
+            border: 2px solid rgba(0, 0, 0, 0.1);
             transition: left 0.4s 0.2s, right 0.5s, background 0.35s -0.1s;
           }
         }
@@ -300,18 +301,18 @@ $white: #ffffff;
   }
 }
 
-$width: 80px;
+$width: 100%;
 $padding: 7px;
-$height: $width / 2 + $padding;
+$height: 50px;
 
 .switch-wrap {
   cursor: pointer;
   background: #ffffff;
-  border: 2px solid;
+  border: 2px solid rgba(0, 0, 0, 0.1);
   padding: $padding;
   width: $width;
   height: $height;
-  border-radius: $height / 4;
+  border-radius: 10px;
   input {
     position: absolute;
     opacity: 0;
@@ -327,9 +328,9 @@ $height: $width / 2 + $padding;
   //ICYMI, pseudo elements are treated as grid items
   &::after {
     content: "";
-    border-radius: 30%;
+    border-radius: 6px;
     background: #fff;
-    border: 2px solid;
+    border: 2px solid rgba(0, 0, 0, 0.1);
     grid-column: 2;
     transition: background 0.2s;
   }
