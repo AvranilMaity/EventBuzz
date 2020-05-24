@@ -8,10 +8,10 @@
   background-color: white;
   border-radius: 8px 8px 8px 8px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
 }
 .card-image {
   grid-area: image;
-  background: url("../../../../assets/images/thumbnail.jpg");
   background-size: cover;
   border-radius: 8px 8px 0px 0px;
 }

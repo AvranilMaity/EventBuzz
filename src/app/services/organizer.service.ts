@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { IEvent } from '../interfaces/event';
 
 @Injectable({
   providedIn: 'root'
@@ -7,11 +8,11 @@ export class OrganizerService {
 
 constructor() { }
 
-addEvent(event: Event){
+addEvent(event: IEvent){
 
 }
 
-editEvent(event: Event){
+editEvent(event: IEvent){
 
 }
 

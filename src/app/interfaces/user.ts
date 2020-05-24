@@ -1,4 +1,4 @@
 // tslint:disable-next-line: no-empty-interface
-export interface User{
+export interface IUser{
 
 }
