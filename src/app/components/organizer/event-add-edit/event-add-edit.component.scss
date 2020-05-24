@@ -1,0 +1,344 @@
+.event-content {
+  height: 100%;
+  margin: 0px;
+  padding: 60px 0px 10px 0px;
+}
+.page-data {
+  width: 600px;
+  padding: 0px;
+}
+.container {
+  margin-bottom: 100px;
+}
+.page-data-title {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+.row {
+  justify-content: center;
+}
+.section {
+  background-color: white;
+  padding: 30px 40px 40px 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+.section-header-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+.section-header-content {
+  font-size: 15px;
+  color: #6a7c94;
+}
+.section-content {
+  padding: 0px;
+}
+
+label {
+  margin: 0px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+input,
+textarea {
+  height: 50px;
+  font-size: 14px;
+  padding-left: 15px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.button {
+  text-align: center;
+}
+.button-nav {
+  height: 50px;
+  width: 150px;
+  background: none;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid rgba(0, 0, 0, 0);
+  color: white;
+  font-weight: 700;
+}
+.button-nav:focus {
+  outline: none;
+}
+.button-nav:hover {
+}
+
+ngx-dropzone,
+.custom-dropzone {
+}
+
+.custom-dropzone {
+  height: 300px;
+  color: #6a7c94;
+  background-color: #f7f8fa;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.custom-dropzone.ngx-dz-hovered {
+  /* border: 3px solid rgba(0, 0, 0, 0.2); */
+}
+
+$black: #1e1e1e;
+$grey: #cccccc;
+$white: #ffffff;
+
+.switch-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  height: 50px;
+
+  span.switcher {
+    position: relative;
+
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    margin: 20px 0;
+
+    input {
+      appearance: none;
+      position: relative;
+      width: 200px;
+      height: 50px;
+      border-radius: 10px;
+      font-weight: 700;
+      background-color: $black;
+      border: 2px solid;
+      outline: none;
+      &:before,
+      &:after {
+        z-index: 2;
+
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        color: $white;
+      }
+      &:before {
+        content: "OPEN";
+        left: 34px;
+      }
+      &:after {
+        content: "CLOSE";
+        right: 32px;
+      }
+    }
+    label {
+      z-index: 1;
+      position: absolute;
+      top: 8px;
+      bottom: 8px;
+
+      border-radius: 6px;
+    }
+    &.switcher-1 {
+      input {
+        transition: 0.25s -0.1s;
+        &:checked {
+          background-color: $white;
+
+          &:before {
+            color: $black;
+            transition: color 0.5s 0.2s;
+          }
+          &:after {
+            color: $grey;
+            transition: color 0.5s;
+          }
+          & + label {
+            left: 10px;
+            right: 100px;
+            border: 2px solid;
+            background: $white;
+
+            transition: left 0.5s, right 0.4s 0.2s;
+          }
+        }
+        &:not(:checked) {
+          background: $white;
+          transition: background 0.5s -0.1s;
+          &:before {
+            color: $grey;
+            transition: color 0.5s;
+          }
+          &:after {
+            color: $black;
+            transition: color 0.5s 0.2s;
+          }
+          & + label {
+            left: 100px;
+            right: 10px;
+
+            background: $white;
+            border: 2px solid;
+            transition: left 0.4s 0.2s, right 0.5s, background 0.35s -0.1s;
+          }
+        }
+      }
+    }
+  }
+}
+
+.switch-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  height: 50px;
+
+  span.switcher {
+    position: relative;
+
+    width: 280px;
+    height: 50px;
+    border-radius: 10px;
+    margin: 20px 0;
+
+    input {
+      border: 2px solid;
+      appearance: none;
+      position: relative;
+      width: 280px;
+      height: 50px;
+      border-radius: 10px;
+      font-weight: 700;
+      background-color: $black;
+      outline: none;
+      &:before,
+      &:after {
+        z-index: 2;
+
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        color: $white;
+      }
+      &:before {
+        content: "LIMITED";
+        left: 45px;
+      }
+      &:after {
+        content: "UNLIMITED";
+        right: 32px;
+      }
+    }
+    label {
+      z-index: 1;
+      position: absolute;
+      top: 8px;
+      bottom: 8px;
+
+      border-radius: 6px;
+    }
+    &.switcher-2 {
+      input {
+        transition: 0.25s -0.1s;
+        &:checked {
+          background-color: $white;
+
+          &:before {
+            color: $black;
+            transition: color 0.5s 0.2s;
+          }
+          &:after {
+            color: $grey;
+            transition: color 0.5s;
+          }
+          & + label {
+            left: 10px;
+            right: 140px;
+
+            background: $white;
+            border: 2px solid;
+            transition: left 0.5s, right 0.4s 0.2s;
+          }
+        }
+        &:not(:checked) {
+          background: $white;
+          transition: background 0.5s -0.1s;
+          &:before {
+            color: $grey;
+            transition: color 0.5s;
+          }
+          &:after {
+            color: $black;
+            transition: color 0.5s 0.2s;
+          }
+          & + label {
+            left: 140px;
+            right: 10px;
+
+            background: $white;
+            border: 2px solid;
+            transition: left 0.4s 0.2s, right 0.5s, background 0.35s -0.1s;
+          }
+        }
+      }
+    }
+  }
+}
+
+$width: 80px;
+$padding: 7px;
+$height: $width / 2 + $padding;
+
+.switch-wrap {
+  cursor: pointer;
+  background: #ffffff;
+  border: 2px solid;
+  padding: $padding;
+  width: $width;
+  height: $height;
+  border-radius: $height / 4;
+  input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+}
+.switch {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 0fr 1fr 1fr;
+  transition: 0.2s;
+  //ICYMI, pseudo elements are treated as grid items
+  &::after {
+    content: "";
+    border-radius: 30%;
+    background: #fff;
+    border: 2px solid;
+    grid-column: 2;
+    transition: background 0.2s;
+  }
+}
+input:checked {
+  + .switch {
+    grid-template-columns: 1fr 1fr 0fr;
+    &::after {
+      background-color: #52cf71;
+    }
+  }
+}
