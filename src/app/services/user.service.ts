@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Registration } from '../interfaces/registration';
+import { IRegistration } from '../interfaces/registration';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,7 @@ export class UserService {
 
 constructor() { }
 
-eventRegister(registration: Registration){
+eventRegister(registration: IRegistration){
 
 }
 

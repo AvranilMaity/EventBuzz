@@ -1,17 +1,17 @@
 <div class="card"(click)="navigateToEventDetails()">
-  <div class="card-image"></div>
+  <div class="card-image" style="background-image: url({{eventData.eventImageUrl}});"></div>
   <div class="card-text">
     <div class="content">
-      <div class="month">SEP</div>
-      <div class="day">18</div>
+      <div class="month">{{eventData.eventDate| date: 'MMM'}}</div>
+      <div class="day">{{eventData.eventDate.getDate()}}</div>
     </div>
     <div class="content">
       <div class="content-data">
         <div class="title">
-          Tor Baaper Biye!
+          {{eventData.eventName}}
         </div>
         <div class="about">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          {{eventData.eventDescription}}
         </div>
       </div>
     </div>

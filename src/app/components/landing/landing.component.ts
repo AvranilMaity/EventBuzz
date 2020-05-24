@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
+import { IEvent } from 'src/app/interfaces/event';
 
 @Component({
   selector: 'app-landing',
@@ -9,9 +10,13 @@ import { CommonService } from 'src/app/services/common.service';
 })
 export class LandingComponent implements OnInit {
 
+  popularEvents: IEvent[];
+
   constructor(private route: Router, private commonService: CommonService) { }
 
   ngOnInit() {
+    this.fetchPopularEvents();
+    console.log(this.popularEvents);
   }
 
   onSignOut(){
@@ -22,6 +27,10 @@ export class LandingComponent implements OnInit {
   createEvent(){
     console.log('Click on create event button');
     this.route.navigate(['/eventaddedit']);
+  }
+
+  fetchPopularEvents(){
+    this.popularEvents = this.commonService.fetchPopularEvents();
   }
 
 }
