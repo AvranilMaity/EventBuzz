@@ -1,18 +1,30 @@
 <app-user-navigation></app-user-navigation>
-<p>
-  dashboard works!
-</p>
-
-<div class="button">
-  <button class="button-1 p-2" type="button" (click)="onSignOut()"> 
-    Sign Out
-  </button>
-</div>
-
-<app-event-card></app-event-card>
-<div class="button">
-  <button class="button-1 p-2" type="button" (click)="createEvent()"> 
-    Create Event
-  </button>
+<br/><br/><br/>
+<div class="container">
+  <div class="page-data">
+    <div class="row" style="padding: 0px 10px 0px 0px;">
+      <div class="col-md-12 text-justify">
+        <p class="page-data-title">Registered Events</p>
+        <br /><br />
+        <div class="row">
+          <div class="cards-container" *ngFor="let event of registeredEvents">
+            <app-event-card class="col-md-4" [eventData]="event"></app-event-card>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br/><br/><br/><br/>
+    <div class="row" style="padding: 0px 10px 0px 0px;">
+      <div class="col-md-12 text-justify">
+        <p class="page-data-title">Organized Events</p>
+        <br /><br />
+        <div class="row">
+          <div class="cards-container" *ngFor="let event of organizedEvents">
+            <app-event-card class="col-md-4" [eventData]="event"></app-event-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
