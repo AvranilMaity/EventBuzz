@@ -14,8 +14,17 @@ fetchEventbyId(eventId: number){
 
 }
 
-fetchAllEvents(){
+fetchAllEvents(): IEvent[]{
+  const allEvents: IEvent[] = [
+    { eventId: 0, eventName: 'Glastonbury Festival', eventDescription: 'lorem ipsum dolor si amet', eventDate: new Date(2020, 2, 2), eventImageUrl: 'https://www.nme.com/wp-content/uploads/2019/06/CHEMICAL-BROTHERS-ANDREW-WHITTON-NME-GLASTO19-7705-WEB-696x442.jpg'},
+    { eventId: 0, eventName: 'Sundance Film Festival', eventDescription: 'lorem ipsum dolor si amet', eventDate: new Date(2020, 4, 24), eventImageUrl: 'https://upload.wikimedia.org/wikipedia/commons/7/79/Sundance_Film_Festival.jpg'},
+    { eventId: 0, eventName: 'Cannes Film Festival', eventDescription: 'lorem ipsum dolor si amet', eventDate: new Date(2020, 5, 12), eventImageUrl: 'https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2019/05/opening_ceremony_during_the_72nd_annual_cannes_film_festival_.jpg'},
+    { eventId: 0, eventName: 'Toronto Film Festival', eventDescription: 'lorem ipsum dolor si amet', eventDate: new Date(2020, 8, 6), eventImageUrl: 'https://www.egypttoday.com/images/larg/52330.jpg'},
+    { eventId: 0, eventName: 'Oscars Award Ceremony', eventDescription: 'lorem ipsum dolor si amet', eventDate: new Date(2020, 10, 16), eventImageUrl: 'https://www.dw.com/image/52317471_303.jpg'},
+    { eventId: 0, eventName: 'Emmy Awards', eventDescription: 'lorem ipsum dolor si amet', eventDate: new Date(2020, 12, 25), eventImageUrl: 'https://cdn1.thr.com/sites/default/files/2019/08/emmy_statue_2.jpg'},  
+  ];
 
+  return allEvents;
 }
 
 fetchPopularEvents(): IEvent[]{
