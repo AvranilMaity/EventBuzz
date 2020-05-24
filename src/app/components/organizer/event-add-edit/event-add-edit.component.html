@@ -1,6 +1,7 @@
+<app-user-navigation></app-user-navigation>
 <div class="event-content">
   <div class="container d-flex justify-content-center">
-    <form>
+    <form #createEventForm="ngForm">
       <div class="page-data p-2">
         <div class="page-data-title">
           Create an Event
@@ -233,23 +234,24 @@
                     placeholder="6+ characters"
                   />
                 </div>
-                <div class="form-group radio-group">
-                  <label class="radio"
-                    ><input
-                      type="radio"
-                      name="organized-by"
-                      value="self"
-                    />SELF<span></span>
-                  </label>
-
-                  <label class="radio"
-                    ><input
-                      type="radio"
-                      name="organized-by"
-                      value="corporate"
-                    />CORPORATE
-                    <span></span>
-                  </label>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1" class="p-2"
+                    >ORGANIZED BY</label
+                  >
+                  <input
+                    class="form-control"
+                    list="browsers"
+                    name="browser"
+                    id="browser"
+                  />
+                  <datalist id="browsers">
+                    <option
+                      *ngFor="let organizer of organizers"
+                      [value]="organizer"
+                      style="background: white;"
+                    >
+                    </option>
+                  </datalist>
                 </div>
                 <div class="form-group">
                   <label for="title" class="p-2">ORGANIZATION NAME</label>
@@ -257,9 +259,113 @@
                     type="text"
                     class="form-control"
                     id="title"
+                    placeholder="Some Corporation LLC"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br /><br /><br /><br />
+        <div class="row">
+          <div class="col-md-12 section">
+            <div class="row section-header">
+              <div class="col-md-2">
+                <div
+                  class="section-image"
+                  style="
+                    background-color: #2caffe;
+                    border-radius: 40px;
+                    width: 80px;
+                    height: 80px;
+                    border: 1px solid;
+                  "
+                ></div>
+              </div>
+              <div class="col-md-10" style="padding-left: 20px;">
+                <div class="section-header-title">Ticketing Details</div>
+                <div class="section-header-content">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Explicabo vero eos quia incidunt enim nobis?
+                </div>
+              </div>
+            </div>
+            <br />
+            <hr />
+            <br />
+            <div class="row section-content">
+              <div class="col-md-12 d-flex flex-column justify-content-center">
+                <div class="form-group">
+                  <label for="switcher-1" class="p-2">EVENT TYPE</label>
+                  <div class="switch-1">
+                    <span class="switcher switcher-1">
+                      <input type="checkbox" id="switcher-1" />
+                      <label for="switcher-1"></label>
+                    </span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="switcher-2" class="p-2">EVENT CAPACITY</label>
+                  <div class="switch-2">
+                    <span class="switcher switcher-2">
+                      <input type="checkbox" id="switcher-2" />
+                      <label for="switcher-2"></label>
+                    </span>
+                  </div>
+                </div>
+                <!-- <div class="form-group">
+                  <label for="title" class="p-2">EVENT CAPACITY</label>
+                  <input type="number" class="form-control" id="title" />
+                </div>
+                <div class="form-group">
+                  <label for="place" class="p-2">PLACE</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="place"
                     placeholder="6+ characters"
                   />
                 </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6" style="width: 100%;">
+                    <label for="place" class="p-2">EVENT BEGINS</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="place"
+                      placeholder="6+ characters"
+                    />
+                  </div>
+                  <div class="form-group col-md-6" style="width: 100%;">
+                    <label for="place" class="p-2">START TIME</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="place"
+                      placeholder="6+ characters"
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6" style="width: 100%;">
+                    <label for="place" class="p-2">EVENT ENDS</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="place"
+                      placeholder="6+ characters"
+                    />
+                  </div>
+                  <div class="form-group col-md-6" style="width: 100%;">
+                    <label for="place" class="p-2">END TIME</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="place"
+                      placeholder="6+ characters"
+                    />
+                  </div>
+                </div> -->
               </div>
             </div>
           </div>
