@@ -1,12 +1,13 @@
 .card {
-  width: 350px;
+  width: 300px;
   display: grid;
-  grid-template-columns: 350px;
-  grid-template-rows: 210px 140px;
+  grid-template-columns: 300px;
+  grid-template-rows: 210px 130px;
   grid-template-areas: "image" "text";
   text-align: center;
   background-color: white;
   border-radius: 8px 8px 8px 8px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
 .card-image {
   grid-area: image;
@@ -20,8 +21,8 @@
   color: black;
   border-radius: 0px 0px 8px 8px;
   display: grid;
-  grid-template-columns: 80px 270px;
-  grid-template-rows: 140px;
+  grid-template-columns: 60px 240px;
+  grid-template-rows: 130px;
 }
 .card-text .content {
   display: flex;
