@@ -243,6 +243,7 @@
                     list="browsers"
                     name="browser"
                     id="browser"
+                    #organizedBy
                   />
                   <datalist id="browsers">
                     <option
@@ -259,7 +260,7 @@
                     type="text"
                     class="form-control"
                     id="title"
-                    placeholder="Some Corporation LLC"
+                    [value]="organizedBy.value"
                   />
                 </div>
               </div>
@@ -305,7 +306,7 @@
                   <br />
                   <hr />
                 </div>
-                <div class="open" *ngIf="false">
+                <div class="open-event" *ngIf="false">
                   <div class="form-group">
                     <label for="switcher-2" class="p-2">EVENT CAPACITY</label>
                     <div class="switch-2">
@@ -384,7 +385,47 @@
                     </div>
                   </div>
                 </div>
-                <div class="close" *ngIf="false"></div>
+                <div class="closed-event" *ngIf="true">
+                  <div class="form-group">
+                    <label class="p-2">INVITED USERS</label>
+                    <div class="user-container">
+                      <span class="user-tag" *ngFor="let user of invitedUsers">
+                        <span class="user-tag-data">
+                          {{ user }}
+                        </span>
+                        <img
+                          src="../../../../assets/images/remove_button.svg"
+                          class="close-button"
+                          alt=""
+                        />
+                      </span>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-10">
+                      <label for="add-user" class="p-2">EMAIL</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="add-user"
+                        placeholder="invitee@somemailid.com"
+                        #newInvite
+                      />
+                    </div>
+                    <div class="form-group col-md-2">
+                      <div class="button" style="margin-top: 33px;">
+                        <button
+                          type="button"
+                          class="add-button"
+                          style="padding: 0px;"
+                          (click)="onAddUser(newInvite.value)"
+                        >
+                          ADD
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

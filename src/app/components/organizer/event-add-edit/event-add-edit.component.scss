@@ -343,3 +343,47 @@ input:checked {
     }
   }
 }
+
+.add-button {
+  height: 50px;
+  width: 100%;
+  background: none;
+  border-radius: 10px;
+  background-color: #2caffe;
+  border: 1px solid #fff;
+  color: white;
+  font-weight: 500;
+}
+.add-button:focus {
+  outline: none;
+}
+.add-button:hover {
+}
+
+.user-container {
+  width: 100%;
+  height: 300px;
+  font-size: 14px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 10px;
+  overflow-y: auto;
+}
+.user-tag {
+  text-align: center;
+  float: left;
+  padding: 10px 10px 10px 15px;
+  margin: 15px;
+  background-color: #eeeeee;
+  color: #7d7d7d;
+  border: none;
+  border-radius: 6px;
+  margin: 3px;
+  font-weight: 500;
+}
+
+.close-button {
+  position: relative;
+  top: -1px;
+  cursor: pointer;
+}
