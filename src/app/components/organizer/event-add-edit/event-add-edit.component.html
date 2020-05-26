@@ -1,7 +1,7 @@
 <app-user-navigation></app-user-navigation>
 <div class="event-content">
   <div class="container d-flex justify-content-center">
-    <form #createEventForm="ngForm">
+    <form [formGroup]="createEventForm" (ngSubmit)="onSubmit()">
       <div class="page-data p-2">
         <div class="page-data-title">
           Create an Event
@@ -35,12 +35,12 @@
             <div class="row section-content">
               <div class="col-md-12 d-flex flex-column justify-content-center">
                 <div class="form-group">
-                  <label for="title" class="p-2">EVENT NAME</label>
+                  <label for="eventName" class="p-2">EVENT NAME</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="title"
-                    placeholder="6+ characters"
+                    id="eventName"
+                    formControlName="eventName"
                   />
                 </div>
                 <div class="form-group">
@@ -49,381 +49,47 @@
                     type="text"
                     class="form-control"
                     id="place"
-                    placeholder="6+ characters"
+                    formControlName="place"
                   />
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6" style="width: 100%;">
-                    <label for="place" class="p-2">EVENT BEGINS</label>
+                    <label for="eventBeginDate" class="p-2">EVENT BEGINS</label>
                     <input
-                      type="text"
+                      type="date"
                       class="form-control"
-                      id="place"
-                      placeholder="6+ characters"
+                      id="eventBeginDate"
+                      formControlName="eventBeginDate"
                     />
                   </div>
                   <div class="form-group col-md-6" style="width: 100%;">
-                    <label for="place" class="p-2">START TIME</label>
+                    <label for="eventBeginTime" class="p-2">START TIME</label>
                     <input
-                      type="text"
+                      type="time"
                       class="form-control"
-                      id="place"
-                      placeholder="6+ characters"
+                      id="eventBeginTime"
+                      formControlName="eventBeginTime"
                     />
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6" style="width: 100%;">
-                    <label for="place" class="p-2">EVENT ENDS</label>
+                    <label for="eventEndDate" class="p-2">EVENT ENDS</label>
                     <input
-                      type="text"
+                      type="date"
                       class="form-control"
-                      id="place"
-                      placeholder="6+ characters"
+                      id="eventEndDate"
+                      formControlName="eventEndDate"
                     />
                   </div>
                   <div class="form-group col-md-6" style="width: 100%;">
-                    <label for="place" class="p-2">END TIME</label>
+                    <label for="eventEndTime" class="p-2">END TIME</label>
                     <input
-                      type="text"
+                      type="time"
                       class="form-control"
-                      id="place"
-                      placeholder="6+ characters"
+                      id="eventEndTime"
+                      formControlName="eventEndTime"
                     />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <br /><br /><br /><br />
-        <div class="row">
-          <div class="col-md-12 section">
-            <div class="row section-header">
-              <div class="col-md-2">
-                <div
-                  class="section-image"
-                  style="
-                    background-color: #d794eb;
-                    border-radius: 40px;
-                    width: 80px;
-                    height: 80px;
-                    border: 1px solid;
-                  "
-                ></div>
-              </div>
-              <div class="col-md-10" style="padding-left: 20px;">
-                <div class="section-header-title">Upload Photo</div>
-                <div class="section-header-content">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Explicabo vero eos quia incidunt enim nobis?
-                </div>
-              </div>
-            </div>
-            <br />
-            <hr />
-            <br />
-            <div class="row section-content">
-              <div class="col-md-12">
-                <div
-                  class="custom-dropzone"
-                  ngx-dropzone
-                  [accept]="'image/*'"
-                  (change)="onSelect($event)"
-                  style="margin-bottom: 40px;"
-                >
-                  <ngx-dropzone-label>
-                    <div style="margin: 0px 30px 0px 30px;">
-                      <img
-                        src="../../../../assets/images/add_photo.svg"
-                        alt=""
-                        style="margin-bottom: 10px;"
-                      />
-                      <br />
-                      <p
-                        style="
-                          color: black;
-                          font-weight: 700;
-                          margin-bottom: 5px;
-                        "
-                      >
-                        Drag and drop your images
-                      </p>
-                      <p style="font-size: 12px; font-weight: 500;">
-                        Click here to upload images
-                      </p>
-                      <br />
-
-                      <p style="font-size: 12px; font-weight: 600;">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing
-                        elit. Dolore totam suscipit asperiores provident
-                        corrupti distinctio.
-                      </p>
-                    </div>
-                  </ngx-dropzone-label>
-                  <ngx-dropzone-image-preview
-                    ngProjectAs="ngx-dropzone-preview"
-                    *ngFor="let f of files"
-                    [file]="f"
-                    [removable]="true"
-                    (removed)="onRemove(f)"
-                  >
-                    <!-- <ngx-dropzone-label
-                        >{{ f.name }} ({{ f.type }})</ngx-dropzone-label
-                      > -->
-                  </ngx-dropzone-image-preview>
-                </div>
-                <div class="form-group">
-                  <label for="title" class="p-2">EVENT TITLE</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="title"
-                    placeholder="6+ characters"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="place" class="p-2">EVENT DESCRIPTION</label>
-                  <textarea
-                    type="text"
-                    class="form-control"
-                    id="place"
-                    placeholder="Write something about the event..."
-                    style="font-size: 14px; height: 200px;"
-                  ></textarea>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <br /><br /><br /><br />
-        <div class="row">
-          <div class="col-md-12 section">
-            <div class="row section-header">
-              <div class="col-md-2">
-                <div
-                  class="section-image"
-                  style="
-                    background-color: #babbbc;
-                    border-radius: 40px;
-                    width: 80px;
-                    height: 80px;
-                    border: 1px solid;
-                  "
-                ></div>
-              </div>
-              <div class="col-md-10" style="padding-left: 20px;">
-                <div class="section-header-title">Organizer Details</div>
-                <div class="section-header-content">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Explicabo vero eos quia incidunt enim nobis?
-                </div>
-              </div>
-            </div>
-            <br />
-            <hr />
-            <br />
-            <div class="row section-content">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label for="title" class="p-2">ORGANIZER NAME</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="title"
-                    placeholder="6+ characters"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="exampleFormControlSelect1" class="p-2"
-                    >ORGANIZED BY</label
-                  >
-                  <input
-                    class="form-control"
-                    list="browsers"
-                    name="browser"
-                    id="browser"
-                    #organizedBy
-                  />
-                  <datalist id="browsers">
-                    <option
-                      *ngFor="let organizer of organizers"
-                      [value]="organizer"
-                      style="background: white;"
-                    >
-                    </option>
-                  </datalist>
-                </div>
-                <div class="form-group">
-                  <label for="title" class="p-2">ORGANIZATION NAME</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="title"
-                    [value]="organizedBy.value"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <br /><br /><br /><br />
-        <div class="row">
-          <div class="col-md-12 section">
-            <div class="row section-header">
-              <div class="col-md-2">
-                <div
-                  class="section-image"
-                  style="
-                    background-color: #2caffe;
-                    border-radius: 40px;
-                    width: 80px;
-                    height: 80px;
-                    border: 1px solid;
-                  "
-                ></div>
-              </div>
-              <div class="col-md-10" style="padding-left: 20px;">
-                <div class="section-header-title">Ticketing Details</div>
-                <div class="section-header-content">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Explicabo vero eos quia incidunt enim nobis?
-                </div>
-              </div>
-            </div>
-            <br />
-            <hr />
-            <div class="row section-content">
-              <div class="col-md-12 d-flex flex-column justify-content-center">
-                <div class="form-group">
-                  <label for="switcher-1" class="p-2">EVENT TYPE</label>
-                  <div class="switch-1">
-                    <span class="switcher switcher-1">
-                      <input type="checkbox" id="switcher-1" />
-                      <label for="switcher-1"></label>
-                    </span>
-                  </div>
-                  <br />
-                  <hr />
-                </div>
-                <div class="open-event" *ngIf="false">
-                  <div class="form-group">
-                    <label for="switcher-2" class="p-2">EVENT CAPACITY</label>
-                    <div class="switch-2">
-                      <span class="switcher switcher-2">
-                        <input type="checkbox" id="switcher-2" />
-                        <label for="switcher-2"></label>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group col-md-6">
-                      <label for="place" class="p-2">TICKET TYPE</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="place"
-                        value="Regular"
-                        style="margin-bottom: 10px;"
-                      />
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="place"
-                        value="VIP"
-                      />
-                    </div>
-                    <div class="form-group col-md-2">
-                      <label for="place" class="p-2">QUANTITY</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="place"
-                        style="margin-bottom: 10px;"
-                      />
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="place"
-                        style="margin-bottom: 10px;"
-                      />
-                    </div>
-                    <div class="form-group col-md-2">
-                      <label for="place" class="p-2">PRICE</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="place"
-                        style="margin-bottom: 10px;"
-                      />
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="place"
-                        style="margin-bottom: 10px;"
-                      />
-                    </div>
-                    <div class="form-group col-md-2">
-                      <label
-                        for="ticket-switch"
-                        class="p-2"
-                        style="
-                          color: white;
-                          position: relative;
-                          margin-top: -18px;
-                        "
-                        >TICKET TYPE</label
-                      >
-                      <label class="switch-wrap" style="margin-bottom: 10px;">
-                        <input type="checkbox" id="ticket-switch" />
-                        <div class="switch"></div>
-                      </label>
-                      <label class="switch-wrap">
-                        <input type="checkbox" id="ticket-switch" />
-                        <div class="switch"></div>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="closed-event" *ngIf="true">
-                  <div class="form-group">
-                    <label class="p-2">INVITED USERS</label>
-                    <div class="user-container">
-                      <span class="user-tag" *ngFor="let user of invitedUsers">
-                        <span class="user-tag-data">
-                          {{ user }}
-                        </span>
-                        <img
-                          src="../../../../assets/images/remove_button.svg"
-                          class="close-button"
-                          alt=""
-                        />
-                      </span>
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group col-md-10">
-                      <label for="add-user" class="p-2">EMAIL</label>
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="add-user"
-                        placeholder="invitee@somemailid.com"
-                        #newInvite
-                      />
-                    </div>
-                    <div class="form-group col-md-2">
-                      <div class="button" style="margin-top: 33px;">
-                        <button
-                          type="button"
-                          class="add-button"
-                          style="padding: 0px;"
-                          (click)="onAddUser(newInvite.value)"
-                        >
-                          ADD
-                        </button>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
