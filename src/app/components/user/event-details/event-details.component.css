@@ -6,12 +6,12 @@
   margin-bottom: 100px;
 }
 .banner {
-  background: linear-gradient(
+  /* background: linear-gradient(
       to right,
       rgb(0, 0, 0, 0.5),
       rgb(120, 72, 244, 0.1)
     ),
-    url("../../../../assets/images/event-details.jpg");
+    url("../../../../assets/images/event-details.jpg"); */
   background-size: cover;
   height: 80vh;
   border-radius: 10px;
