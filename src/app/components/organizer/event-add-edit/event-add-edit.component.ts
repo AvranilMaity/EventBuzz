@@ -42,6 +42,7 @@ export class EventAddEditComponent implements OnInit {
     this.proceed = 0;
     console.log('Here');
     this.initForm();
+    console.log(this.createEventForm);
   }
 
   onSubmit() {

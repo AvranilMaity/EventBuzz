@@ -96,6 +96,333 @@
             </div>
           </div>
         </div>
+        <br /><br /><br /><br />
+        <div class="row">
+          <div class="col-md-12 section">
+            <div class="row section-header">
+              <div class="col-md-2">
+                <div
+                  class="section-image"
+                  style="
+                    background-color: #d794eb;
+                    border-radius: 40px;
+                    width: 80px;
+                    height: 80px;
+                    border: 1px solid;
+                  "
+                ></div>
+              </div>
+              <div class="col-md-10" style="padding-left: 20px;">
+                <div class="section-header-title">Upload Photo</div>
+                <div class="section-header-content">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Explicabo vero eos quia incidunt enim nobis?
+                </div>
+              </div>
+            </div>
+            <br />
+            <hr />
+            <br />
+            <div class="row section-content">
+              <div class="col-md-12">
+                <div
+                  class="custom-dropzone"
+                  ngx-dropzone
+                  [accept]="'image/*'"
+                  (change)="onSelect($event)"
+                  style="margin-bottom: 40px;"
+                >
+                  <ngx-dropzone-label>
+                    <div style="margin: 0px 30px 0px 30px;">
+                      <img
+                        src="../../../../assets/images/add_photo.svg"
+                        alt=""
+                        style="margin-bottom: 10px;"
+                      />
+                      <br />
+                      <p
+                        style="
+                          color: black;
+                          font-weight: 700;
+                          margin-bottom: 5px;
+                        "
+                      >
+                        Drag and drop your images
+                      </p>
+                      <p style="font-size: 12px; font-weight: 500;">
+                        Click here to upload images
+                      </p>
+                      <br />
+
+                      <p style="font-size: 12px; font-weight: 600;">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Dolore totam suscipit asperiores provident
+                        corrupti distinctio.
+                      </p>
+                    </div>
+                  </ngx-dropzone-label>
+                  <ngx-dropzone-image-preview
+                    ngProjectAs="ngx-dropzone-preview"
+                    *ngFor="let f of files"
+                    [file]="f"
+                    [removable]="true"
+                    (removed)="onRemove(f)"
+                  >
+                    <!-- <ngx-dropzone-label
+                                >{{ f.name }} ({{ f.type }})</ngx-dropzone-label
+                              > -->
+                  </ngx-dropzone-image-preview>
+                </div>
+
+                <div class="form-group">
+                  <label for="event-description" class="p-2"
+                    >EVENT DESCRIPTION</label
+                  >
+                  <textarea
+                    type="text"
+                    class="form-control"
+                    id="event-description"
+                    placeholder="Write something about the event..."
+                    style="font-size: 14px; height: 200px;"
+                    formControlName="eventDescription"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br /><br /><br /><br />
+        <div class="row">
+          <div class="col-md-12 section">
+            <div class="row section-header">
+              <div class="col-md-2">
+                <div
+                  class="section-image"
+                  style="
+                    background-color: #babbbc;
+                    border-radius: 40px;
+                    width: 80px;
+                    height: 80px;
+                    border: 1px solid;
+                  "
+                ></div>
+              </div>
+              <div class="col-md-10" style="padding-left: 20px;">
+                <div class="section-header-title">Organizer Details</div>
+                <div class="section-header-content">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Explicabo vero eos quia incidunt enim nobis?
+                </div>
+              </div>
+            </div>
+            <br />
+            <hr />
+            <br />
+            <div class="row section-content">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="organizer-name" class="p-2">ORGANIZER NAME</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="organizer-name"
+                    formControlName="organizerName"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="organized-by" class="p-2">ORGANIZED BY</label>
+                  <input
+                    class="form-control"
+                    list="organized-by"
+                    name="organized-by"
+                    id="organized-by"
+                    value="Is it a corporate event?"
+                    formControlName="organizedBy"
+                  />
+                  <datalist id="organized-by">
+                    <option
+                      *ngFor="let organizer of organizers"
+                      [value]="organizer"
+                      style="background: white;"
+                    >
+                    </option>
+                  </datalist>
+                </div>
+                <div class="form-group">
+                  <label for="organization-name" class="p-2"
+                    >ORGANIZATION NAME</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="organization-name"
+                    formControlName="organizationName"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br /><br /><br /><br />
+        <div class="row">
+          <div class="col-md-12 section">
+            <div class="row section-header">
+              <div class="col-md-2">
+                <div
+                  class="section-image"
+                  style="
+                    background-color: #2caffe;
+                    border-radius: 40px;
+                    width: 80px;
+                    height: 80px;
+                    border: 1px solid;
+                  "
+                ></div>
+              </div>
+              <div class="col-md-10" style="padding-left: 20px;">
+                <div class="section-header-title">Ticketing Details</div>
+                <div class="section-header-content">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Explicabo vero eos quia incidunt enim nobis?
+                </div>
+              </div>
+            </div>
+            <br />
+            <hr />
+            <div class="row section-content">
+              <div class="col-md-12 d-flex flex-column justify-content-center">
+                <div class="form-group">
+                  <label for="switcher-1" class="p-2">EVENT TYPE</label>
+                  <div class="switch-1">
+                    <span class="switcher switcher-1">
+                      <input
+                        name="event-type"
+                        type="checkbox"
+                        id="switcher-1"
+                        formControlName="eventType"
+                      />
+                      <label for="switcher-1"></label>
+                    </span>
+                  </div>
+                  <br />
+                  <hr />
+                </div>
+                <div class="open-event">
+                  <div class="form-group">
+                    <label for="switcher-2" class="p-2">EVENT CAPACITY</label>
+                    <div class="switch-2">
+                      <span class="switcher switcher-2">
+                        <input
+                          type="checkbox"
+                          id="switcher-2"
+                          name="event-capacity"
+                          formControlName="eventCapacity"
+                        />
+                        <label for="switcher-2"></label>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="ticket-type-name" class="p-2"
+                        >TICKET TYPE</label
+                      >
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label for="ticket-type-quantity" class="p-2"
+                        >QUANTITY</label
+                      >
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label for="place" class="p-2">PRICE</label>
+                    </div>
+                  </div>
+                  <div class="tickets" formArrayName="ticketTypes">
+                    <div
+                      class="form-row"
+                      [formGroup]="i"
+                      *ngFor="let ticketType of ticketTypes; let i = index"
+                    >
+                      <div class="form-group col-md-6">
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="ticket-type-name"
+                          id="ticket-type-name"
+                          formControlName="ticketTypeName"
+                          placeholder="Regular, VIP, etc."
+                        />
+                      </div>
+                      <div class="form-group col-md-2">
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="ticket-type-quantity"
+                          formControlName="ticketTypeQuantity"
+                        />
+                      </div>
+                      <div class="form-group col-md-2">
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="ticket-type-price"
+                          style="margin-bottom: 10px;"
+                          formControlName="ticketTypePrice"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="closed-event" *ngIf="true">
+                  <div class="form-group">
+                    <label class="p-2">INVITED USERS</label>
+                    <div class="user-container">
+                      <span class="user-tag" *ngFor="let user of invitedUsers">
+                        <span class="user-tag-data">
+                          {{ user }}
+                        </span>
+                        <img
+                          src="../../../../assets/images/remove_button.svg"
+                          class="close-button"
+                          alt=""
+                        />
+                      </span>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-10">
+                      <label for="add-user" class="p-2">EMAIL</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="add-user"
+                        placeholder="invitee@somemailid.com"
+                        #newInvite
+                      />
+                    </div>
+                    <div class="form-group col-md-2">
+                      <div class="button" style="margin-top: 33px;">
+                        <button
+                          type="button"
+                          class="add-button"
+                          style="padding: 0px;"
+                          (click)="onAddUser(newInvite.value)"
+                        >
+                          ADD
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="button">
+          <button type="submit" class="submit-button" style="padding: 0px;">
+            ADD
+          </button>
+        </div>
       </div>
     </form>
   </div>
