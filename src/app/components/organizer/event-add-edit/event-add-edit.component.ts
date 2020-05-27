@@ -6,6 +6,7 @@ import {
   FormControl,
   AbstractControl,
 } from '@angular/forms';
+import { ImageService } from 'src/app/services/image.service';
 
 @Component({
   selector: 'app-event-add-edit',
@@ -42,7 +43,7 @@ export class EventAddEditComponent implements OnInit {
     'kingshuk@yashwin.com',
   ];
   //ticketTypes: string[] = ['Regular', 'VIP'];
-  constructor() {}
+  constructor(private imageService: ImageService) {}
 
   ngOnInit() {
     this.proceed = 0;
@@ -53,6 +54,8 @@ export class EventAddEditComponent implements OnInit {
 
   onSubmit() {
     console.log(this.createEventForm);
+    if(this.files!=null)
+      this.addImage(this.files[0]);
   }
 
   initForm() {
@@ -120,5 +123,12 @@ export class EventAddEditComponent implements OnInit {
   }
   universalCheck(inputData: any) {
     console.log(inputData);
+  }
+
+
+  addImage(file: File){
+
+    this.imageService.uploadImage(file, null);
+
   }
 }
