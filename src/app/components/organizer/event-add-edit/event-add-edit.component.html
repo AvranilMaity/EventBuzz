@@ -1,4 +1,4 @@
-<app-user-navigation></app-user-navigation>
+<app-user-navigation style="background-color: #f6f6f6;"></app-user-navigation>
 <div class="event-content">
   <div class="container d-flex justify-content-center">
     <form [formGroup]="createEventForm" (ngSubmit)="onSubmit()">
@@ -233,22 +233,23 @@
                   <label for="organized-by" class="p-2">ORGANIZED BY</label>
                   <input
                     class="form-control"
-                    list="organized-by"
-                    name="organized-by"
-                    id="organized-by"
+                    list="organizedByList"
+                    name="organizedBy"
+                    id="organizedBy"
                     value="Is it a corporate event?"
                     formControlName="organizedBy"
+                    #organizedBy
                   />
-                  <datalist id="organized-by">
-                    <option
-                      *ngFor="let organizer of organizers"
-                      [value]="organizer"
-                      style="background: white;"
-                    >
+                  <datalist id="organizedByList">
+                    <option *ngFor="let organizer of organizers">
+                      {{ organizer }}
                     </option>
                   </datalist>
                 </div>
-                <div class="form-group">
+                <div
+                  class="form-group"
+                  *ngIf="organizedBy.value == 'Corporate'"
+                >
                   <label for="organization-name" class="p-2"
                     >ORGANIZATION NAME</label
                   >
@@ -292,22 +293,25 @@
             <div class="row section-content">
               <div class="col-md-12 d-flex flex-column justify-content-center">
                 <div class="form-group">
-                  <label for="switcher-1" class="p-2">EVENT TYPE</label>
+                  <label for="eventType" class="p-2">EVENT TYPE</label>
                   <div class="switch-1">
-                    <span class="switcher switcher-1">
+                    <span class="switcher eventType">
                       <input
-                        name="event-type"
+                        name="eventType"
                         type="checkbox"
-                        id="switcher-1"
+                        id="eventType"
                         formControlName="eventType"
+                        value="open-event"
+                        #eventType
                       />
                       <label for="switcher-1"></label>
                     </span>
                   </div>
                   <br />
                   <hr />
+                  {{ eventType }}
                 </div>
-                <div class="open-event">
+                <div class="open-event" *ngIf="eventType.value == 'open-event'">
                   <div class="form-group">
                     <label for="switcher-2" class="p-2">EVENT CAPACITY</label>
                     <div class="switch-2">
@@ -341,7 +345,10 @@
                     <div
                       class="form-row"
                       [formGroup]="i"
-                      *ngFor="let ticketType of ticketTypes; let i = index"
+                      *ngFor="
+                        let ticketType of ticketTypesControl;
+                        let i = index
+                      "
                     >
                       <div class="form-group col-md-6">
                         <input
@@ -373,7 +380,10 @@
                     </div>
                   </div>
                 </div>
-                <div class="closed-event" *ngIf="true">
+                <div
+                  class="closed-event"
+                  *ngIf="eventType.value == 'open-event' ? false : true"
+                >
                   <div class="form-group">
                     <label class="p-2">INVITED USERS</label>
                     <div class="user-container">

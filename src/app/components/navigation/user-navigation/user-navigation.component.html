@@ -2,9 +2,24 @@
   <div class="page-data">
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
       <a class="navbar-brand" href="#">
-        <img src="../../../../assets/images/logo.svg" width="140" height="80" alt="" loading="lazy" style="margin-left: -10px;"> 
+        <img
+          src="../../../../assets/images/logo.svg"
+          width="140"
+          height="80"
+          alt=""
+          loading="lazy"
+          style="margin-left: -10px;"
+        />
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -13,19 +28,23 @@
             <a class="nav-link" [routerLink]="['/dashboard']">Dashboard </a>
           </li>
           <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link" [routerLink]="['/browseevents']">Browse Events </a>
+            <a class="nav-link" [routerLink]="['/browseevents']"
+              >Browse Events
+            </a>
           </li>
           <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link" [routerLink]="['/eventaddedit']">Create Event</a>
+            <a class="nav-link" [routerLink]="['/eventaddedit']"
+              >Create Event</a
+            >
           </li>
         </ul>
-        </div>
-      
+      </div>
 
       <form class="form-inline">
-        <button class="button button-2" type="button" (click)="onSignOut()">Sign Out</button>
+        <button class="button button-2" type="button" (click)="onSignOut()">
+          Sign Out
+        </button>
       </form>
     </nav>
-
   </div>
 </div>

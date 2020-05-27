@@ -2,6 +2,7 @@
   height: 100%;
   margin: 0px;
   padding: 60px 0px 10px 0px;
+  background-color: #f6f6f6;
 }
 .page-data {
   width: 600px;
@@ -153,7 +154,7 @@ $white: #ffffff;
 
       border-radius: 6px;
     }
-    &.switcher-1 {
+    &.eventType {
       input {
         transition: 0.25s -0.1s;
         &:checked {

@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { IEvent } from 'src/app/interfaces/event';
-import { FormArray, FormGroup, FormControl } from '@angular/forms';
+import {
+  FormArray,
+  FormGroup,
+  FormControl,
+  AbstractControl,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-event-add-edit',
@@ -9,6 +14,7 @@ import { FormArray, FormGroup, FormControl } from '@angular/forms';
 })
 export class EventAddEditComponent implements OnInit {
   createEventForm: FormGroup;
+  ticketTypesControl: AbstractControl[];
   event: IEvent;
   proceed: number;
   files: File[] = [];
@@ -35,7 +41,7 @@ export class EventAddEditComponent implements OnInit {
     'sahaki@campbells.com',
     'kingshuk@yashwin.com',
   ];
-  ticketTypes: string[] = ['Regular', 'VIP'];
+  //ticketTypes: string[] = ['Regular', 'VIP'];
   constructor() {}
 
   ngOnInit() {
