@@ -14,7 +14,7 @@ export const appRoutes: Routes = [
     {path: 'landing', component: LandingComponent},
     {path: 'signin', component: SignInComponent},
     {path: 'signup', component: SignUpComponent},
-    {path: 'eventdetails', component: EventDetailsComponent},
+    {path: 'eventdetails/:eventId', component: EventDetailsComponent},
     {path: 'eventdetailsorg', component: EventDetailsOrgComponent},
     {path: 'eventregister', component: EventRegisterComponent},
     {path: 'eventaddedit', component: EventAddEditComponent},
