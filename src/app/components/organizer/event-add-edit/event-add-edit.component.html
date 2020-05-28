@@ -1,4 +1,4 @@
-<app-user-navigation style="background-color: #f6f6f6;"></app-user-navigation>
+<app-user-navigation></app-user-navigation>
 <div class="event-content">
   <div class="container d-flex justify-content-center">
     <form [formGroup]="createEventForm" (ngSubmit)="onSubmit()">
@@ -293,64 +293,89 @@
             <div class="row section-content">
               <div class="col-md-12 d-flex flex-column justify-content-center">
                 <div class="form-group">
-                  <label for="eventType" class="p-2">EVENT TYPE</label>
-                  <div class="switch-1">
-                    <span class="switcher eventType">
-                      <input
-                        name="eventType"
-                        type="checkbox"
-                        id="eventType"
-                        formControlName="eventType"
-                        value="open-event"
-                        #eventType
-                      />
-                      <label for="switcher-1"></label>
-                    </span>
+                  <label for="organized-by" class="p-2">EVENT TYPE</label>
+                  <input
+                    class="form-control"
+                    list="eventTypeList"
+                    name="eventType"
+                    id="eventType"
+                    placeholder="Select the event type"
+                    formControlName="eventType"
+                    #eventType
+                  />
+                  <datalist id="eventTypeList">
+                    <option *ngFor="let event of eventList">
+                      {{ event }}
+                    </option>
+                  </datalist>
+                </div>
+                <div class="open-event">
+                  <div class="form-group">
+                    <label for="organized-by" class="p-2">HEAD COUNT</label>
+                    <input
+                      class="form-control"
+                      list="headCountList"
+                      name="eventCapacity"
+                      id="eventCapacity"
+                      placeholder="How many people can attend the event?"
+                      formControlName="eventCapacity"
+                      #eventType
+                    />
+                    <datalist id="headCountList">
+                      <option *ngFor="let i of headCountList">
+                        {{ i }}
+                      </option>
+                    </datalist>
                   </div>
                   <br />
-                  <hr />
-                  {{ eventType }}
-                </div>
-                <div class="open-event" *ngIf="eventType.value == 'open-event'">
-                  <div class="form-group">
-                    <label for="switcher-2" class="p-2">EVENT CAPACITY</label>
-                    <div class="switch-2">
-                      <span class="switcher switcher-2">
-                        <input
-                          type="checkbox"
-                          id="switcher-2"
-                          name="event-capacity"
-                          formControlName="eventCapacity"
-                        />
-                        <label for="switcher-2"></label>
-                      </span>
-                    </div>
+                  <div class="button" style="text-align: left;">
+                    <button
+                      type="button"
+                      class="add-ticket-button"
+                      style="padding: 0px;"
+                      (click)="onAddTicket()"
+                    >
+                      Add Ticket Type
+                    </button>
                   </div>
-                  <div class="form-row">
-                    <div class="form-group col-md-6">
-                      <label for="ticket-type-name" class="p-2"
-                        >TICKET TYPE</label
-                      >
+                  <br />
+                  <div
+                    class="form-row"
+                    *ngIf="hasTickets"
+                    style="
+                      margin-bottom: 5px;
+                      height: 50px;
+                      padding-bottom: 0px;
+                    "
+                  >
+                    <div class="form-group col-md-6 label-holder">
+                      <div class="has-tickets p-2">TICKET TYPE</div>
                     </div>
-                    <div class="form-group col-md-2">
-                      <label for="ticket-type-quantity" class="p-2"
-                        >QUANTITY</label
-                      >
+                    <div class="form-group col-md-3 label-holder">
+                      <div class="has-tickets p-2">QUANTITY</div>
                     </div>
-                    <div class="form-group col-md-2">
-                      <label for="place" class="p-2">PRICE</label>
+                    <div class="form-group col-md-2 label-holder">
+                      <div class="has-tickets p-2">PRICE</div>
                     </div>
                   </div>
                   <div class="tickets" formArrayName="ticketTypes">
                     <div
                       class="form-row"
+                      style="
+                        margin-bottom: 5px;
+                        height: 50px;
+                        padding-bottom: 0px;
+                      "
                       [formGroup]="i"
                       *ngFor="
                         let ticketType of ticketTypesControl;
                         let i = index
                       "
                     >
-                      <div class="form-group col-md-6">
+                      <div
+                        class="form-group col-md-6"
+                        style="height: 50px; padding-bottom: 0px;"
+                      >
                         <input
                           type="text"
                           class="form-control"
@@ -360,7 +385,7 @@
                           placeholder="Regular, VIP, etc."
                         />
                       </div>
-                      <div class="form-group col-md-2">
+                      <div class="form-group col-md-3">
                         <input
                           type="number"
                           class="form-control"
@@ -377,13 +402,21 @@
                           formControlName="ticketTypePrice"
                         />
                       </div>
+                      <div
+                        class="form-group col-md-1"
+                        style="display: flex; justify-content: center;"
+                      >
+                        <img
+                          src="../../../../assets/images/remove_button.svg"
+                          alt=""
+                          style="height: 50px; width: 40px; cursor: pointer;"
+                          (click)="onDeleteIngredient(i)"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div
-                  class="closed-event"
-                  *ngIf="eventType.value == 'open-event' ? false : true"
-                >
+                <div class="closed-event" *ngIf="eventType.value == 'Closed'">
                   <div class="form-group">
                     <label class="p-2">INVITED USERS</label>
                     <div class="user-container">
@@ -428,9 +461,12 @@
             </div>
           </div>
         </div>
-        <div class="button">
+        <div
+          class="button"
+          style="text-align: end; padding-right: 25px; margin-top: 50px;"
+        >
           <button type="submit" class="submit-button" style="padding: 0px;">
-            ADD
+            SUBMIT
           </button>
         </div>
       </div>

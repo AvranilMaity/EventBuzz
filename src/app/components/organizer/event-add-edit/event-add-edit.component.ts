@@ -15,8 +15,7 @@ import {
 export class EventAddEditComponent implements OnInit {
   createEventForm: FormGroup;
   ticketTypesControl: AbstractControl[];
-  event: IEvent;
-  proceed: number;
+  hasTickets: boolean = false;
   files: File[] = [];
   organizers: string[] = ['Self', 'Corporate'];
   invitedUsers: string[] = [
@@ -41,14 +40,14 @@ export class EventAddEditComponent implements OnInit {
     'sahaki@campbells.com',
     'kingshuk@yashwin.com',
   ];
+  eventList: string[] = ['Open', 'Closed'];
+  headCountList: string[] = ['Limited', 'Unlimited'];
   //ticketTypes: string[] = ['Regular', 'VIP'];
   constructor() {}
 
   ngOnInit() {
-    this.proceed = 0;
-    console.log('Here');
     this.initForm();
-    console.log(this.createEventForm);
+    this.ticketTypesControl = this.getControls();
   }
 
   onSubmit() {
@@ -88,6 +87,7 @@ export class EventAddEditComponent implements OnInit {
   }
 
   onAddTicket() {
+    this.hasTickets = true;
     (<FormArray>this.createEventForm.get('ticketTypes')).push(
       new FormGroup({
         ticketTypeName: new FormControl(null),
@@ -95,6 +95,15 @@ export class EventAddEditComponent implements OnInit {
         ticketTypePrice: new FormControl(null),
       })
     );
+    this.getControls();
+    console.log(this.ticketTypesControl);
+  }
+
+  onDeleteIngredient(id: number) {
+    if (this.ticketTypesControl.length == 1) {
+      this.hasTickets = false;
+    }
+    (<FormArray>this.createEventForm.get('ticketTypes')).removeAt(id);
   }
 
   onAddUser(newInvite: string) {
@@ -110,14 +119,11 @@ export class EventAddEditComponent implements OnInit {
     console.log(event);
     this.files.splice(this.files.indexOf(event), 1);
   }
-
-  onProceed() {
-    if (this.proceed > 4) {
-      this.proceed = 0;
-    } else {
-      this.proceed += 1;
-    }
+  getControls() {
+    // a getter!
+    return (<FormArray>this.createEventForm.get('ticketTypes')).controls;
   }
+
   universalCheck(inputData: any) {
     console.log(inputData);
   }
