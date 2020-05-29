@@ -53,8 +53,7 @@ export class EventAddEditComponent implements OnInit {
 
   onSubmit() {
     console.log(this.createEventForm);
-    if(this.files!=null)
-      this.addImage(this.files[0]);
+    if (this.files != null) this.addImage(this.files[0]);
   }
 
   initForm() {
@@ -102,7 +101,7 @@ export class EventAddEditComponent implements OnInit {
     console.log(this.ticketTypesControl);
   }
 
-  onDeleteIngredient(id: number) {
+  onDeleteTicket(id: number) {
     if (this.ticketTypesControl.length == 1) {
       this.hasTickets = false;
     }
@@ -131,10 +130,7 @@ export class EventAddEditComponent implements OnInit {
     console.log(inputData);
   }
 
-
-  addImage(file: File){
-
+  addImage(file: File) {
     this.imageService.uploadImage(file, null);
-
   }
 }

@@ -1,17 +1,110 @@
 <div class="row">
   <div class="col-md-8 add-data">
-    <div class="back">
-      <img
-        src="../../../../assets/images/back_arrow.svg"
-        alt=""
-        style="width: 30px; height: 30px;"
-      />
-    </div>
-    <form>
-      <div class="form-group">
-        <label for=""></label>
+    <div class="row">
+      <div class="col-md-2">
+        <div class="back">
+          <img
+            src="../../../../assets/images/back_arrow.svg"
+            alt=""
+            style="width: 30px; height: 30px;"
+          />
+        </div>
       </div>
-    </form>
+
+      <div class="col-md-5"></div>
+      <div class="col-md-3" style="text-align: end;">
+        <h1 style="font-weight: 700; font-size: 25px;">Seats Remaining</h1>
+      </div>
+      <div class="col-md-2 seats">
+        <div class="vip" style="margin-right: 10px;">
+          <div class="count">26</div>
+          <div class="name">VIP</div>
+        </div>
+        <div class="reg">
+          <div class="count">163</div>
+          <div class="name">REGULAR</div>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="margin-left: 40px; margin-top: 50px;">
+      <div
+        class="col-md-4 d-flex flex-column justify-content-center"
+        style="padding: 0px 0px 130px 0px;"
+      >
+        <h2 style="font-size: 50px;">
+          Bring your <br />
+          <span style="position: relative; font-size: 70px; color: #f2b070;"
+            >friends!</span
+          >
+        </h2>
+      </div>
+
+      <div class="col-md-6" style="padding-left: 25px;">
+        <form>
+          <div class="form-group">
+            <label for="username" class="p-2">FRIEND'S NAME</label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              placeholder="James Bond"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email" class="p-2">EMAIL ID</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="someone@example.com"
+            />
+          </div>
+          <br />
+          <div
+            class="btn-section"
+            style="display: flex; justify-content: space-between;"
+          >
+            <div class="button">
+              <button
+                class="button-reg p-2"
+                type="button"
+                (click)="onProceed()"
+              >
+                Add as Regular
+              </button>
+            </div>
+            <div class="button">
+              <button
+                class="button-vip p-2"
+                type="button"
+                (click)="onProceed()"
+              >
+                Add as VIP
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
-  <div class="col-md-4"></div>
+  <div class="col-md-4 billing">
+    <h1 class="title">Billing Details</h1>
+    <div class="form-group">
+      <h6 class="p-2" style="margin-top: 20px; color: #7848f4;">
+        People attending
+      </h6>
+      <div class="user-container">
+        <span class="user-tag" *ngFor="let user of invitedUsers">
+          <span class="user-tag-data">
+            {{ user }}
+          </span>
+          <img
+            src="../../../../assets/images/remove_button.svg"
+            class="close-button"
+            alt=""
+          />
+        </span>
+      </div>
+    </div>
+  </div>
 </div>
