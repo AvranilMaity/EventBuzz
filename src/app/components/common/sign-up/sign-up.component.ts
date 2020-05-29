@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,9 +10,32 @@ import { CommonService } from 'src/app/services/common.service';
 })
 export class SignUpComponent implements OnInit {
   proceed: boolean = false;
+  signUpForm: FormGroup;
   constructor(private route: Router, private commonService: CommonService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.initForm();
+  }
+
+  initForm() {
+    let emailId;
+    let password;
+    let phone;
+    let aadhar;
+    let confirmpassword;
+
+    this.signUpForm = new FormGroup({
+      name: new FormControl(name),
+      phone: new FormControl(phone),
+      aadhar: new FormControl(aadhar),
+      emailId: new FormControl(emailId),
+      password: new FormControl(password),
+      confirmpassword: new FormControl(confirmpassword)
+      
+
+    });
+  }
+
 
   onProceed() {
     console.log(this.proceed);
@@ -20,6 +44,7 @@ export class SignUpComponent implements OnInit {
   }
 
   onSignUp(){
+    console.log(this.signUpForm);
     console.log('Click on sign up button');
     this.route.navigate(['/dashboard']);
   }

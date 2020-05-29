@@ -1,12 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
-import {
-  FormArray,
-  FormGroup,
-  FormControl,
-  AbstractControl,
-} from '@angular/forms';
+import { FormGroup,  FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-in',

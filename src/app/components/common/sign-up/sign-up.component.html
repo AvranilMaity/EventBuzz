@@ -25,24 +25,25 @@
       <br />
     </div>
 
-    <form class="p-2">
+    <form [formGroup]="signUpForm" class="p-2">
       <div class="form-group">
         <label for="username" class="p-2">FULL NAME</label>
         <input
           type="text"
           class="form-control"
-          id="username"
+          id="name"
           placeholder="James Bond"
+          formControlName = "name"
         />
       </div>
 
       <div class="form-group">
         <label for="phone" class="p-2">PHONE</label>
-        <input type="number" class="form-control" id="phone" />
+        <input type="number" class="form-control" id="phone"  formControlName = "phone"/>
       </div>
       <div class="form-group">
-        <label for="idproof" class="p-2">AADHAR NUMBER</label>
-        <input type="text" class="form-control" id="idproof" />
+        <label for="aadhar" class="p-2">AADHAR NUMBER</label>
+        <input type="text" class="form-control" id="aadhar" formControlName = "aadhar" />
       </div>
 
       <br />
@@ -68,14 +69,15 @@
       <br />
     </div>
 
-    <form class="p-2">
+    <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()"class="p-2">
       <div class="form-group">
         <label for="email" class="p-2">WORK EMAIL ADDRESS</label>
         <input
           type="text"
           class="form-control"
-          id="email"
+          id="emailId"
           placeholder="jamesbond@mi6.co.uk"
+          formControlName = "emailId"
         />
       </div>
 
@@ -88,6 +90,7 @@
           class="form-control"
           id="password"
           placeholder="6+ characters"
+          formControlName = "password"
         />
       </div>
       <div class="form-group">
@@ -97,13 +100,14 @@
         <input
           type="password"
           class="form-control"
-          id="confpassword"
+          id="confirmpassword"
           placeholder="6+ characters"
+          formControlName = "confirmpassword"
         />
       </div>
       <br />
       <div class="button">
-        <button class="button-1 p-2" type="button" (click)="onSignUp()">
+        <button class="button-1 p-2" type="submit" (click)="onSignUp()">
           Sign Up
         </button>
 
