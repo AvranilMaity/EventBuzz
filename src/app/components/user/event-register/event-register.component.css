@@ -74,7 +74,7 @@ input[type="number"] {
   height: 50px;
   width: 150px;
   background: none;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: #7848f4;
   border: 1px solid #fff;
   color: white;
@@ -90,7 +90,7 @@ input[type="number"] {
   height: 50px;
   width: 150px;
   background: none;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: #ec9a48;
   border: 1px solid #ec9a48;
   color: white;
@@ -110,7 +110,7 @@ input[type="number"] {
   background: #875af8;
   border: 2px solid rgba(0, 0, 0, 0.1);
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
   overflow-y: auto;
 }
 .user-tag {
@@ -121,7 +121,7 @@ input[type="number"] {
   background-color: #eeeeee;
   color: #7f7f7f;
   border: none;
-  border-radius: 6px;
+  border-radius: 5px;
   margin: 3px;
   font-weight: 500;
 }
@@ -195,9 +195,9 @@ input[type="number"] {
   height: 50px;
   width: 100px;
   background: none;
-  border-radius: 10px;
-  background-color: #7848f4;
-  border: 1px solid #7848f4;
+  border-radius: 5px;
+  background-color: #ec9a48;
+  border: 1px solid #ec9a48;
   color: white;
   font-weight: 700;
 }
@@ -205,5 +205,21 @@ input[type="number"] {
   outline: none;
 }
 .button-pay:hover {
+  background: #eca761;
+}
+.button-apply {
+  height: 50px;
+  width: 80px;
+  background: none;
+  border-radius: 5px;
+  background-color: #7848f4;
+  border: 1px solid #7848f4;
+  color: white;
+  font-weight: 700;
+}
+.button-apply:focus {
+  outline: none;
+}
+.button-apply:hover {
   background: #875af8;
 }
