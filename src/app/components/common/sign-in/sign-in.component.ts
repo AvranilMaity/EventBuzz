@@ -30,8 +30,23 @@ export class SignInComponent implements OnInit {
 
   onSignIn(){
     console.log(this.signInForm);
-    console.log('Click on sign in button');
-    this.route.navigate(['/dashboard']);
+    this.commonService.validateUser(this.signInForm.controls.emailId.value, this.signInForm.controls.password.value)
+      .subscribe(
+        data => {
+          console.log(data);
+          if(data.email!=null)
+          {
+            console.log('sign in successful');
+            this.route.navigate(['/dashboard']);
+          }
+          else{
+            console.log("authentication failed");
+          }
+        },
+        err =>{ console.log(err)},
+        () => {console.log('Click on sign in button');});
+    
+    
   }
 
   navigateToSignUp(){

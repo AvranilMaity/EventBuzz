@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { IUser } from '../interfaces/user';
 import { Observable } from 'rxjs';
 import { IEvent } from '../interfaces/event';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommonService {
 
-constructor() { }
+constructor(private http:HttpClient) { }
 
 fetchEventbyId(eventId: number):IEvent{
   const popularEvents: IEvent[] = [
@@ -46,8 +47,13 @@ registerUser(user: IUser){
 
 }
 
-validateUser(email: string, password: string){
-
+validateUser(email: string, password: string): Observable<IUser>{
+  let authData:any = {
+          email: email,
+          password: password,
+       }
+  
+  return this.http.post<IUser>("https://stackeventweb-nldsh.run-ap-south1.goorm.io/signin",authData);
 }
 
 fetchEventDetails(eventId: string){
