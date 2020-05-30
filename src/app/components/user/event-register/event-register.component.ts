@@ -26,6 +26,7 @@ export class EventRegisterComponent implements OnInit {
     'Madhura Shaligram',
     'Shaina Carl',
   ];
+  promoApplied: boolean = false;
 
   constructor(
     private route: Router,
@@ -35,6 +36,9 @@ export class EventRegisterComponent implements OnInit {
 
   ngOnInit() {}
 
+  applyPromoCode() {
+    this.promoApplied = true;
+  }
   confirmRegistration() {
     console.log('navigate to event register');
     this.route.navigate(['/registereventconfirmation']);

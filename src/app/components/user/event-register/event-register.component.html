@@ -17,7 +17,10 @@
         </h2>
       </div>
       <div class="col-md-3" style="text-align: end;">
-        <h1 style="font-weight: 700; font-size: 25px;">Seats Remaining</h1>
+        <h1 style="font-weight: 200; font-size: 25px;">
+          Seats <br />
+          Remaining
+        </h1>
       </div>
       <div class="col-md-2 seats">
         <div class="vip" style="margin-right: 10px;">
@@ -120,7 +123,7 @@
           &#8377; 6600.00
         </div>
       </div>
-      <div class="row">
+      <div class="row" style="margin-top: 2px;">
         <div class="col-md-8 bill-taxes">
           Taxes
         </div>
@@ -128,17 +131,61 @@
           &#8377; 130.67
         </div>
       </div>
-      <div class="row promo">
+      <div class="row promo" *ngIf="!promoApplied">
+        <div class="col-md-12">
+          <form>
+            <div class="form-group">
+              <h6 class="p-2">Apply Promocode</h6>
+              <input
+                type="text"
+                placeholder="EXAMPLE50"
+                class="form-control"
+                style="
+                  border: 2px dashed rgba(0, 0, 0, 0.2);
+                  border-radius: 5px;
+                "
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row promo" *ngIf="promoApplied">
         <div class="col-md-7 bill-promo">
-          Promo Applied!
           <div class="promo-div">
             <span class="promo-code">
               BUZZFIRST30
             </span>
           </div>
+          <div
+            class="promo-message"
+            style="font-size: 14px; margin-top: 8px; font-weight: 400;"
+          >
+            Yay! Promo applied!
+          </div>
         </div>
-        <div class="col-md-5 bill-promo text-right">
+        <div class="col-md-5 bill-promo text-right" style="margin-top: 10px;">
           (-) &#8377; 1980.00
+        </div>
+      </div>
+    </div>
+    <div class="final-bill">
+      <div class="row final-amount" style="">
+        <div class="col-md-7" style="justify-content: space-between;">
+          <div style="font-size: 20px; font-weight: 300;">
+            <span>
+              Amount Payable
+            </span>
+          </div>
+          <div style="color: #fdad5d;">
+            <h2>&#8377; 4750.67</h2>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="button" style="top: 18%; left: -10%; position: relative;">
+            <button class="button-pay p-2" type="button">
+              Pay
+            </button>
+          </div>
         </div>
       </div>
     </div>
