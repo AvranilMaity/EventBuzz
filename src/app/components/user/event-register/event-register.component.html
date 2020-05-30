@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-8 add-data">
-    <div class="row">
+    <div class="row" style="border: 0px solid;">
       <div class="col-md-2">
         <div class="back">
           <img
@@ -10,8 +10,12 @@
           />
         </div>
       </div>
-
-      <div class="col-md-5"></div>
+      <div class="col-md-4">
+        <h2 style="font-size: 30px;">
+          Bring your <br />
+          <span style="font-size: 45px; color: #f2b070;">friends!</span>
+        </h2>
+      </div>
       <div class="col-md-3" style="text-align: end;">
         <h1 style="font-weight: 700; font-size: 25px;">Seats Remaining</h1>
       </div>
@@ -26,23 +30,11 @@
         </div>
       </div>
     </div>
-    <div class="row" style="margin-left: 40px; margin-top: 50px;">
-      <div
-        class="col-md-4 d-flex flex-column justify-content-center"
-        style="padding: 0px 0px 130px 0px;"
-      >
-        <h2 style="font-size: 50px;">
-          Bring your <br />
-          <span style="position: relative; font-size: 70px; color: #f2b070;"
-            >friends!</span
-          >
-        </h2>
-      </div>
-
-      <div class="col-md-6" style="padding-left: 25px;">
+    <div class="row" style="margin-left: 15px; margin-top: 50px;">
+      <div class="col-md-5">
         <form>
           <div class="form-group">
-            <label for="username" class="p-2">FRIEND'S NAME</label>
+            <h6 class="p-2">Friend's name</h6>
             <input
               type="text"
               class="form-control"
@@ -51,7 +43,7 @@
             />
           </div>
           <div class="form-group">
-            <label for="email" class="p-2">EMAIL ID</label>
+            <h6 class="p-2">Email ID</h6>
             <input
               type="email"
               class="form-control"
@@ -65,45 +57,89 @@
             style="display: flex; justify-content: space-between;"
           >
             <div class="button">
-              <button
-                class="button-reg p-2"
-                type="button"
-                (click)="onProceed()"
-              >
+              <button class="button-reg p-2" type="button">
                 Add as Regular
               </button>
             </div>
             <div class="button">
-              <button
-                class="button-vip p-2"
-                type="button"
-                (click)="onProceed()"
-              >
+              <button class="button-vip p-2" type="button">
                 Add as VIP
               </button>
             </div>
           </div>
         </form>
       </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <h6 class="p-2">
+            People attending
+          </h6>
+          <div class="user-container">
+            <span class="user-tag" *ngFor="let user of invitedUsers">
+              <span class="user-tag-data">
+                {{ user }}
+              </span>
+              <img
+                src="../../../../assets/images/remove_button.svg"
+                class="close-button"
+                alt=""
+              />
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="col-md-4 billing">
     <h1 class="title">Billing Details</h1>
-    <div class="form-group">
-      <h6 class="p-2" style="margin-top: 20px; color: #7848f4;">
-        People attending
-      </h6>
-      <div class="user-container">
-        <span class="user-tag" *ngFor="let user of invitedUsers">
-          <span class="user-tag-data">
-            {{ user }}
-          </span>
-          <img
-            src="../../../../assets/images/remove_button.svg"
-            class="close-button"
-            alt=""
-          />
-        </span>
+    <div class="bill">
+      <div class="row">
+        <div class="col-md-7 bill-header">Ticket Type</div>
+        <div class="col-md-5 bill-header text-center">Price</div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-md-7 bill-data">Regular</div>
+        <div class="col-md-5 bill-data text-right" style="font-weight: 500;">
+          &#8377; 3000.00
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-7 bill-data">VIP</div>
+        <div class="col-md-5 bill-data text-right" style="font-weight: 500;">
+          &#8377; 3600.00
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-md-6 bill-footer">
+          Total Amount
+        </div>
+        <div class="col-md-6 bill-footer text-right" style="font-weight: 500;">
+          &#8377; 6600.00
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 bill-taxes">
+          Taxes
+        </div>
+        <div class="col-md-4 bill-taxes text-right" style="font-weight: 500;">
+          &#8377; 130.67
+        </div>
+      </div>
+      <div class="row promo">
+        <div class="col-md-7 bill-promo">
+          Promo Applied!
+          <div class="promo-div">
+            <span class="promo-code">
+              BUZZFIRST30
+            </span>
+          </div>
+        </div>
+        <div class="col-md-5 bill-promo text-right">
+          (-) &#8377; 1980.00
+        </div>
       </div>
     </div>
   </div>

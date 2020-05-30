@@ -20,9 +20,7 @@
 .back:hover {
   background: #875af8;
 }
-.billing {
-  padding: 50px;
-}
+
 .title {
   font-weight: 700;
 }
@@ -30,6 +28,7 @@
   border-left: 2px solid #f2b070;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 30px;
 }
 .count {
   font-size: 45px;
@@ -108,6 +107,7 @@ input[type="number"] {
   width: 100%;
   height: 260px;
   font-size: 14px;
+  background: #875af8;
   border: 2px solid rgba(0, 0, 0, 0.1);
   padding: 10px;
   border-radius: 10px;
@@ -119,7 +119,7 @@ input[type="number"] {
   padding: 10px 10px 10px 15px;
   margin: 15px;
   background-color: #eeeeee;
-  color: #7d7d7d;
+  color: #7f7f7f;
   border: none;
   border-radius: 6px;
   margin: 3px;
@@ -130,4 +130,48 @@ input[type="number"] {
   position: relative;
   top: -1px;
   cursor: pointer;
+}
+.billing {
+  padding: 50px 80px 50px 50px;
+  background-color: #f1f1f1;
+}
+.bill {
+  margin-top: 30px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 5px;
+  height: 300px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.bill-header {
+  font-size: 15px;
+  font-weight: 500;
+}
+.bill-data {
+  font-size: 16px;
+  font-weight: 400;
+}
+.bill-footer {
+  font-size: 17px;
+  font-weight: 600;
+}
+.bill-taxes {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.promo {
+  color: #7848f4;
+  background-color: #f9f9f9;
+  position: relative;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 0px 20px 0px;
+}
+.promo-code {
+  border: 1px dashed #7848f4;
+  padding: 5px;
+}
+.promo-div {
+  margin-top: 10px;
 }
