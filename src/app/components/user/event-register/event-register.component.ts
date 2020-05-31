@@ -48,6 +48,11 @@ export class EventRegisterComponent implements OnInit {
   ];
   availablePromoCodes: Promocode[] = [
     {
+      name: 'GO',
+      percentOff: 60,
+      valueOff: null,
+    },
+    {
       name: 'BUZZFIRST30',
       percentOff: 30,
       valueOff: null,
@@ -78,7 +83,7 @@ export class EventRegisterComponent implements OnInit {
   finalAmount: number;
   promocode: number;
   promoCode: Promocode;
-  errorMsg: string;
+  promoMsg: string;
 
   constructor(
     private route: Router,
@@ -136,8 +141,9 @@ export class EventRegisterComponent implements OnInit {
       }
       this.calculatePrice();
       this.promoApplied = true;
+      this.promoMsg = 'Yay! Promo applied!';
     } else {
-      this.errorMsg = 'Promo not available';
+      this.promoMsg = 'Promo not available. Try another one.';
       this.promoApplied = false;
     }
   }
@@ -155,19 +161,20 @@ export class EventRegisterComponent implements OnInit {
     this.tvp = 0;
     for (let user of this.invitedUsers) {
       if (user.type == 'Regular') {
-        this.totalAmount += this.regularVariablePrice;
-        this.trp += this.regularVariablePrice;
+        this.totalAmount += this.regularfixedPrice;
+        this.trp += this.regularfixedPrice;
         this.totalDiscount +=
           this.regularfixedPrice - this.regularVariablePrice;
       } else {
-        this.totalAmount += this.vipVariablePrice;
-        this.tvp += this.vipVariablePrice;
+        this.totalAmount += this.vipfixedPrice;
+        this.tvp += this.vipfixedPrice;
         this.totalDiscount += this.vipfixedPrice - this.vipVariablePrice;
       }
     }
     this.finalAmount =
       this.totalAmount *
-      (1 + (this.sgst / 100 + this.cgst / 100 + this.service / 100));
+        (1 + (this.sgst / 100 + this.cgst / 100 + this.service / 100)) -
+      this.totalDiscount;
   }
 
   onAddUser() {
