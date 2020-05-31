@@ -125,7 +125,11 @@ export class EventAddEditComponent implements OnInit {
     // a getter!
     return (<FormArray>this.createEventForm.get('ticketTypes')).controls;
   }
-
+  onDeleteUser(id: number) {
+    console.log(id);
+    this.invitedUsers.splice(id, 1);
+    console.log(this.invitedUsers);
+  }
   universalCheck(inputData: any) {
     console.log(inputData);
   }

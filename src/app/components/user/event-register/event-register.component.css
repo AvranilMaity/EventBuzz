@@ -128,11 +128,11 @@ input[type="number"] {
 
 .close-button {
   position: relative;
-  top: -1px;
+  top: -2px;
   cursor: pointer;
 }
 .billing {
-  padding: 50px 80px 50px 50px;
+  padding: 50px 50px 20px 50px;
   background-color: #f1f1f1;
 }
 .bill {
@@ -171,7 +171,7 @@ input[type="number"] {
   padding: 8px 0px 8px 0px;
 }
 .promo-code {
-  border: 1px dashed #7848f4;
+  border: 2px dashed #7848f4;
   border-radius: 5px;
   padding: 5px;
 }
