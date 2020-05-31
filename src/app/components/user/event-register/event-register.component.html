@@ -35,14 +35,15 @@
     </div>
     <div class="row" style="margin-left: 15px; margin-top: 50px;">
       <div class="col-md-5">
-        <form>
+        <form [formGroup]="addFriendForm" (ngSubmit)="onAddUser()">
           <div class="form-group">
             <h6 class="p-2">Friend's name</h6>
             <input
               type="text"
               class="form-control"
-              id="username"
+              id="name"
               placeholder="James Bond"
+              formControlName="name"
             />
           </div>
           <div class="form-group">
@@ -52,6 +53,7 @@
               class="form-control"
               id="email"
               placeholder="someone@example.com"
+              formControlName="email"
             />
           </div>
           <br />
@@ -60,12 +62,22 @@
             style="display: flex; justify-content: space-between;"
           >
             <div class="button">
-              <button class="button-reg p-2" type="button">
+              <button
+                class="button-reg p-2"
+                type="submit"
+                name="Regular"
+                (click)="onAddAsRegular()"
+              >
                 Add as Regular
               </button>
             </div>
             <div class="button">
-              <button class="button-vip p-2" type="button">
+              <button
+                class="button-vip p-2"
+                type="submit"
+                name="VIP"
+                (click)="onAddAsVIP()"
+              >
                 Add as VIP
               </button>
             </div>
@@ -79,39 +91,67 @@
             People attending
           </h6>
           <div class="user-container">
-            <span class="user-tag" *ngFor="let user of invitedUsers">
-              <span class="user-tag-data">
-                {{ user }}
+            <div *ngFor="let user of invitedUsers; let i = index">
+              <span
+                class="user-tag"
+                *ngIf="user.type == 'VIP'"
+                style="background-color: #fdad5d; color: white;"
+              >
+                <span class="user-tag-data">
+                  {{ user.name }}
+                </span>
+                <img
+                  src="../../../../assets/images/remove_button_white.svg"
+                  class="close-button"
+                  alt=""
+                  (click)="onDeleteUser(i)"
+                />
               </span>
-              <img
-                src="../../../../assets/images/remove_button.svg"
-                class="close-button"
-                alt=""
-              />
-            </span>
+              <span class="user-tag" *ngIf="user.type == 'Regular'">
+                <span class="user-tag-data">
+                  {{ user.name }}
+                </span>
+                <img
+                  src="../../../../assets/images/remove_button.svg"
+                  class="close-button"
+                  alt=""
+                  (click)="onDeleteUser(i)"
+                />
+              </span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
   <div class="col-md-4 billing">
-    <h1 class="title">Billing Details</h1>
+    <h2 class="title">Billing Details</h2>
     <div class="bill">
       <div class="row">
         <div class="col-md-7 bill-header">Ticket Type</div>
-        <div class="col-md-5 bill-header text-center">Price</div>
+        <div class="col-md-5 bill-header text-right">Price</div>
       </div>
       <hr />
       <div class="row">
-        <div class="col-md-7 bill-data">Regular</div>
+        <div class="col-md-7 bill-data">
+          Regular
+          <span style="font-size: 12px; color: #7848f4;"
+            >&#8377; {{ regularfixedPrice | number: "1.0-0" }}</span
+          >
+        </div>
         <div class="col-md-5 bill-data text-right" style="font-weight: 500;">
-          &#8377; 3000.00
+          &#8377; {{ trp | number: "1.0-0" }}
         </div>
       </div>
       <div class="row">
-        <div class="col-md-7 bill-data">VIP</div>
+        <div class="col-md-7 bill-data">
+          VIP
+          <span style="font-size: 12px; color: #7848f4;"
+            >&#8377; {{ vipfixedPrice | number: "1.0-0" }}</span
+          >
+        </div>
         <div class="col-md-5 bill-data text-right" style="font-weight: 500;">
-          &#8377; 3600.00
+          &#8377; {{ tvp | number: "1.0-0" }}
         </div>
       </div>
       <hr />
@@ -120,20 +160,36 @@
           Total Amount
         </div>
         <div class="col-md-6 bill-footer text-right" style="font-weight: 500;">
-          &#8377; 6600.00
+          &#8377; {{ totalAmount | number: "1.0-0" }}
         </div>
       </div>
       <div class="row" style="margin-top: 2px;">
         <div class="col-md-8 bill-taxes">
-          Taxes
+          CGST
         </div>
         <div class="col-md-4 bill-taxes text-right" style="font-weight: 500;">
-          &#8377; 130.67
+          &#8377; {{ (cgst * totalAmount) / 100 | number: "1.0-0" }}
+        </div>
+      </div>
+      <div class="row" style="margin-top: 2px;">
+        <div class="col-md-8 bill-taxes">
+          SGST
+        </div>
+        <div class="col-md-4 bill-taxes text-right" style="font-weight: 500;">
+          &#8377; {{ (sgst * totalAmount) / 100 | number: "1.0-0" }}
+        </div>
+      </div>
+      <div class="row" style="margin-top: 2px;">
+        <div class="col-md-8 bill-taxes">
+          EventBuzz Charges
+        </div>
+        <div class="col-md-4 bill-taxes text-right" style="font-weight: 500;">
+          &#8377; {{ (service * totalAmount) / 100 | number: "1.0-0" }}
         </div>
       </div>
       <div class="row promo" *ngIf="!promoApplied">
         <div class="col-md-12">
-          <form>
+          <form [formGroup]="promoCodeForm" (ngSubmit)="onApplyPromo()">
             <div class="form-group">
               <h6 class="p-2">Apply Promocode</h6>
               <div class="d-flex justify-content-end">
@@ -141,13 +197,14 @@
                   type="text"
                   placeholder="EXAMPLE50"
                   class="form-control p-2 text-center"
+                  formControlName="promocode"
                   style="
                     border: 2px dashed rgba(0, 0, 0, 0.2);
                     border-radius: 5px;
                   "
                 />
                 <div class="button" style="margin-left: 5px;">
-                  <button class="button-apply p-2" type="button">
+                  <button class="button-apply p-2" type="submit">
                     Apply
                   </button>
                 </div>
@@ -160,18 +217,29 @@
         <div class="col-md-7 bill-promo">
           <div class="promo-div">
             <span class="promo-code">
-              BUZZFIRST30
+              {{ promoCode.name }}
+              <img
+                src="../../../../assets/images/remove_button.svg"
+                class="close-button"
+                alt=""
+                (click)="onCancelPromo()"
+              />
             </span>
           </div>
           <div
             class="promo-message"
-            style="font-size: 14px; margin-top: 8px; font-weight: 400;"
+            style="
+              font-size: 14px;
+              padding-top: 10px;
+              padding-bottom: 5px;
+              font-weight: 400;
+            "
           >
-            Yay! Promo applied!
+            {{ promoMsg }}
           </div>
         </div>
         <div class="col-md-5 bill-promo text-right" style="margin-top: 10px;">
-          (-) &#8377; 1980.00
+          (-) &#8377; {{ totalDiscount | number: "1.0-0" }}
         </div>
       </div>
     </div>
@@ -184,7 +252,7 @@
             </span>
           </div>
           <div style="color: #fdad5d;">
-            <h2>&#8377; 4750.67</h2>
+            <h2>&#8377; {{ finalAmount | number: "1.0-0" }}</h2>
           </div>
         </div>
         <div class="col-md-5">

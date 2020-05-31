@@ -309,7 +309,7 @@
                     </option>
                   </datalist>
                 </div>
-                <div class="open-event">
+                <div class="open-event" *ngIf="eventType.value == 'Open'">
                   <div class="form-group">
                     <label for="organized-by" class="p-2">HEAD COUNT</label>
                     <input
@@ -420,7 +420,10 @@
                   <div class="form-group">
                     <label class="p-2">INVITED USERS</label>
                     <div class="user-container">
-                      <span class="user-tag" *ngFor="let user of invitedUsers">
+                      <span
+                        class="user-tag"
+                        *ngFor="let user of invitedUsers; let i = index"
+                      >
                         <span class="user-tag-data">
                           {{ user }}
                         </span>
@@ -428,6 +431,7 @@
                           src="../../../../assets/images/remove_button.svg"
                           class="close-button"
                           alt=""
+                          (click)="onDeleteUser(i)"
                         />
                       </span>
                     </div>
