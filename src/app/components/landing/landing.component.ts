@@ -30,7 +30,21 @@ export class LandingComponent implements OnInit {
   }
 
   fetchPopularEvents(){
-    this.popularEvents = this.commonService.fetchPopularEvents();
+    this.commonService.fetchPopularEvents().subscribe(
+      data=>{
+        console.log(data);
+        if(data!=null){
+          this.popularEvents = data;
+          console.log(this.popularEvents);
+        }
+        else{
+          console.log("no data available")
+        }
+        
+      },
+      err=>{console.log(err)},
+      ()=>{console.log("fetched popular events")}
+    );
   }
 
 }
