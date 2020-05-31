@@ -13,7 +13,7 @@ export class ImageService {
  
   constructor(private http:HttpClient) { }
   
-  async uploadImage(imageFile: File, infoObject:{}){
+  async uploadImage(imageFile: File, infoObject:{}):Promise<string>{
     let formData = new FormData();
     formData.append('image', imageFile, imageFile.name);
  
@@ -24,7 +24,7 @@ export class ImageService {
     const imageData = await this.http.post(this.url, formData, {headers:header}).toPromise();
     this.imageLink = imageData['data'].link;
     console.log(this.imageLink);
- 
+    return await this.imageLink;
     
  
   }

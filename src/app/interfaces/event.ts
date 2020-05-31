@@ -1,6 +1,6 @@
 // tslint:disable-next-line: no-empty-interface
 export interface IEvent{
-    eventId: number;
+    eventId?: number;
     eventName: string;
     eventDate: Date;
     eventDescription: string;

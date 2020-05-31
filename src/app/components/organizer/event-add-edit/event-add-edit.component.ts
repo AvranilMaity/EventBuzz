@@ -7,6 +7,10 @@ import {
   AbstractControl,
 } from '@angular/forms';
 import { ImageService } from 'src/app/services/image.service';
+import { url } from 'inspector';
+import { CommonService } from 'src/app/services/common.service';
+import { OrganizerService } from 'src/app/services/organizer.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-event-add-edit',
@@ -39,21 +43,49 @@ export class EventAddEditComponent implements OnInit {
     'metheking@oiu.in',
     'king.saha@icici.com',
     'sahaki@campbells.com',
-    'kingshuk@yashwin.com',
+    'kingshuk@yashwin.co',
   ];
   eventList: string[] = ['Open', 'Closed'];
   headCountList: string[] = ['Limited', 'Unlimited'];
   //ticketTypes: string[] = ['Regular', 'VIP'];
-  constructor(private imageService: ImageService) {}
+  constructor(private route:Router, private imageService: ImageService, private organizerService:OrganizerService) {}
 
   ngOnInit() {
     this.initForm();
     this.ticketTypesControl = this.getControls();
   }
 
-  onSubmit() {
+  async onSubmit() {
     console.log(this.createEventForm);
-    if (this.files != null) this.addImage(this.files[0]);
+    if (this.files != null){
+      var url:string = await this.addImage(this.files[0]);
+    }
+    console.log(url);
+    let event:IEvent = {
+      eventName: this.createEventForm.controls.eventName.value,
+      eventImageUrl: url,
+      eventDescription: this.createEventForm.controls.eventDescription.value,
+      eventDate: this.createEventForm.controls.eventBeginDate.value,
+    }
+    console.log(event);
+    this.organizerService.addEvent(event).subscribe(
+      data =>{
+        console.log(data);
+        if(data!=null){
+          console.log("event added successfully");
+          this.route.navigate(['/dashboard']);
+        }
+        else{
+          console.log("event could not be added")
+        }
+      },
+      err =>{
+        console.log(err);
+      },
+      ()=>{
+        console.log("add event service called");
+      }
+    )
   }
 
   initForm() {
@@ -123,7 +155,7 @@ export class EventAddEditComponent implements OnInit {
   }
   getControls() {
     // a getter!
-    return (<FormArray>this.createEventForm.get('ticketTypes')).controls;
+    return (<FormArray>this.createEventForm.get('tickeTyps')).controls;
   }
   onDeleteUser(id: number) {
     console.log(id);
@@ -134,7 +166,8 @@ export class EventAddEditComponent implements OnInit {
     console.log(inputData);
   }
 
-  addImage(file: File) {
-    this.imageService.uploadImage(file, null);
+  async addImage(file: File):Promise<string> {
+    let url= await this.imageService.uploadImage(file, null);
+    return url;
   }
 }
