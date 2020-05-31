@@ -152,13 +152,13 @@ export class EventRegisterComponent implements OnInit {
     this.vipVariablePrice = this.vipfixedPrice;
     this.calculatePrice();
     this.promoApplied = false;
-    this.totalDiscount = 0;
   }
   calculatePrice() {
     this.totalAmount = 0;
     this.finalAmount = 0;
     this.trp = 0;
     this.tvp = 0;
+    this.totalDiscount = 0;
     for (let user of this.invitedUsers) {
       if (user.type == 'Regular') {
         this.totalAmount += this.regularfixedPrice;
@@ -171,10 +171,9 @@ export class EventRegisterComponent implements OnInit {
         this.totalDiscount += this.vipfixedPrice - this.vipVariablePrice;
       }
     }
-    this.finalAmount =
-      this.totalAmount *
-        (1 + (this.sgst / 100 + this.cgst / 100 + this.service / 100)) -
-      this.totalDiscount;
+    this.finalAmount = this.totalAmount - this.totalDiscount;
+    this.finalAmount *=
+      1 + (this.sgst / 100 + this.cgst / 100 + this.service / 100);
   }
 
   onAddUser() {
