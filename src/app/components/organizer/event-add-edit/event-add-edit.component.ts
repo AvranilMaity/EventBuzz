@@ -7,7 +7,6 @@ import {
   AbstractControl,
 } from '@angular/forms';
 import { ImageService } from 'src/app/services/image.service';
-import { CommonService } from 'src/app/services/common.service';
 import { OrganizerService } from 'src/app/services/organizer.service';
 import { Router } from '@angular/router';
 
@@ -157,7 +156,7 @@ export class EventAddEditComponent implements OnInit {
   }
   getControls() {
     // a getter!
-    return (<FormArray>this.createEventForm.get('tickeTyps')).controls;
+    return (<FormArray>this.createEventForm.get('ticketTypes')).controls;
   }
   onDeleteUser(id: number) {
     console.log(id);
