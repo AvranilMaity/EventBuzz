@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class UserNavigationComponent implements OnInit {
 
   constructor(private route: Router, private commonService: CommonService) { }
-
+  accountEnabled:boolean = false;
   ngOnInit() {
   }
   onSignOut(){

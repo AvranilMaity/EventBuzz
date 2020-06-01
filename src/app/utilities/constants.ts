@@ -1,27 +1,27 @@
 export enum EventCategory {
-    Seminar,
-    Conference,
-    Workshop,
-    Reunion,
-    Party,
+    Seminar = "Seminar",
+    Conference = "Conference",
+    Workshop = "Workshop",
+    Reunion = "Reunion",
+    Party = "Party"
 }
 
 export enum EventType {
-    Open,
-    Closed
+    Open = "Open",
+    Closed = "Closed"
 }
 
 export enum TicketType {
-    Regular,
-    VIP
+    Regular = "Regular",
+    VIP = "VIP"
 }
 
 export enum OrganizedType {
-    Private,
-    Corporate
+    Private = "Private",
+    Corporate = "Corporate"
 }
 
 export enum HeadCount {
-    Limited,
-    Unlimited
+    Limited = "Limited",
+    Unlimited = "Unlimited"
 }

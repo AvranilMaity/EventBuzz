@@ -52,6 +52,19 @@
                     formControlName="place"
                   />
                 </div>
+                <div class="form-group">
+                  <label for="organized-by" class="p-2">EVENT CATEGORY</label>
+                  <select
+                    class="form-control"
+                    id="eventCategory"
+                    formControlName="eventCategory"
+                    #eventType
+                  >
+                    <option *ngFor="let category of eventCategories">
+                      {{ category }}
+                    </option>
+                  </select>
+                </div>
                 <div class="form-row">
                   <div class="form-group col-md-6" style="width: 100%;">
                     <label for="eventBeginDate" class="p-2">EVENT BEGINS</label>
