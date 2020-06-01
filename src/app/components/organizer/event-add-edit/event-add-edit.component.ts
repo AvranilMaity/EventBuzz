@@ -9,6 +9,7 @@ import {
 import { ImageService } from 'src/app/services/image.service';
 import { OrganizerService } from 'src/app/services/organizer.service';
 import { Router } from '@angular/router';
+import { EventType, EventCategory } from 'src/app/utilities/constants';
 
 @Component({
   selector: 'app-event-add-edit',
@@ -21,6 +22,7 @@ export class EventAddEditComponent implements OnInit {
   hasTickets: boolean = false;
   files: File[] = [];
   organizers: string[] = ['Self', 'Corporate'];
+  eventCategories: string[] ;
   invitedUsers: string[] = [
     'avraneel.babai@gmail.com',
     'avranilmaity97@gmail.com',
@@ -50,9 +52,12 @@ export class EventAddEditComponent implements OnInit {
     private route: Router,
     private imageService: ImageService,
     private organizerService: OrganizerService
-  ) {}
+  ) {
+    this.eventCategories = Object.values(EventCategory);
+  }
 
   ngOnInit() {
+    console.log(this.eventCategories);
     this.initForm();
     this.ticketTypesControl = this.getControls();
   }
