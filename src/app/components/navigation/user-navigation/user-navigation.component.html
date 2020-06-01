@@ -46,5 +46,8 @@
         </button>
       </form>
     </nav>
+    <div *ngIf="!accountEnabled" class="container banner">
+        <h6>We have sent you an email. Please verify your account by clicking on the link to make the most of this site.</h6>
+    </div>
   </div>
 </div>
