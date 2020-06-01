@@ -231,21 +231,18 @@
                 </div>
                 <div class="form-group">
                   <label for="organized-by" class="p-2">ORGANIZED BY</label>
-                  <input
+                  <select
                     class="form-control"
-                    list="organizedByList"
-                    name="organizedBy"
                     id="organizedBy"
-                    value="Is it a corporate event?"
                     formControlName="organizedBy"
                     #organizedBy
-                  />
-                  <datalist id="organizedByList">
+                  >
                     <option *ngFor="let organizer of organizers">
                       {{ organizer }}
                     </option>
-                  </datalist>
+                  </select>
                 </div>
+
                 <div
                   class="form-group"
                   *ngIf="organizedBy.value == 'Corporate'"
@@ -294,21 +291,18 @@
               <div class="col-md-12 d-flex flex-column justify-content-center">
                 <div class="form-group">
                   <label for="organized-by" class="p-2">EVENT TYPE</label>
-                  <input
+                  <select
                     class="form-control"
-                    list="eventTypeList"
-                    name="eventType"
                     id="eventType"
-                    placeholder="Select the event type"
                     formControlName="eventType"
                     #eventType
-                  />
-                  <datalist id="eventTypeList">
+                  >
                     <option *ngFor="let event of eventList">
                       {{ event }}
                     </option>
-                  </datalist>
+                  </select>
                 </div>
+
                 <div class="open-event" *ngIf="eventType.value == 'Open'">
                   <div class="form-group">
                     <label for="organized-by" class="p-2">HEAD COUNT</label>

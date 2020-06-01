@@ -1,14 +1,33 @@
-<app-user-navigation></app-user-navigation>
-<br/><br/><br/>
+<app-user-navigation></app-user-navigation> <br /><br /><br />
 <div class="container">
   <div class="page-data">
-    <div class="row" style="padding: 0px 10px 0px 0px;">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-group">
+          <h5 class="p-2">Event Type</h5>
+          <select
+            class="form-control"
+            id="eventType"
+            formControlName="eventType"
+            #eventType
+          >
+            <option *ngFor="let event of eventList">
+              {{ event }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="padding: 50px 10px 0px 0px;">
       <div class="col-md-12 text-justify">
         <p class="page-data-title">Upcoming Events</p>
         <br /><br />
         <div class="row">
           <div class="cards-container" *ngFor="let event of allEvents">
-            <app-event-card class="col-md-4" [eventData]="event"></app-event-card>
+            <app-event-card
+              class="col-md-4"
+              [eventData]="event"
+            ></app-event-card>
           </div>
         </div>
       </div>
