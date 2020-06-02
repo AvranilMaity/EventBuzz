@@ -11,6 +11,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class SignUpComponent implements OnInit {
   proceed: boolean = false;
   signUpForm: FormGroup;
+  idList: string[] = ['Aadhar', 'PAN'];
   constructor(private route: Router, private commonService: CommonService) {}
 
   ngOnInit() {
@@ -30,12 +31,9 @@ export class SignUpComponent implements OnInit {
       aadhar: new FormControl(aadhar),
       emailId: new FormControl(emailId),
       password: new FormControl(password),
-      confirmpassword: new FormControl(confirmpassword)
-      
-
+      confirmpassword: new FormControl(confirmpassword),
     });
   }
-
 
   onProceed() {
     console.log(this.proceed);
@@ -43,13 +41,13 @@ export class SignUpComponent implements OnInit {
     console.log(this.proceed);
   }
 
-  onSignUp(){
+  onSignUp() {
     console.log(this.signUpForm);
     console.log('Click on sign up button');
     this.route.navigate(['/dashboard']);
   }
 
-  navigateToSignIn(){
+  navigateToSignIn() {
     console.log('Click on sign in button');
     this.route.navigate(['/signin']);
   }

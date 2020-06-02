@@ -27,23 +27,48 @@
 
     <form [formGroup]="signUpForm" class="p-2">
       <div class="form-group">
-        <label for="username" class="p-2">FULL NAME</label>
+        <h6 class="p-2">Full Name</h6>
         <input
           type="text"
           class="form-control"
           id="name"
           placeholder="James Bond"
-          formControlName = "name"
+          formControlName="name"
         />
       </div>
 
       <div class="form-group">
-        <label for="phone" class="p-2">PHONE</label>
-        <input type="number" class="form-control" id="phone"  formControlName = "phone"/>
+        <h6 class="p-2">Phone</h6>
+        <input
+          type="number"
+          class="form-control"
+          id="phone"
+          formControlName="phone"
+        />
       </div>
-      <div class="form-group">
-        <label for="aadhar" class="p-2">AADHAR NUMBER</label>
-        <input type="text" class="form-control" id="aadhar" formControlName = "aadhar" />
+      <div class="form-row" style="display: flex;">
+        <div class="form-group col-md-3">
+          <h6 class="p-2">ID Type</h6>
+          <select
+            class="form-control"
+            id="idType"
+            formControlName="idType"
+            #idType
+          >
+            <option *ngFor="let id of idList">
+              {{ id }}
+            </option>
+          </select>
+        </div>
+        <div class="form-group col-md-9">
+          <h6 class="p-2">ID Number</h6>
+          <input
+            type="text"
+            class="form-control"
+            id="aadhar"
+            formControlName="aadhar"
+          />
+        </div>
       </div>
 
       <br />
@@ -69,40 +94,40 @@
       <br />
     </div>
 
-    <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()"class="p-2">
+    <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()" class="p-2">
       <div class="form-group">
-        <label for="email" class="p-2">WORK EMAIL ADDRESS</label>
+        <h6 class="p-2">Email ID</h6>
         <input
           type="text"
           class="form-control"
           id="emailId"
           placeholder="jamesbond@mi6.co.uk"
-          formControlName = "emailId"
+          formControlName="emailId"
         />
       </div>
 
       <div class="form-group">
         <div class="d-flex justify-content-between">
-          <label for="password" class="p-2">PASSWORD</label>
+          <h6 class="p-2">Password</h6>
         </div>
         <input
           type="password"
           class="form-control"
           id="password"
           placeholder="6+ characters"
-          formControlName = "password"
+          formControlName="password"
         />
       </div>
       <div class="form-group">
         <div class="d-flex justify-content-between">
-          <label for="confpassword" class="p-2">CONFIRM PASSWORD</label>
+          <h6 class="p-2">Confirm Password</h6>
         </div>
         <input
           type="password"
           class="form-control"
           id="confirmpassword"
           placeholder="6+ characters"
-          formControlName = "confirmpassword"
+          formControlName="confirmpassword"
         />
       </div>
       <br />
