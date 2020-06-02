@@ -22,6 +22,7 @@ import { appRoutes } from './routes';
 import { EventDetailsComponent } from './components/user/event-details/event-details.component';
 import { DashboardComponent } from './components/common/dashboard/dashboard.component';
 import { BrowseEventsComponent } from './components/common/browse-events/browse-events.component';
+import { UserProfileComponent } from './components/user/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { BrowseEventsComponent } from './components/common/browse-events/browse-
     EventDetailsOrgComponent,
     DashboardComponent,
     BrowseEventsComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,

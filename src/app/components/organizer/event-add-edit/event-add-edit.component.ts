@@ -22,7 +22,7 @@ export class EventAddEditComponent implements OnInit {
   hasTickets: boolean = false;
   files: File[] = [];
   organizers: string[] = ['Self', 'Corporate'];
-  eventCategories: string[] ;
+  eventCategories: string[];
   invitedUsers: string[] = [
     'avraneel.babai@gmail.com',
     'avranilmaity97@gmail.com',
@@ -107,11 +107,13 @@ export class EventAddEditComponent implements OnInit {
     let organizationName;
     let eventType;
     let eventCapacity;
+    let eventCategory;
     let ticketTypes = new FormArray([]);
 
     this.createEventForm = new FormGroup({
       eventName: new FormControl(eventName),
       place: new FormControl(place),
+      eventCategory: new FormControl(eventCategory),
       eventBeginDate: new FormControl(eventBeginDate),
       eventBeginTime: new FormControl(eventBeginTime),
       eventEndDate: new FormControl(eventEndDate),

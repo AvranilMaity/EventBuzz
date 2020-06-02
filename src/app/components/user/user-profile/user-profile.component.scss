@@ -1,0 +1,96 @@
+.page-data {
+  padding-left: 60px;
+  padding-right: 60px;
+}
+.profile {
+  border-radius: 5px 5px 5px 5px;
+}
+.picture {
+  background-color: #7848f4;
+  border-radius: 5px 0px 0px 5px;
+
+  padding: 15px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+ngx-dropzone {
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  border: 10px solid rgba(0, 0, 0, 0.2);
+}
+
+input,
+select {
+  height: 50px;
+  font-size: 14px;
+  padding-left: 15px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+.data {
+  padding: 45px;
+}
+
+label {
+  height: 50px;
+  padding: 12px 20px 12px 15px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+}
+label::after {
+  height: 46px;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 12px 20px 10px 20px;
+  border-radius: 0px;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.button-1 {
+  height: 50px;
+  width: 110px;
+  background: none;
+  border-radius: 5px;
+  background-color: #7848f4;
+  border: 1px solid #7848f4;
+  color: white;
+  font-weight: 700;
+}
+.button-1:focus {
+  outline: none;
+}
+.button-1:hover {
+  background: #875af8;
+}
+
+.button-2 {
+  height: 50px;
+  width: 110px;
+  background: none;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 700;
+}
+.button-2:focus {
+  outline: none;
+}
+.button-2:hover {
+  background: rgba(0, 0, 0, 0.2);
+}

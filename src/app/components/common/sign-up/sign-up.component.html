@@ -49,25 +49,26 @@
       <div class="form-row" style="display: flex;">
         <div class="form-group col-md-3">
           <h6 class="p-2">ID Type</h6>
-          <select
-            class="form-control"
-            id="idType"
-            formControlName="idType"
-            #idType
-          >
+          <select class="form-control" id="idType" formControlName="idType">
             <option *ngFor="let id of idList">
               {{ id }}
             </option>
           </select>
         </div>
         <div class="form-group col-md-9">
-          <h6 class="p-2">ID Number</h6>
-          <input
-            type="text"
-            class="form-control"
-            id="aadhar"
-            formControlName="aadhar"
-          />
+          <h6 class="p-2">Upload ID</h6>
+          <div class="custom-file">
+            <input
+              type="file"
+              class="custom-file-input"
+              formControlName="idSoftCopy"
+              id="idSoftCopy"
+              (change)="onFileChange($event.target.files)"
+            />
+            <label class="custom-file-label" #labelImport for="idSoftCopy"
+              >Choose file</label
+            >
+          </div>
         </div>
       </div>
 

@@ -1,4 +1,4 @@
-import {Routes} from '@angular/router';
+import { Routes } from '@angular/router';
 import { LandingComponent } from './components/landing/landing.component';
 import { SignInComponent } from './components/common/sign-in/sign-in.component';
 import { SignUpComponent } from './components/common/sign-up/sign-up.component';
@@ -9,19 +9,22 @@ import { DashboardComponent } from './components/common/dashboard/dashboard.comp
 import { EventDetailsComponent } from './components/user/event-details/event-details.component';
 import { RegisterEventConfirmationComponent } from './components/user/register-event-confirmation/register-event-confirmation.component';
 import { BrowseEventsComponent } from './components/common/browse-events/browse-events.component';
+import { UserProfileComponent } from './components/user/user-profile/user-profile.component';
 
 export const appRoutes: Routes = [
-    {path: 'landing', component: LandingComponent},
-    {path: 'signin', component: SignInComponent},
-    {path: 'signup', component: SignUpComponent},
-    {path: 'eventdetails/:eventId', component: EventDetailsComponent},
-    {path: 'eventdetailsorg', component: EventDetailsOrgComponent},
-    {path: 'eventregister', component: EventRegisterComponent},
-    {path: 'eventaddedit', component: EventAddEditComponent},
-    {path: 'dashboard', component: DashboardComponent},
-    {path: 'registereventconfirmation', component: RegisterEventConfirmationComponent},
-    {path: 'browseevents', component: BrowseEventsComponent},
-    {path: '**', redirectTo: 'landing', pathMatch: 'full'},
+  { path: 'landing', component: LandingComponent },
+  { path: 'signin', component: SignInComponent },
+  { path: 'signup', component: SignUpComponent },
+  { path: 'eventdetails/:eventId', component: EventDetailsComponent },
+  { path: 'eventdetailsorg', component: EventDetailsOrgComponent },
+  { path: 'eventregister', component: EventRegisterComponent },
+  { path: 'eventaddedit', component: EventAddEditComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  {
+    path: 'registereventconfirmation',
+    component: RegisterEventConfirmationComponent,
+  },
+  { path: 'userprofile', component: UserProfileComponent },
+  { path: 'browseevents', component: BrowseEventsComponent },
+  { path: '**', redirectTo: 'landing', pathMatch: 'full' },
 ];
-
-
