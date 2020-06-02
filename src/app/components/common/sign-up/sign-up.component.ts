@@ -25,13 +25,13 @@ export class SignUpComponent implements OnInit {
     let emailId;
     let password;
     let phone;
-    let aadhar;
+    let idType;
     let confirmpassword;
 
     this.signUpForm = new FormGroup({
       name: new FormControl(name),
       phone: new FormControl(phone),
-      aadhar: new FormControl(aadhar),
+      idType: new FormControl(idType),
       emailId: new FormControl(emailId),
       password: new FormControl(password),
       confirmpassword: new FormControl(confirmpassword),
