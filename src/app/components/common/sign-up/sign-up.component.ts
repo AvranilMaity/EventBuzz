@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import { IdProof } from 'src/app/utilities/constants';
 
 @Component({
   selector: 'app-sign-up',
@@ -11,8 +12,10 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class SignUpComponent implements OnInit {
   proceed: boolean = false;
   signUpForm: FormGroup;
-  idList: string[] = ['Aadhar', 'PAN'];
-  constructor(private route: Router, private commonService: CommonService) {}
+  idList: string[];
+  constructor(private route: Router, private commonService: CommonService) {
+    this.idList = Object.values(IdProof);
+  }
 
   ngOnInit() {
     this.initForm();
