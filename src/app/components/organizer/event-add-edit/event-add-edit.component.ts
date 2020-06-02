@@ -72,7 +72,7 @@ export class EventAddEditComponent implements OnInit {
       eventName: this.createEventForm.controls.eventName.value,
       eventImageUrl: url,
       eventDescription: this.createEventForm.controls.eventDescription.value,
-      eventDate: this.createEventForm.controls.eventBeginDate.value,
+      eventFromDate: this.createEventForm.controls.eventBeginDate.value,
     };
     console.log(event);
     this.organizerService.addEvent(event).subscribe(
