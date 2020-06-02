@@ -9,7 +9,7 @@ import {
 import { ImageService } from 'src/app/services/image.service';
 import { OrganizerService } from 'src/app/services/organizer.service';
 import { Router } from '@angular/router';
-import { EventType, EventCategory } from 'src/app/utilities/constants';
+import { EventType, EventCategory, HeadCount, OrganizedType } from 'src/app/utilities/constants';
 
 @Component({
   selector: 'app-event-add-edit',
@@ -21,8 +21,8 @@ export class EventAddEditComponent implements OnInit {
   ticketTypesControl: AbstractControl[];
   hasTickets: boolean = false;
   files: File[] = [];
-  organizers: string[] = ['Self', 'Corporate'];
-  eventCategories: string[]; //= ['Seminar', 'Party', 'Conference'] ;
+  organizers: string[];
+  eventCategories: string[];
   invitedUsers: string[] = [
     'avraneel.babai@gmail.com',
     'avranilmaity97@gmail.com',
@@ -45,8 +45,8 @@ export class EventAddEditComponent implements OnInit {
     'sahaki@campbells.com',
     'kingshuk@yashwin.co',
   ];
-  eventList: string[] = ['Open', 'Closed'];
-  headCountList: string[] = ['Limited', 'Unlimited'];
+  eventList: string[];
+  headCountList: string[];
   //ticketTypes: string[] = ['Regular', 'VIP'];
   constructor(
     private route: Router,
@@ -54,6 +54,9 @@ export class EventAddEditComponent implements OnInit {
     private organizerService: OrganizerService
   ) {
     this.eventCategories = Object.values(EventCategory);
+    this.organizers = Object.values(OrganizedType);
+    this.eventList = Object.values(EventType);
+    this.headCountList = Object.values(HeadCount);
   }
 
   ngOnInit() {
