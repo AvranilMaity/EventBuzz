@@ -15,6 +15,7 @@ import {
   HeadCount,
   OrganizedType,
 } from 'src/app/utilities/constants';
+import { IRegistration } from 'src/app/interfaces/registration';
 
 @Component({
   selector: 'app-event-add-edit',
@@ -31,6 +32,7 @@ export class EventAddEditComponent implements OnInit {
   invitedUsers: string[] = [];
   eventTypeList: string[];
   headCountList: string[];
+  invitedRegistrations: IRegistration[] = [];
   constructor(
     private route: Router,
     private imageService: ImageService,
@@ -71,11 +73,13 @@ export class EventAddEditComponent implements OnInit {
       organizerEmail: this.createEventForm.controls.organizerEmail.value,
       eventType: this.createEventForm.controls.eventType.value,
       eventHeadCount: this.createEventForm.controls.eventHeadCount.value,
-      ticketPrice: null,
+      ticketPrice: this.createEventForm.controls.ticketTypePrice?.value,
+      ticketQuantity: this.createEventForm.controls.ticketQuantity?.value,
       eventCategory: this.createEventForm.controls.eventCategory.value,
 
     };
     console.log(event);
+    console.log(this.invitedRegistrations);
     // this.organizerService.addEvent(event).subscribe(
     //   (data) => {
     //     console.log(data);
@@ -155,6 +159,17 @@ export class EventAddEditComponent implements OnInit {
 
   onAddUser(newInviteName: string, newInviteEmail:string) {
     this.invitedUsers.push(newInviteEmail);
+    let registration: IRegistration = {
+      registrationId: null,
+      eventId: null,
+      userId: null,
+      name: newInviteName,
+      emailId: newInviteEmail,
+      ticketType: null,
+      status: null,
+      transactionId: null,
+    }
+    this.invitedRegistrations.push(registration);
   }
 
   onSelect(event) {
@@ -173,6 +188,7 @@ export class EventAddEditComponent implements OnInit {
   onDeleteUser(id: number) {
     console.log(id);
     this.invitedUsers.splice(id, 1);
+    this.invitedRegistrations.splice(id, 1);
     console.log(this.invitedUsers);
   }
   universalCheck(inputData: any) {
@@ -180,7 +196,11 @@ export class EventAddEditComponent implements OnInit {
   }
 
   async addImage(file: File): Promise<string> {
-    let url = await this.imageService.uploadImage(file, null);
-    return url;
+    if(file!=undefined){
+      let url = await this.imageService.uploadImage(file, null);
+      return url;
+    }
+    return null;
+    
   }
 }
