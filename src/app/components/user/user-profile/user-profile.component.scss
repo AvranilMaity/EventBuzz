@@ -4,6 +4,7 @@
 }
 .profile {
   border-radius: 5px 5px 5px 5px;
+  height: 500px;
 }
 .picture {
   background-color: #7848f4;
@@ -93,4 +94,43 @@ label::after {
 }
 .button-2:hover {
   background: rgba(0, 0, 0, 0.2);
+}
+
+.button-3 {
+  height: 50px;
+  width: 100%;
+  background: none;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 700;
+}
+.button-3:focus {
+  outline: none;
+}
+.button-3:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.button-4 {
+  height: 50px;
+  width: 100%;
+  background: none;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-weight: 700;
+}
+.button-4:focus {
+  outline: none;
+}
+.button-4:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.custom-label {
+  font-size: 20px;
+  font-weight: 300;
 }
