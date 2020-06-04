@@ -26,46 +26,24 @@ export class EventAddEditComponent implements OnInit {
   ticketTypesControl: AbstractControl[];
   hasTickets: boolean = false;
   files: File[] = [];
-  organizers: string[] = ['Self', 'Corporate'];
-  eventCategories: string[];
-  invitedUsers: string[] = [
-    'avraneel.babai@gmail.com',
-    'avranilmaity97@gmail.com',
-    'james@abc.com',
-    'peter@oiu.in',
-    'avranil.maity@icici.com',
-    'maityav@campbells.com',
-    'avranil@yashwin.com',
-    'kingshuk.saha@gmail.com',
-    'kingshuk@gmail.com',
-    'saha@abc.com',
-    'metheking@oiu.in',
-    'king.saha@icici.com',
-    'sahaki@campbells.com',
-    'kingshuk@yashwin.com',
-    'kingshuk@gmail.com',
-    'saha@abc.com',
-    'metheking@oiu.in',
-    'king.saha@icici.com',
-    'sahaki@campbells.com',
-    'kingshuk@yashwin.co',
-  ];
-  eventList: string[];
+  organizedTypeList: string[];
+  eventCategoryList: string[];
+  invitedUsers: string[] = [];
+  eventTypeList: string[];
   headCountList: string[];
-  //ticketTypes: string[] = ['Regular', 'VIP'];
   constructor(
     private route: Router,
     private imageService: ImageService,
     private organizerService: OrganizerService
   ) {
-    this.eventCategories = Object.values(EventCategory);
-    this.organizers = Object.values(OrganizedType);
-    this.eventList = Object.values(EventType);
+    this.eventCategoryList = Object.values(EventCategory);
+    this.organizedTypeList = Object.values(OrganizedType);
+    this.eventTypeList = Object.values(EventType);
     this.headCountList = Object.values(HeadCount);
   }
 
   ngOnInit() {
-    console.log(this.eventCategories);
+    
     this.initForm();
     this.ticketTypesControl = this.getControls();
   }
@@ -77,61 +55,80 @@ export class EventAddEditComponent implements OnInit {
     }
     console.log(url);
     let event: IEvent = {
+
+      eventId: null,
+      eventCreatedDate: new Date(),
+      userId: null,
       eventName: this.createEventForm.controls.eventName.value,
-      eventImageUrl: url,
       eventDescription: this.createEventForm.controls.eventDescription.value,
-      eventFromDate: this.createEventForm.controls.eventBeginDate.value,
+      eventImageUrl: url,
+      eventLocation: this.createEventForm.controls.eventLocation.value,
+      eventFromDate: this.createEventForm.controls.eventFromDate.value,
+      eventToDate: this.createEventForm.controls.eventToDate.value,
+      organizedType: this.createEventForm.controls.organizedType.value,
+      organizerName: this.createEventForm.controls.organizerName.value,
+      organizerPhone: this.createEventForm.controls.organizerPhone.value,
+      organizerEmail: this.createEventForm.controls.organizerEmail.value,
+      eventType: this.createEventForm.controls.eventType.value,
+      eventHeadCount: this.createEventForm.controls.eventHeadCount.value,
+      ticketPrice: null,
+      eventCategory: this.createEventForm.controls.eventCategory.value,
+
     };
     console.log(event);
-    this.organizerService.addEvent(event).subscribe(
-      (data) => {
-        console.log(data);
-        if (data != null) {
-          console.log('event added successfully');
-          this.route.navigate(['/dashboard']);
-        } else {
-          console.log('event could not be added');
-        }
-      },
-      (err) => {
-        console.log(err);
-      },
-      () => {
-        console.log('add event service called');
-      }
-    );
+    // this.organizerService.addEvent(event).subscribe(
+    //   (data) => {
+    //     console.log(data);
+    //     if (data != null) {
+    //       console.log('event added successfully');
+    //       this.route.navigate(['/dashboard']);
+    //     } else {
+    //       console.log('event could not be added');
+    //     }
+    //   },
+    //   (err) => {
+    //     console.log(err);
+    //   },
+    //   () => {
+    //     console.log('add event service called');
+    //   }
+    // );
+
+
   }
 
   initForm() {
     let eventName;
-    let place;
-    let eventBeginDate;
-    let eventBeginTime;
-    let eventEndDate;
-    let eventEndTime;
     let eventDescription;
-    let organizerName;
-    let organizedBy;
-    let organizationName;
-    let eventType;
-    let eventCapacity;
     let eventCategory;
+    let eventLocation;
+    let eventFromDate;
+    let eventToDate;
+    let organizedType;
+    let organizerName;
+    let organizerPhone;
+    let organizerEmail;
+    let eventType;
+    let eventHeadCount;
+    let ticketTypeQuantity = new FormArray([]);
+    let ticketTypePrice = new FormArray([]);
     let ticketTypes = new FormArray([]);
 
     this.createEventForm = new FormGroup({
       eventName: new FormControl(eventName),
-      place: new FormControl(place),
-      eventCategory: new FormControl(eventCategory),
-      eventBeginDate: new FormControl(eventBeginDate),
-      eventBeginTime: new FormControl(eventBeginTime),
-      eventEndDate: new FormControl(eventEndDate),
-      eventEndTime: new FormControl(eventEndTime),
       eventDescription: new FormControl(eventDescription),
+      eventCategory: new FormControl(eventCategory),
+      eventLocation: new FormControl(eventLocation),
+      eventFromDate: new FormControl(eventFromDate),
+      eventToDate: new FormControl(eventToDate),
+      organizedType: new FormControl(organizedType),
       organizerName: new FormControl(organizerName),
-      organizedBy: new FormControl(organizedBy),
-      organizationName: new FormControl(organizationName),
+      organizerPhone: new FormControl(organizerPhone),
+      organizerEmail: new FormControl(organizerEmail),
       eventType: new FormControl(eventType),
-      eventCapacity: new FormControl(eventCapacity),
+      eventHeadCount: new FormControl(eventHeadCount),
+      ticketTypeQuantity: ticketTypeQuantity,
+      ticketTypePrice: ticketTypePrice,
       ticketTypes: ticketTypes,
     });
   }

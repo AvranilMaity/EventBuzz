@@ -7,6 +7,7 @@ export interface IEvent{
     eventDescription? : string
     eventImageUrl? : string
     eventLocation? : string
+    eventCategory? : string
     eventFromDate? : Date
     eventToDate? : Date
     organizedType? : string
@@ -17,5 +18,5 @@ export interface IEvent{
     eventHeadCount? : string
     ticketQuantity? : string
     ticketPrice? : string
-    eventCategory? : string
+    
 }
