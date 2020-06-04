@@ -153,8 +153,8 @@ export class EventAddEditComponent implements OnInit {
     (<FormArray>this.createEventForm.get('ticketTypes')).removeAt(id);
   }
 
-  onAddUser(newInvite: string) {
-    this.invitedUsers.push(newInvite);
+  onAddUser(newInviteName: string, newInviteEmail:string) {
+    this.invitedUsers.push(newInviteEmail);
   }
 
   onSelect(event) {

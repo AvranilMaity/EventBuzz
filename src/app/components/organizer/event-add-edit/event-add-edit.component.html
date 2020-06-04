@@ -435,13 +435,23 @@
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-10">
-                      <label for="add-user" class="p-2">EMAIL</label>
+                      <label  class="p-2">NAME</label>
+                      <input
+                        type="name"
+                        class="form-control"
+                        placeholder="Invitee Name"
+                        #newInviteName
+                      />
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-10">
+                      <label  class="p-2">EMAIL</label>
                       <input
                         type="email"
                         class="form-control"
-                        id="add-user"
                         placeholder="invitee@somemailid.com"
-                        #newInvite
+                        #newInviteEmail
                       />
                     </div>
                     <div class="form-group col-md-2">
@@ -450,7 +460,7 @@
                           type="button"
                           class="add-button"
                           style="padding: 0px;"
-                          (click)="onAddUser(newInvite.value)"
+                          (click)="onAddUser(newInviteName.value,newInviteEmail.value)"
                         >
                           ADD
                         </button>
