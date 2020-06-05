@@ -232,9 +232,7 @@
                   class="form-group"
                   *ngIf="organizedType.value == 'Corporate'"
                 >
-                  <label for="organizerName" class="p-2"
-                    >ORGANIZER NAME</label
-                  >
+                  <label for="organizerName" class="p-2">ORGANIZER NAME</label>
                   <input
                     type="text"
                     class="form-control"
@@ -242,7 +240,7 @@
                     formControlName="organizerName"
                   />
                   <label for="organizerPhone" class="p-2"
-                  >ORGANIZER PHONE</label
+                    >ORGANIZER PHONE</label
                   >
                   <input
                     type="text"
@@ -251,7 +249,7 @@
                     formControlName="organizerPhone"
                   />
                   <label for="organizerEmail" class="p-2"
-                  >ORGANIZER EMAIL</label
+                    >ORGANIZER EMAIL</label
                   >
                   <input
                     type="text"
@@ -306,7 +304,7 @@
                   </select>
                 </div>
 
-                <div class="open-event" *ngIf="eventType.value == 'Open'">
+                <div class="open-event">
                   <div class="form-group">
                     <label for="eventHeadCount" class="p-2">HEAD COUNT</label>
                     <input
@@ -368,6 +366,7 @@
                         let ticketType of ticketTypesControl;
                         let i = index
                       "
+                      [formGroupName]="i"
                     >
                       <div
                         class="form-group col-md-6"
@@ -435,7 +434,7 @@
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-10">
-                      <label  class="p-2">NAME</label>
+                      <label class="p-2">NAME</label>
                       <input
                         type="name"
                         class="form-control"
@@ -446,7 +445,7 @@
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-10">
-                      <label  class="p-2">EMAIL</label>
+                      <label class="p-2">EMAIL</label>
                       <input
                         type="email"
                         class="form-control"
@@ -460,7 +459,9 @@
                           type="button"
                           class="add-button"
                           style="padding: 0px;"
-                          (click)="onAddUser(newInviteName.value,newInviteEmail.value)"
+                          (click)="
+                            onAddUser(newInviteName.value, newInviteEmail.value)
+                          "
                         >
                           ADD
                         </button>

@@ -23,6 +23,7 @@ import { EventDetailsComponent } from './components/user/event-details/event-det
 import { DashboardComponent } from './components/common/dashboard/dashboard.component';
 import { BrowseEventsComponent } from './components/common/browse-events/browse-events.component';
 import { UserProfileComponent } from './components/user/user-profile/user-profile.component';
+import { ConfirmationComponent } from './components/common/confirmation/confirmation.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { UserProfileComponent } from './components/user/user-profile/user-profil
     DashboardComponent,
     BrowseEventsComponent,
     UserProfileComponent,
+    ConfirmationComponent,
   ],
   imports: [
     BrowserModule,
