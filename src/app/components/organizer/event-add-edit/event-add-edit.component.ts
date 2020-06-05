@@ -73,8 +73,10 @@ export class EventAddEditComponent implements OnInit {
       organizerEmail: this.createEventForm.controls.organizerEmail.value,
       eventType: this.createEventForm.controls.eventType.value,
       eventHeadCount: this.createEventForm.controls.eventHeadCount.value,
-      ticketPrice: this.createEventForm.controls.ticketTypePrice?.value,
-      ticketQuantity: this.createEventForm.controls.ticketQuantity?.value,
+      ticketPrice: (<FormArray>this.createEventForm.get('ticketTypes')).at(0).value.ticketTypePrice+"##"+
+      (<FormArray>this.createEventForm.get('ticketTypes')).at(1).value.ticketTypePrice,
+      ticketQuantity: (<FormArray>this.createEventForm.get('ticketTypes')).at(0).value.ticketTypeQuantity+"##"+
+      (<FormArray>this.createEventForm.get('ticketTypes')).at(1).value.ticketTypeQuantity,
       eventCategory: this.createEventForm.controls.eventCategory.value,
 
     };
@@ -114,8 +116,6 @@ export class EventAddEditComponent implements OnInit {
     let organizerEmail;
     let eventType;
     let eventHeadCount;
-    let ticketTypeQuantity = new FormArray([]);
-    let ticketTypePrice = new FormArray([]);
     let ticketTypes = new FormArray([]);
 
     this.createEventForm = new FormGroup({
@@ -131,8 +131,6 @@ export class EventAddEditComponent implements OnInit {
       organizerEmail: new FormControl(organizerEmail),
       eventType: new FormControl(eventType),
       eventHeadCount: new FormControl(eventHeadCount),
-      ticketTypeQuantity: ticketTypeQuantity,
-      ticketTypePrice: ticketTypePrice,
       ticketTypes: ticketTypes,
     });
   }
