@@ -44,12 +44,12 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label for="place" class="p-2">PLACE</label>
+                  <label for="eventLocation" class="p-2">LOCATION</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="place"
-                    formControlName="place"
+                    id="eventLocation"
+                    formControlName="eventLocation"
                   />
                 </div>
                 <div class="form-group">
@@ -58,50 +58,31 @@
                     class="form-control"
                     id="eventCategory"
                     formControlName="eventCategory"
-                    #eventType
                   >
-                    <option *ngFor="let category of eventCategories">
-                      {{ category }}
+                    <option *ngFor="let eventCategory of eventCategoryList">
+                      {{ eventCategory }}
                     </option>
                   </select>
                 </div>
                 <div class="form-row">
-                  <div class="form-group col-md-6" style="width: 100%;">
-                    <label for="eventBeginDate" class="p-2">EVENT BEGINS</label>
+                  <div class="form-group col-md-12" style="width: 100%;">
+                    <label for="eventFromDate" class="p-2">EVENT BEGINS</label>
                     <input
-                      type="date"
+                      type="datetime-local"
                       class="form-control"
-                      id="eventBeginDate"
-                      formControlName="eventBeginDate"
-                    />
-                  </div>
-                  <div class="form-group col-md-6" style="width: 100%;">
-                    <label for="eventBeginTime" class="p-2">START TIME</label>
-                    <input
-                      type="time"
-                      class="form-control"
-                      id="eventBeginTime"
-                      formControlName="eventBeginTime"
+                      id="eventFromDate"
+                      formControlName="eventFromDate"
                     />
                   </div>
                 </div>
                 <div class="form-row">
-                  <div class="form-group col-md-6" style="width: 100%;">
-                    <label for="eventEndDate" class="p-2">EVENT ENDS</label>
+                  <div class="form-group col-md-12" style="width: 100%;">
+                    <label for="eventToDate" class="p-2">EVENT ENDS</label>
                     <input
-                      type="date"
+                      type="datetime-local"
                       class="form-control"
-                      id="eventEndDate"
-                      formControlName="eventEndDate"
-                    />
-                  </div>
-                  <div class="form-group col-md-6" style="width: 100%;">
-                    <label for="eventEndTime" class="p-2">END TIME</label>
-                    <input
-                      type="time"
-                      class="form-control"
-                      id="eventEndTime"
-                      formControlName="eventEndTime"
+                      id="eventToDate"
+                      formControlName="eventToDate"
                     />
                   </div>
                 </div>
@@ -188,13 +169,13 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="event-description" class="p-2"
+                  <label for="eventDescription" class="p-2"
                     >EVENT DESCRIPTION</label
                   >
                   <textarea
                     type="text"
                     class="form-control"
-                    id="event-description"
+                    id="eventDescription"
                     placeholder="Write something about the event..."
                     style="font-size: 14px; height: 200px;"
                     formControlName="eventDescription"
@@ -234,40 +215,47 @@
             <div class="row section-content">
               <div class="col-md-12">
                 <div class="form-group">
-                  <label for="organizer-name" class="p-2">ORGANIZER NAME</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="organizer-name"
-                    formControlName="organizerName"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="organized-by" class="p-2">ORGANIZED BY</label>
+                  <label for="organizedType" class="p-2">TYPE</label>
                   <select
                     class="form-control"
-                    id="organizedBy"
-                    formControlName="organizedBy"
-                    #organizedBy
+                    id="organizedType"
+                    formControlName="organizedType"
+                    #organizedType
                   >
-                    <option *ngFor="let organizer of organizers">
-                      {{ organizer }}
+                    <option *ngFor="let organizedType of organizedTypeList">
+                      {{ organizedType }}
                     </option>
                   </select>
                 </div>
 
                 <div
                   class="form-group"
-                  *ngIf="organizedBy.value == 'Corporate'"
+                  *ngIf="organizedType.value == 'Corporate'"
                 >
-                  <label for="organization-name" class="p-2"
-                    >ORGANIZATION NAME</label
+                  <label for="organizerName" class="p-2">ORGANIZER NAME</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="organizerName"
+                    formControlName="organizerName"
+                  />
+                  <label for="organizerPhone" class="p-2"
+                    >ORGANIZER PHONE</label
                   >
                   <input
                     type="text"
                     class="form-control"
-                    id="organization-name"
-                    formControlName="organizationName"
+                    id="organizerPhone"
+                    formControlName="organizerPhone"
+                  />
+                  <label for="organizerEmail" class="p-2"
+                    >ORGANIZER EMAIL</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="organizerEmail"
+                    formControlName="organizerEmail"
                   />
                 </div>
               </div>
@@ -303,29 +291,29 @@
             <div class="row section-content">
               <div class="col-md-12 d-flex flex-column justify-content-center">
                 <div class="form-group">
-                  <label for="organized-by" class="p-2">EVENT TYPE</label>
+                  <label for="eventType" class="p-2">EVENT TYPE</label>
                   <select
                     class="form-control"
                     id="eventType"
                     formControlName="eventType"
                     #eventType
                   >
-                    <option *ngFor="let event of eventList">
-                      {{ event }}
+                    <option *ngFor="let eventType of eventTypeList">
+                      {{ eventType }}
                     </option>
                   </select>
                 </div>
 
                 <div class="open-event">
                   <div class="form-group">
-                    <label for="organized-by" class="p-2">HEAD COUNT</label>
+                    <label for="eventHeadCount" class="p-2">HEAD COUNT</label>
                     <input
                       class="form-control"
                       list="headCountList"
-                      name="eventCapacity"
-                      id="eventCapacity"
+                      name="eventHeadCount"
+                      id="eventHeadCount"
                       placeholder="How many people can attend the event?"
-                      formControlName="eventCapacity"
+                      formControlName="eventHeadCount"
                       #eventType
                     />
                     <datalist id="headCountList">
@@ -373,6 +361,7 @@
                         height: 50px;
                         padding-bottom: 0px;
                       "
+                      [formGroupName]="i"
                       *ngFor="
                         let ticketType of ticketTypesControl;
                         let i = index
@@ -445,13 +434,23 @@
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-10">
-                      <label for="add-user" class="p-2">EMAIL</label>
+                      <label class="p-2">NAME</label>
+                      <input
+                        type="name"
+                        class="form-control"
+                        placeholder="Invitee Name"
+                        #newInviteName
+                      />
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-10">
+                      <label class="p-2">EMAIL</label>
                       <input
                         type="email"
                         class="form-control"
-                        id="add-user"
                         placeholder="invitee@somemailid.com"
-                        #newInvite
+                        #newInviteEmail
                       />
                     </div>
                     <div class="form-group col-md-2">
@@ -460,7 +459,9 @@
                           type="button"
                           class="add-button"
                           style="padding: 0px;"
-                          (click)="onAddUser(newInvite.value)"
+                          (click)="
+                            onAddUser(newInviteName.value, newInviteEmail.value)
+                          "
                         >
                           ADD
                         </button>

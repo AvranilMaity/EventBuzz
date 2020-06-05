@@ -7,8 +7,8 @@ export enum EventCategory {
 }
 
 export enum EventType {
+    Closed = "Closed",
     Open = "Open",
-    Closed = "Closed"
 }
 
 export enum TicketType {

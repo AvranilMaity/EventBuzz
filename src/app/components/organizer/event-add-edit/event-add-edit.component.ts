@@ -15,6 +15,7 @@ import {
   HeadCount,
   OrganizedType,
 } from 'src/app/utilities/constants';
+import { IRegistration } from 'src/app/interfaces/registration';
 
 @Component({
   selector: 'app-event-add-edit',
@@ -26,46 +27,25 @@ export class EventAddEditComponent implements OnInit {
   ticketTypesControl: AbstractControl[];
   hasTickets: boolean = false;
   files: File[] = [];
-  organizers: string[] = ['Self', 'Corporate'];
-  eventCategories: string[];
-  invitedUsers: string[] = [
-    'avraneel.babai@gmail.com',
-    'avranilmaity97@gmail.com',
-    'james@abc.com',
-    'peter@oiu.in',
-    'avranil.maity@icici.com',
-    'maityav@campbells.com',
-    'avranil@yashwin.com',
-    'kingshuk.saha@gmail.com',
-    'kingshuk@gmail.com',
-    'saha@abc.com',
-    'metheking@oiu.in',
-    'king.saha@icici.com',
-    'sahaki@campbells.com',
-    'kingshuk@yashwin.com',
-    'kingshuk@gmail.com',
-    'saha@abc.com',
-    'metheking@oiu.in',
-    'king.saha@icici.com',
-    'sahaki@campbells.com',
-    'kingshuk@yashwin.co',
-  ];
-  eventList: string[];
+  organizedTypeList: string[];
+  eventCategoryList: string[];
+  invitedUsers: string[] = [];
+  eventTypeList: string[];
   headCountList: string[];
-  //ticketTypes: string[] = ['Regular', 'VIP'];
+  invitedRegistrations: IRegistration[] = [];
   constructor(
     private route: Router,
     private imageService: ImageService,
     private organizerService: OrganizerService
   ) {
-    this.eventCategories = Object.values(EventCategory);
-    this.organizers = Object.values(OrganizedType);
-    this.eventList = Object.values(EventType);
+    this.eventCategoryList = Object.values(EventCategory);
+    this.organizedTypeList = Object.values(OrganizedType);
+    this.eventTypeList = Object.values(EventType);
     this.headCountList = Object.values(HeadCount);
   }
 
   ngOnInit() {
-    console.log(this.eventCategories);
+    
     this.initForm();
     this.ticketTypesControl = this.getControls();
   }
@@ -77,61 +57,80 @@ export class EventAddEditComponent implements OnInit {
     }
     console.log(url);
     let event: IEvent = {
+
+      eventId: null,
+      eventCreatedDate: new Date(),
+      userId: null,
       eventName: this.createEventForm.controls.eventName.value,
-      eventImageUrl: url,
       eventDescription: this.createEventForm.controls.eventDescription.value,
-      eventFromDate: this.createEventForm.controls.eventBeginDate.value,
+      eventImageUrl: url,
+      eventLocation: this.createEventForm.controls.eventLocation.value,
+      eventFromDate: this.createEventForm.controls.eventFromDate.value,
+      eventToDate: this.createEventForm.controls.eventToDate.value,
+      organizedType: this.createEventForm.controls.organizedType.value,
+      organizerName: this.createEventForm.controls.organizerName.value,
+      organizerPhone: this.createEventForm.controls.organizerPhone.value,
+      organizerEmail: this.createEventForm.controls.organizerEmail.value,
+      eventType: this.createEventForm.controls.eventType.value,
+      eventHeadCount: this.createEventForm.controls.eventHeadCount.value,
+      ticketPrice: (<FormArray>this.createEventForm.get('ticketTypes')).at(0).value.ticketTypePrice+"##"+
+      (<FormArray>this.createEventForm.get('ticketTypes')).at(1).value.ticketTypePrice,
+      ticketQuantity: (<FormArray>this.createEventForm.get('ticketTypes')).at(0).value.ticketTypeQuantity+"##"+
+      (<FormArray>this.createEventForm.get('ticketTypes')).at(1).value.ticketTypeQuantity,
+      eventCategory: this.createEventForm.controls.eventCategory.value,
+
     };
     console.log(event);
-    this.organizerService.addEvent(event).subscribe(
-      (data) => {
-        console.log(data);
-        if (data != null) {
-          console.log('event added successfully');
-          this.route.navigate(['/dashboard']);
-        } else {
-          console.log('event could not be added');
-        }
-      },
-      (err) => {
-        console.log(err);
-      },
-      () => {
-        console.log('add event service called');
-      }
-    );
+    console.log(this.invitedRegistrations);
+    // this.organizerService.addEvent(event).subscribe(
+    //   (data) => {
+    //     console.log(data);
+    //     if (data != null) {
+    //       console.log('event added successfully');
+    //       this.route.navigate(['/dashboard']);
+    //     } else {
+    //       console.log('event could not be added');
+    //     }
+    //   },
+    //   (err) => {
+    //     console.log(err);
+    //   },
+    //   () => {
+    //     console.log('add event service called');
+    //   }
+    // );
+
+
   }
 
   initForm() {
     let eventName;
-    let place;
-    let eventBeginDate;
-    let eventBeginTime;
-    let eventEndDate;
-    let eventEndTime;
     let eventDescription;
-    let organizerName;
-    let organizedBy;
-    let organizationName;
-    let eventType;
-    let eventCapacity;
     let eventCategory;
+    let eventLocation;
+    let eventFromDate;
+    let eventToDate;
+    let organizedType;
+    let organizerName;
+    let organizerPhone;
+    let organizerEmail;
+    let eventType;
+    let eventHeadCount;
     let ticketTypes = new FormArray([]);
 
     this.createEventForm = new FormGroup({
       eventName: new FormControl(eventName),
-      place: new FormControl(place),
-      eventCategory: new FormControl(eventCategory),
-      eventBeginDate: new FormControl(eventBeginDate),
-      eventBeginTime: new FormControl(eventBeginTime),
-      eventEndDate: new FormControl(eventEndDate),
-      eventEndTime: new FormControl(eventEndTime),
       eventDescription: new FormControl(eventDescription),
+      eventCategory: new FormControl(eventCategory),
+      eventLocation: new FormControl(eventLocation),
+      eventFromDate: new FormControl(eventFromDate),
+      eventToDate: new FormControl(eventToDate),
+      organizedType: new FormControl(organizedType),
       organizerName: new FormControl(organizerName),
-      organizedBy: new FormControl(organizedBy),
-      organizationName: new FormControl(organizationName),
+      organizerPhone: new FormControl(organizerPhone),
+      organizerEmail: new FormControl(organizerEmail),
       eventType: new FormControl(eventType),
-      eventCapacity: new FormControl(eventCapacity),
+      eventHeadCount: new FormControl(eventHeadCount),
       ticketTypes: ticketTypes,
     });
   }
@@ -156,8 +155,19 @@ export class EventAddEditComponent implements OnInit {
     (<FormArray>this.createEventForm.get('ticketTypes')).removeAt(id);
   }
 
-  onAddUser(newInvite: string) {
-    this.invitedUsers.push(newInvite);
+  onAddUser(newInviteName: string, newInviteEmail:string) {
+    this.invitedUsers.push(newInviteEmail);
+    let registration: IRegistration = {
+      registrationId: null,
+      eventId: null,
+      userId: null,
+      name: newInviteName,
+      emailId: newInviteEmail,
+      ticketType: null,
+      status: null,
+      transactionId: null,
+    }
+    this.invitedRegistrations.push(registration);
   }
 
   onSelect(event) {
@@ -176,6 +186,7 @@ export class EventAddEditComponent implements OnInit {
   onDeleteUser(id: number) {
     console.log(id);
     this.invitedUsers.splice(id, 1);
+    this.invitedRegistrations.splice(id, 1);
     console.log(this.invitedUsers);
   }
   universalCheck(inputData: any) {
@@ -183,7 +194,11 @@ export class EventAddEditComponent implements OnInit {
   }
 
   async addImage(file: File): Promise<string> {
-    let url = await this.imageService.uploadImage(file, null);
-    return url;
+    if(file!=undefined){
+      let url = await this.imageService.uploadImage(file, null);
+      return url;
+    }
+    return null;
+    
   }
 }
