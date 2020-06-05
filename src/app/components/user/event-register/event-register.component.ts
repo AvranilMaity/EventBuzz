@@ -4,11 +4,12 @@ import { CommonService } from 'src/app/services/common.service';
 import { UserService } from 'src/app/services/user.service';
 import { IUser } from 'src/app/interfaces/user';
 import { FormGroup, FormControl } from '@angular/forms';
+import { IRegistration } from 'src/app/interfaces/registration';
 
 interface Attendee {
   name: string;
-  email: string;
-  type: string;
+  emailId: string;
+  ticketType: string;
 }
 interface Promocode {
   name: string;
@@ -24,28 +25,12 @@ interface Promocode {
 export class EventRegisterComponent implements OnInit {
   addFriendForm: FormGroup;
   promoCodeForm: FormGroup;
-  invitedUsers: Attendee[] = [
-    {
-      name: 'Avranil Maity',
-      email: 'avranilmaity97@gmail.com',
-      type: 'VIP',
-    },
-    {
-      name: 'Kingshuk Saha',
-      email: 'sahakingshuk@gmail.com',
-      type: 'VIP',
-    },
-    {
-      name: 'Yash Patel',
-      email: 'patelyash@gmail.com',
-      type: 'Regular',
-    },
-    {
-      name: 'Vishwesh Soman',
-      email: 'somvish@gmail.com',
-      type: 'Regular',
-    },
-  ];
+  invitedRegistrations: IRegistration[] = [];
+  invitedUsers: Attendee[] = [{
+    name:"Avranil",
+    ticketType:"VIP",
+    emailId:"fvgbhnj"
+  }];
   availablePromoCodes: Promocode[] = [
     {
       name: 'GO',
@@ -108,10 +93,14 @@ export class EventRegisterComponent implements OnInit {
   }
 
   initForm() {
+    let name;
+    let emailId;
+    let ticketType;
+
     this.addFriendForm = new FormGroup({
-      name: new FormControl(null),
-      email: new FormControl(null),
-      type: new FormControl(null),
+      name: new FormControl(name),
+      emailId: new FormControl(emailId),
+      ticketType: new FormControl(ticketType),
     });
     this.promoCodeForm = new FormGroup({
       promocode: new FormControl(null),
@@ -160,7 +149,7 @@ export class EventRegisterComponent implements OnInit {
     this.tvp = 0;
     this.totalDiscount = 0;
     for (let user of this.invitedUsers) {
-      if (user.type == 'Regular') {
+      if (user.ticketType == 'Regular') {
         this.totalAmount += this.regularfixedPrice;
         this.trp += this.regularfixedPrice;
         this.totalDiscount +=
@@ -178,23 +167,39 @@ export class EventRegisterComponent implements OnInit {
 
   onAddUser() {
     this.invitedUsers.push(this.addFriendForm.value);
+    console.log(this.addFriendForm.value);
+    
+    let registration: IRegistration = {
+      registrationId: null,
+      eventId: null,
+      userId: null,
+      name: this.addFriendForm.controls.name.value,
+      emailId: this.addFriendForm.controls.emailId.value,
+      ticketType: this.addFriendForm.controls.ticketType.value,
+      status: null,
+      transactionId: null,
+    }
+    this.invitedRegistrations.push(registration);
     this.calculatePrice();
   }
   onAddAsVIP() {
-    (<FormControl>this.addFriendForm.get('type')).setValue('VIP');
+    (<FormControl>this.addFriendForm.get('ticketType')).setValue('VIP');
   }
   onAddAsRegular() {
-    (<FormControl>this.addFriendForm.get('type')).setValue('Regular');
+    (<FormControl>this.addFriendForm.get('ticketType')).setValue('Regular');
   }
 
   onDeleteUser(id: number) {
     console.log(id);
     this.invitedUsers.splice(id, 1);
+    this.invitedRegistrations.splice(id,1)
     console.log(this.invitedUsers);
   }
 
   confirmRegistration() {
     console.log('navigate to event register');
+    console.log(this.invitedRegistrations);
+    console.log(this.invitedUsers);
     this.route.navigate(['/registereventconfirmation']);
   }
 }
