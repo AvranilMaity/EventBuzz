@@ -316,7 +316,7 @@
                   </select>
                 </div>
 
-                <div class="open-event" *ngIf="eventType.value == 'Open'">
+                <div class="open-event">
                   <div class="form-group">
                     <label for="organized-by" class="p-2">HEAD COUNT</label>
                     <input
@@ -373,11 +373,11 @@
                         height: 50px;
                         padding-bottom: 0px;
                       "
-                      [formGroup]="i"
                       *ngFor="
                         let ticketType of ticketTypesControl;
                         let i = index
                       "
+                      [formGroupName]="i"
                     >
                       <div
                         class="form-group col-md-6"

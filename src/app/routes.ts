@@ -10,6 +10,7 @@ import { EventDetailsComponent } from './components/user/event-details/event-det
 import { RegisterEventConfirmationComponent } from './components/user/register-event-confirmation/register-event-confirmation.component';
 import { BrowseEventsComponent } from './components/common/browse-events/browse-events.component';
 import { UserProfileComponent } from './components/user/user-profile/user-profile.component';
+import { ConfirmationComponent } from './components/common/confirmation/confirmation.component';
 
 export const appRoutes: Routes = [
   { path: 'landing', component: LandingComponent },
@@ -25,6 +26,7 @@ export const appRoutes: Routes = [
     component: RegisterEventConfirmationComponent,
   },
   { path: 'userprofile', component: UserProfileComponent },
+  { path: 'confirmation', component: ConfirmationComponent },
   { path: 'browseevents', component: BrowseEventsComponent },
   { path: '**', redirectTo: 'landing', pathMatch: 'full' },
 ];
