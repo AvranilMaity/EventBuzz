@@ -1,6 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import bsCustomFileInput from 'bs-custom-file-input';
+import { Router } from '@angular/router';
+import { CommonService } from 'src/app/services/common.service';
+import { ImageService } from 'src/app/services/image.service';
+import { IUser } from 'src/app/interfaces/user';
+import { IUserDetails } from 'src/app/interfaces/user-details';
 
 @Component({
   selector: 'app-user-profile',
@@ -16,6 +21,7 @@ export class UserProfileComponent implements OnInit {
   idType: string = 'Aadhar';
   password: string = '123456';
   files: File[] = [];
+  profilePicture: File[]=[];
   idList: string[] = ['Aadhar', 'PAN'];
   @ViewChild('labelImport')
   labelImport: ElementRef;
@@ -23,7 +29,7 @@ export class UserProfileComponent implements OnInit {
   oldPassword: string = '123456';
   idSoftCopy: FileList;
 
-  constructor() {}
+  constructor(private route: Router, private commonService: CommonService, private imageService: ImageService) {}
 
   initForm() {
     this.userProfileForm = new FormGroup({
@@ -33,27 +39,46 @@ export class UserProfileComponent implements OnInit {
     });
     this.changePasswordForm = new FormGroup({
       password: new FormControl(null),
-      confirmpassword: new FormControl(null),
+      confirmPassword: new FormControl(null),
       oldPassword: new FormControl(null),
     });
   }
   onChangePassword() {
     console.log(this.changePasswordForm.value);
+    let user:IUser = {
+      userId:null,
+      email: null,
+      password:this.changePasswordForm.controls.password.value,
+      isEnabled:false,
+    }
+    console.log(user);
   }
-  onEditProfile() {
+  async onEditProfile() {
     console.log(this.userProfileForm.value);
+    if (this.files != null) {
+      var url: string = await this.addImage(this.files[0]);
+    }
+    console.log(url);
+    let userDetails:IUserDetails = {
+      userId:null,
+      name: null,
+      phone:this.userProfileForm.controls.phone.value,
+      idType:this.userProfileForm.controls.idType.value,
+      idUrl: url
+    }
+    console.log(userDetails);
   }
   onFileChange(files: FileList) {
-    console.log(files);
-    this.idSoftCopy = files;
-    this.labelImport.nativeElement.innerText = Array.from(files)
-      .map((f) => f.name)
-      .join(', ');
+    this.files = Array.from(files)
   }
 
-  onSelect(event) {
+  async onSelect(event) {
     console.log(event);
-    this.files.push(...event.addedFiles);
+    this.profilePicture.push(...event.addedFiles);
+    if (this.profilePicture != null) {
+      var url: string = await this.addImage(this.profilePicture[0]);
+    }
+    console.log(url);
   }
 
   onRemove(event) {
@@ -63,5 +88,14 @@ export class UserProfileComponent implements OnInit {
   ngOnInit() {
     bsCustomFileInput.init();
     this.initForm();
+  }
+
+  async addImage(file: File): Promise<string> {
+    if(file!=undefined){
+      let url = await this.imageService.uploadImage(file, null);
+      return url;
+    }
+    return null;
+    
   }
 }
