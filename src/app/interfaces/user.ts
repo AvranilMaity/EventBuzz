@@ -4,5 +4,4 @@ export interface IUser{
     email: string;
     password: string;
     isEnabled: boolean;
-    userDetails: string;
 }
