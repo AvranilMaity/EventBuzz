@@ -3,7 +3,14 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
 import { UserService } from 'src/app/services/user.service';
 import { IEvent } from 'src/app/interfaces/event';
+import { FormGroup, FormControl } from '@angular/forms';
+import { IRegistration } from 'src/app/interfaces/registration';
 
+interface Attendee {
+  name: string;
+  emailId: string;
+  ticketType: string;
+}
 @Component({
   selector: 'app-event-details',
   templateUrl: './event-details.component.html',
@@ -11,16 +18,63 @@ import { IEvent } from 'src/app/interfaces/event';
 })
 export class EventDetailsComponent implements OnInit {
   eventData: IEvent;
-  constructor(private route: Router, private commonService: CommonService, private userService: UserService, private activatedRoute: ActivatedRoute) {}
+  isOwner: boolean = true;
+  addFriendForm: FormGroup;
+  invitedRegistrations: IRegistration[] = [];
+
+  invitedUsers: Attendee[] = [
+    {
+      name: 'Avranil',
+      ticketType: 'VIP',
+      emailId: 'fvgbhnj',
+    },
+  ];
+  constructor(
+    private route: Router,
+    private commonService: CommonService,
+    private userService: UserService,
+    private activatedRoute: ActivatedRoute
+  ) {}
+  initForm() {
+    this.addFriendForm = new FormGroup({
+      name: new FormControl(),
+      emailId: new FormControl(),
+      ticketType: new FormControl(),
+    });
+  }
   ngOnInit() {
     this.loadEvent();
     console.log(this.eventData);
   }
-  navigateToRegister(){
+  navigateToRegister() {
     console.log('navigate to event register');
     this.route.navigate(['/eventregister']);
   }
-  loadEvent(){
-    this.eventData = this.commonService.fetchEventbyId(this.activatedRoute.snapshot.data['eventId']);
+  loadEvent() {
+    this.eventData = this.commonService.fetchEventbyId(
+      this.activatedRoute.snapshot.data['eventId']
+    );
+  }
+  onAddUser() {
+    this.invitedUsers.push(this.addFriendForm.value);
+    console.log(this.addFriendForm.value);
+
+    let registration: IRegistration = {
+      registrationId: null,
+      eventId: null,
+      userId: null,
+      name: this.addFriendForm.controls.name.value,
+      emailId: this.addFriendForm.controls.emailId.value,
+      ticketType: this.addFriendForm.controls.ticketType.value,
+      status: null,
+      transactionId: null,
+    };
+    this.invitedRegistrations.push(registration);
+  }
+  onAddAsVIP() {
+    (<FormControl>this.addFriendForm.get('ticketType')).setValue('VIP');
+  }
+  onAddAsRegular() {
+    (<FormControl>this.addFriendForm.get('ticketType')).setValue('Regular');
   }
 }

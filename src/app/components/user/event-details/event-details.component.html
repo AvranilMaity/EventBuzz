@@ -1,11 +1,14 @@
 <app-user-navigation></app-user-navigation>
-<div class="container banner" style="background-image: url({{eventData.eventImageUrl}});">
+<div
+  class="container banner"
+  style="background-image: url({{ eventData.eventImageUrl }});"
+>
   <div class="page-data">
     <div class="row">
       <div class="col-md-8">
         <br /><br /><br /><br /><br />
         <p class="event-title">
-          {{eventData.eventName}}
+          {{ eventData.eventName }}
         </p>
         <p class="event-organizer">By Avranil Maity</p>
         <br />
@@ -15,7 +18,7 @@
         </p>
         <p class="event-map">View Map</p>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4" *ngIf="isOwner == false">
         <br /><br /><br /><br />
         <div class="holder">
           <div class="card">
@@ -23,7 +26,13 @@
             <p class="date-time-data">Saturday, Sep 24, 2019 at 8:30 PM</p>
             <br />
             <div class="button">
-              <button class="button-1" type="button" (click)="navigateToRegister()">Book Now</button>
+              <button
+                class="button-1"
+                type="button"
+                (click)="navigateToRegister()"
+              >
+                Book Now
+              </button>
             </div>
             <div class="button">
               <button
@@ -68,11 +77,109 @@
           To: 24<sup>nd</sup> May 2020 at 12:30 am
         </p>
         <br />
-        <p class="page-data-title">How to contact the organizer?</p>
-        <p class="page-data-content">
-          Please visit www.torbaaperbiyediyedebo.com and refer to the FAQ
-          section for all questions and contact information.
-        </p>
+        <div class="" *ngIf="isOwner == false">
+          <p class="page-data-title">How to contact the organizer?</p>
+          <p class="page-data-content">
+            Please visit www.torbaaperbiyediyedebo.com and refer to the FAQ
+            section for all questions and contact information.
+          </p>
+        </div>
+        <div class="" *ngIf="isOwner == true">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <h6 class="page-data-title">
+                  People Attending
+                </h6>
+                <div class="user-container" style="margin-top: 20px;">
+                  <div *ngFor="let user of invitedUsers; let i = index">
+                    <span
+                      class="user-tag"
+                      *ngIf="user.ticketType == 'VIP'"
+                      style="background-color: #fdad5d; color: white;"
+                    >
+                      <span class="user-tag-data">
+                        {{ user.name }}
+                      </span>
+                      <img
+                        src="../../../../assets/images/remove_button_white.svg"
+                        class="close-button"
+                        alt=""
+                        (click)="onDeleteUser(i)"
+                      />
+                    </span>
+                    <span class="user-tag" *ngIf="user.ticketType == 'Regular'">
+                      <span class="user-tag-data">
+                        {{ user.name }}
+                      </span>
+                      <img
+                        src="../../../../assets/images/remove_button.svg"
+                        class="close-button"
+                        alt=""
+                        (click)="onDeleteUser(i)"
+                      />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="margin-top: 50px;">
+            <div class="col-md-12" style="margin-top: 20px;">
+              <form [formGroup]="addFriendForm" (ngSubmit)="onAddUser()">
+                <h6 class="page-data-title">
+                  Invite more people
+                </h6>
+                <div class="form-group">
+                  <h6 class="p-2">Friend's name</h6>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    placeholder="James Bond"
+                    formControlName="name"
+                  />
+                </div>
+                <div class="form-group">
+                  <h6 class="p-2">Email ID</h6>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="someone@example.com"
+                    formControlName="emailId"
+                  />
+                </div>
+                <br />
+                <div
+                  class="btn-section"
+                  style="display: flex; justify-content: start;"
+                >
+                  <div class="button" style="margin-right: 10px;">
+                    <button
+                      class="button-reg p-2"
+                      type="submit"
+                      name="Regular"
+                      (click)="onAddAsRegular()"
+                    >
+                      Add as Regular
+                    </button>
+                  </div>
+                  <div class="button">
+                    <button
+                      class="button-vip p-2"
+                      type="submit"
+                      name="VIP"
+                      (click)="onAddAsVIP()"
+                    >
+                      Add as VIP
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="col-md-4">
