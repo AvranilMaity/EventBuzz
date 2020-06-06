@@ -1,0 +1,21 @@
+.container-fluid {
+  background-color: #0b0434;
+  padding: 100px 50px 50px 50px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.page-data {
+  padding-left: 60px;
+  padding-right: 60px;
+  color: white;
+}
+.link {
+  color: #cfcfcf;
+  font-size: 20px;
+  line-height: 45px;
+}
+.footer {
+  color: #a1a1a1;
+}
