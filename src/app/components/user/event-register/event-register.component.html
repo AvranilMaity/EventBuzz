@@ -53,7 +53,7 @@
               class="form-control"
               id="email"
               placeholder="someone@example.com"
-              formControlName="email"
+              formControlName="emailId"
             />
           </div>
           <br />
@@ -94,7 +94,7 @@
             <div *ngFor="let user of invitedUsers; let i = index">
               <span
                 class="user-tag"
-                *ngIf="user.type == 'VIP'"
+                *ngIf="user.ticketType == 'VIP'"
                 style="background-color: #fdad5d; color: white;"
               >
                 <span class="user-tag-data">
@@ -107,7 +107,7 @@
                   (click)="onDeleteUser(i)"
                 />
               </span>
-              <span class="user-tag" *ngIf="user.type == 'Regular'">
+              <span class="user-tag" *ngIf="user.ticketType == 'Regular'">
                 <span class="user-tag-data">
                   {{ user.name }}
                 </span>
@@ -257,7 +257,7 @@
         </div>
         <div class="col-md-5">
           <div class="button" style="top: 18%; left: -10%; position: relative;">
-            <button class="button-pay p-2" type="button">
+            <button class="button-pay p-2" type="button" (click)="confirmRegistration()">
               Pay
             </button>
           </div>
