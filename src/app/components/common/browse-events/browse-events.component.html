@@ -17,9 +17,9 @@
   <div class="page-data">
     <form action="">
       <div class="row search">
-        <div class="col-md-3">
+        <div class="col-md-4">
           <div class="form-group">
-            <h6 class="p-2">Event Type</h6>
+            <h6 class="p-2">Event Category</h6>
             <select class="form-control" id="eventType" #eventType>
               <option value="" disabled selected>--Select--</option>
               <option *ngFor="let category of categories">
@@ -28,13 +28,13 @@
             </select>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
           <div class="form-group">
             <h6 class="p-2">After</h6>
             <input class="form-control" type="date" name="" id="" />
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
           <div class="form-group">
             <h6 class="p-2">Before</h6>
             <input
@@ -46,13 +46,6 @@
             />
           </div>
         </div>
-        <div class="col-md-2">
-          <div class="search-button" style="margin-left: 5px;">
-            <button class="btn-search p-2" type="submit">
-              <img src="../../../../assets/images/search.svg" alt="" />
-            </button>
-          </div>
-        </div>
       </div>
     </form>
 
@@ -61,11 +54,17 @@
         <p class="page-data-title">Upcoming Events</p>
         <br /><br />
         <div class="row">
-          <div class="cards-container" *ngFor="let event of allEvents">
-            <app-event-card
-              class="col-md-4"
-              [eventData]="event"
-            ></app-event-card>
+          <div
+            class="cards-container col-md-4"
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              vertical-align: middle;
+            "
+            *ngFor="let event of allEvents"
+          >
+            <app-event-card [eventData]="event"></app-event-card>
           </div>
         </div>
       </div>
