@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-8 add-data">
+  <div class="col-md-4 add-data">
     <div class="row" style="border: 0px solid;">
       <div class="col-md-2">
         <div class="back">
@@ -11,31 +11,15 @@
           />
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-10">
         <h2 style="font-size: 30px;">
           Bring your <br />
           <span style="font-size: 45px; color: #f2b070;">friends!</span>
         </h2>
       </div>
-      <div class="col-md-3" style="text-align: end;">
-        <h1 style="font-weight: 200; font-size: 25px;">
-          Seats <br />
-          Remaining
-        </h1>
-      </div>
-      <div class="col-md-2 seats">
-        <div class="vip" style="margin-right: 10px;">
-          <div class="count">26</div>
-          <div class="name">VIP</div>
-        </div>
-        <div class="reg">
-          <div class="count">163</div>
-          <div class="name">REGULAR</div>
-        </div>
-      </div>
     </div>
     <div class="row" style="margin-left: 15px; margin-top: 50px;">
-      <div class="col-md-5">
+      <div class="col-md-12">
         <form [formGroup]="addFriendForm" (ngSubmit)="onAddUser()">
           <div class="form-group">
             <h6 class="p-2">Friend's name</h6>
@@ -85,8 +69,29 @@
           </div>
         </form>
       </div>
-      <div class="col-md-1"></div>
-      <div class="col-md-6">
+    </div>
+  </div>
+  <div class="col-md-4 mid-sec">
+    <div class="row">
+      <div class="col-md-7" style="text-align: end;">
+        <h1 style="font-weight: 200; font-size: 25px;">
+          Seats <br />
+          Remaining
+        </h1>
+      </div>
+      <div class="col-md-5 seats">
+        <div class="vip" style="margin-right: 10px;">
+          <div class="count">26</div>
+          <div class="name">VIP</div>
+        </div>
+        <div class="reg">
+          <div class="count">163</div>
+          <div class="name">REGULAR</div>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 50px;">
+      <div class="col-md-12">
         <div class="form-group">
           <h6 class="p-2">
             People attending
@@ -129,63 +134,98 @@
     <h2 class="title">Billing Details</h2>
     <div class="bill">
       <div class="row">
-        <div class="col-md-7 bill-header">Ticket Type</div>
-        <div class="col-md-5 bill-header text-right">Price</div>
-      </div>
-      <hr />
-      <div class="row">
-        <div class="col-md-7 bill-data">
-          Regular
-          <span style="font-size: 12px; color: #7848f4;"
-            >&#8377; {{ regularfixedPrice | number: "1.0-0" }}</span
-          >
-        </div>
-        <div class="col-md-5 bill-data text-right" style="font-weight: 500;">
-          &#8377; {{ trp | number: "1.0-0" }}
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-7 bill-data">
-          VIP
-          <span style="font-size: 12px; color: #7848f4;"
-            >&#8377; {{ vipfixedPrice | number: "1.0-0" }}</span
-          >
-        </div>
-        <div class="col-md-5 bill-data text-right" style="font-weight: 500;">
-          &#8377; {{ tvp | number: "1.0-0" }}
+        <div
+          class="col-md-12"
+          style="display: flex; justify-content: space-between;"
+        >
+          <div class="bill-header">Ticket Type</div>
+          <div class="bill-header">Price</div>
         </div>
       </div>
       <hr />
       <div class="row">
-        <div class="col-md-6 bill-footer">
-          Total Amount
+        <div
+          class="col-md-12"
+          style="display: flex; justify-content: space-between;"
+        >
+          <div class="bill-data">
+            Regular
+            <span style="font-size: 12px; color: #7848f4;"
+              >&#8377; {{ regularfixedPrice | number: "1.0-0" }}</span
+            >
+          </div>
+          <div class="bill-data" style="font-weight: 500;">
+            &#8377; {{ trp | number: "1.0-0" }}
+          </div>
         </div>
-        <div class="col-md-6 bill-footer text-right" style="font-weight: 500;">
-          &#8377; {{ totalAmount | number: "1.0-0" }}
+      </div>
+      <div class="row">
+        <div
+          class="col-md-12"
+          style="display: flex; justify-content: space-between;"
+        >
+          <div class="bill-data">
+            VIP
+            <span style="font-size: 12px; color: #7848f4;"
+              >&#8377; {{ vipfixedPrice | number: "1.0-0" }}</span
+            >
+          </div>
+          <div class="bill-data" style="font-weight: 500;">
+            &#8377; {{ tvp | number: "1.0-0" }}
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div
+          class="col-md-12"
+          style="display: flex; justify-content: space-between;"
+        >
+          <div class="bill-footer">
+            Total Amount
+          </div>
+          <div class="bill-footer" style="font-weight: 500;">
+            &#8377; {{ totalAmount | number: "1.0-0" }}
+          </div>
         </div>
       </div>
       <div class="row" style="margin-top: 2px;">
-        <div class="col-md-8 bill-taxes">
-          CGST
-        </div>
-        <div class="col-md-4 bill-taxes text-right" style="font-weight: 500;">
-          &#8377; {{ (cgst * totalAmount) / 100 | number: "1.0-0" }}
-        </div>
-      </div>
-      <div class="row" style="margin-top: 2px;">
-        <div class="col-md-8 bill-taxes">
-          SGST
-        </div>
-        <div class="col-md-4 bill-taxes text-right" style="font-weight: 500;">
-          &#8377; {{ (sgst * totalAmount) / 100 | number: "1.0-0" }}
+        <div
+          class="col-md-12"
+          style="display: flex; justify-content: space-between;"
+        >
+          <div class="bill-taxes">
+            CGST
+          </div>
+          <div class="bill-taxes" style="font-weight: 500;">
+            &#8377; {{ (cgst * totalAmount) / 100 | number: "1.0-0" }}
+          </div>
         </div>
       </div>
       <div class="row" style="margin-top: 2px;">
-        <div class="col-md-8 bill-taxes">
-          EventBuzz Charges
+        <div
+          class="col-md-12"
+          style="display: flex; justify-content: space-between;"
+        >
+          <div class="bill-taxes">
+            SGST
+          </div>
+          <div class="bill-taxes" style="font-weight: 500;">
+            &#8377; {{ (sgst * totalAmount) / 100 | number: "1.0-0" }}
+          </div>
         </div>
-        <div class="col-md-4 bill-taxes text-right" style="font-weight: 500;">
-          &#8377; {{ (service * totalAmount) / 100 | number: "1.0-0" }}
+      </div>
+      <div class="row" style="margin-top: 2px;">
+        <div
+          class="col-md-12"
+          style="display: flex; justify-content: space-between;"
+        >
+          <div class="bill-taxes">
+            EventBuzz Charges
+          </div>
+          <div class="bill-taxes" style="font-weight: 500;">
+            &#8377; {{ (service * totalAmount) / 100 | number: "1.0-0" }}
+          </div>
         </div>
       </div>
       <div class="row promo" *ngIf="!promoApplied">
@@ -245,22 +285,43 @@
       </div>
     </div>
     <div class="final-bill">
-      <div class="row final-amount" style="">
-        <div class="col-md-7" style="justify-content: space-between;">
-          <div style="font-size: 20px; font-weight: 300;">
-            <span>
+      <div class="row final-amount">
+        <div class="col-md-12" style="display: flex; justify-content: center;">
+          <div
+            class=""
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: space-between;
+              margin-right: 20px;
+            "
+          >
+            <div style="font-size: 20px; font-weight: 300;">
               Amount Payable
-            </span>
+            </div>
+            <div style="color: #fdad5d;">
+              <h2>&#8377; {{ finalAmount | number: "1.0-0" }}</h2>
+            </div>
           </div>
-          <div style="color: #fdad5d;">
-            <h2>&#8377; {{ finalAmount | number: "1.0-0" }}</h2>
-          </div>
-        </div>
-        <div class="col-md-5">
-          <div class="button" style="top: 18%; left: -10%; position: relative;">
-            <button class="button-pay p-2" type="button" (click)="confirmRegistration()">
-              Pay
-            </button>
+          <div
+            class=""
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            <div class="button">
+              <button
+                class="button-pay p-2"
+                type="button"
+                (click)="confirmRegistration()"
+              >
+                Pay
+              </button>
+            </div>
           </div>
         </div>
       </div>

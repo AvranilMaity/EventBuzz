@@ -8,6 +8,12 @@
   background-color: #7848f4;
   color: white;
 }
+.mid-sec {
+  height: 100vh;
+  padding: 50px;
+  background-color: #7848f4;
+  color: white;
+}
 .back {
   border-radius: 50%;
   cursor: pointer;
@@ -22,7 +28,7 @@
 }
 
 .title {
-  font-weight: 700;
+  font-weight: 500;
 }
 .seats {
   border-left: 2px solid #f2b070;
@@ -32,7 +38,7 @@
 }
 .count {
   font-size: 45px;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 0px;
   line-height: 35px;
   color: #f2b070;
@@ -72,13 +78,13 @@ input[type="number"] {
 }
 .button-reg {
   height: 50px;
-  width: 150px;
+  width: 120px;
   background: none;
   border-radius: 5px;
   background-color: #7848f4;
   border: 1px solid #fff;
   color: white;
-  font-weight: 700;
+  font-weight: 500;
 }
 .button-reg:focus {
   outline: none;
@@ -88,13 +94,13 @@ input[type="number"] {
 }
 .button-vip {
   height: 50px;
-  width: 150px;
+  width: 120px;
   background: none;
   border-radius: 5px;
   background-color: #ec9a48;
   border: 1px solid #ec9a48;
   color: white;
-  font-weight: 700;
+  font-weight: 500;
 }
 .button-vip:focus {
   outline: none;
@@ -200,7 +206,7 @@ input[type="number"] {
   background-color: #ec9a48;
   border: 1px solid #ec9a48;
   color: white;
-  font-weight: 700;
+  font-weight: 500;
 }
 .button-pay:focus {
   outline: none;
@@ -216,7 +222,7 @@ input[type="number"] {
   background-color: #7848f4;
   border: 1px solid #7848f4;
   color: white;
-  font-weight: 700;
+  font-weight: 500;
 }
 .button-apply:focus {
   outline: none;
