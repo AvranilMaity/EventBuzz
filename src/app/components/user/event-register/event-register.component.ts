@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
 import { UserService } from 'src/app/services/user.service';
 import { IUser } from 'src/app/interfaces/user';
 import { FormGroup, FormControl } from '@angular/forms';
 import { IRegistration } from 'src/app/interfaces/registration';
+import { IEvent } from 'src/app/interfaces/event';
 
 interface Attendee {
   name: string;
@@ -23,6 +24,8 @@ interface Promocode {
   styleUrls: ['./event-register.component.css'],
 })
 export class EventRegisterComponent implements OnInit {
+  eventData: IEvent;
+  eventId: string;
   addFriendForm: FormGroup;
   promoCodeForm: FormGroup;
   invitedRegistrations: IRegistration[] = [];
@@ -73,10 +76,12 @@ export class EventRegisterComponent implements OnInit {
   constructor(
     private route: Router,
     private commonService: CommonService,
-    private userService: UserService
+    private userService: UserService,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit() {
+    this.loadEvent();
     this.initForm();
     this.regularfixedPrice = 700;
     this.vipfixedPrice = 1200;
@@ -90,6 +95,13 @@ export class EventRegisterComponent implements OnInit {
     this.tvp = 0;
     this.totalDiscount = 0;
     this.calculatePrice();
+  }
+
+  loadEvent(){
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.eventId = (params.get('eventId'));
+    });
+    //this.eventData = this.commonService.fetchEventbyId(this.eventData.eventId);
   }
 
   initForm() {
@@ -200,6 +212,12 @@ export class EventRegisterComponent implements OnInit {
     console.log('navigate to event register');
     console.log(this.invitedRegistrations);
     console.log(this.invitedUsers);
-    this.route.navigate(['/registereventconfirmation']);
+    this.route.navigate(['/confirmation',this.eventId]);
+  }
+
+  backToEventPage(){
+    console.log('navigate to event page');
+    this.route.navigate(['/eventdetails',this.eventId]);
+
   }
 }

@@ -11,6 +11,7 @@ import { IEvent } from 'src/app/interfaces/event';
 })
 export class EventDetailsComponent implements OnInit {
   eventData: IEvent;
+  eventId: string;
   constructor(private route: Router, private commonService: CommonService, private userService: UserService, private activatedRoute: ActivatedRoute) {}
   ngOnInit() {
     this.loadEvent();
@@ -18,9 +19,13 @@ export class EventDetailsComponent implements OnInit {
   }
   navigateToRegister(){
     console.log('navigate to event register');
-    this.route.navigate(['/eventregister']);
+    console.log(this.activatedRoute.snapshot.data['eventId']);
+    this.route.navigate(['/eventregister',this.eventId]);
   }
   loadEvent(){
-    this.eventData = this.commonService.fetchEventbyId(this.activatedRoute.snapshot.data['eventId']);
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.eventId = (params.get('eventId'));
+    });
+    //this.eventData = this.commonService.fetchEventbyId(this.eventData.eventId);
   }
 }
