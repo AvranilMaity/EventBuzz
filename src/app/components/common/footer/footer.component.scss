@@ -19,3 +19,11 @@
 .footer {
   color: #a1a1a1;
 }
+.social {
+  display: flex;
+  justify-content: start;
+}
+.social img {
+  width: 24px;
+  margin-right: 15px;
+}
