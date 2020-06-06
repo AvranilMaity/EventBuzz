@@ -1,14 +1,11 @@
 <app-user-navigation></app-user-navigation>
-<div
-  class="container banner"
-  style="background-image: url({{ eventData.eventImageUrl }});"
->
+<div class="container banner">
   <div class="page-data">
     <div class="row">
       <div class="col-md-8">
         <br /><br /><br /><br /><br />
         <p class="event-title">
-          {{ eventData.eventName }}
+          {{ eventData?.eventName }}
         </p>
         <p class="event-organizer">By Avranil Maity</p>
         <br />
@@ -77,20 +74,18 @@
           To: 24<sup>nd</sup> May 2020 at 12:30 am
         </p>
         <br />
-        <div class="" *ngIf="isOwner == false">
+        <div *ngIf="!isOwner">
           <p class="page-data-title">How to contact the organizer?</p>
           <p class="page-data-content">
             Please visit www.torbaaperbiyediyedebo.com and refer to the FAQ
             section for all questions and contact information.
           </p>
         </div>
-        <div class="" *ngIf="isOwner == true">
+        <div *ngIf="isOwner">
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <h6 class="page-data-title">
-                  People Attending
-                </h6>
+                <h6 class="page-data-title">People Attending</h6>
                 <div class="user-container" style="margin-top: 20px;">
                   <div *ngFor="let user of invitedUsers; let i = index">
                     <span
@@ -101,23 +96,11 @@
                       <span class="user-tag-data">
                         {{ user.name }}
                       </span>
-                      <img
-                        src="../../../../assets/images/remove_button_white.svg"
-                        class="close-button"
-                        alt=""
-                        (click)="onDeleteUser(i)"
-                      />
                     </span>
                     <span class="user-tag" *ngIf="user.ticketType == 'Regular'">
                       <span class="user-tag-data">
                         {{ user.name }}
                       </span>
-                      <img
-                        src="../../../../assets/images/remove_button.svg"
-                        class="close-button"
-                        alt=""
-                        (click)="onDeleteUser(i)"
-                      />
                     </span>
                   </div>
                 </div>

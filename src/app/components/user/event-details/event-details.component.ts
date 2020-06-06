@@ -44,6 +44,8 @@ export class EventDetailsComponent implements OnInit {
     });
   }
   ngOnInit() {
+    this.initForm();
+
     this.loadEvent();
     console.log(this.eventData);
   }
