@@ -17,7 +17,6 @@ import { AddEventConfirmationComponent } from './components/organizer/add-event-
 import { LandingComponent } from './components/landing/landing.component';
 import { CommonNavigationComponent } from './components/navigation/common-navigation/common-navigation.component';
 import { UserNavigationComponent } from './components/navigation/user-navigation/user-navigation.component';
-import { EventDetailsOrgComponent } from './components/organizer/event-details-org/event-details-org.component';
 import { appRoutes } from './routes';
 import { EventDetailsComponent } from './components/user/event-details/event-details.component';
 import { DashboardComponent } from './components/common/dashboard/dashboard.component';
@@ -40,7 +39,6 @@ import { ConfirmationComponent } from './components/common/confirmation/confirma
     LandingComponent,
     CommonNavigationComponent,
     UserNavigationComponent,
-    EventDetailsOrgComponent,
     DashboardComponent,
     BrowseEventsComponent,
     UserProfileComponent,

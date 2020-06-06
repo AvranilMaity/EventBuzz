@@ -1,39 +1,49 @@
 .page-data {
-    padding-left: 60px;
-    padding-right: 60px;
-  }
-  .button {
-    text-align: center;
-  }
-  .button-2 {
-    height: 40px;
-    width: 120px;
-    background: none;
-    border-radius: 5px;
-    background-color: #eeeeee;
-    border: 1px solid rgba(0, 0, 0, 0);
-    color: #7848f4;
-    font-weight: 500;
-    font-size: 14px;
-    margin: 10px;
-  }
-  .button-2:hover{
-    background-color: #7848f4;
-    color: white;
-    
-  }
-  .button-3 {
-    height: 40px;
-    width: 120px;
-    background: none;
-    border-radius: 5px;
-    background-color: #ffffff;
-    border: 1px solid rgba(0, 0, 0, 0);
-    color: #000000;
-    font-weight: 500;
-    font-size: 14px;
-    margin: 10px;
-  }
-  .button-3:hover{
-    background-color: #eeeeee;
-  }
+  padding: 0px 60px 0px 60px;
+}
+.navbar {
+  padding: 0px;
+}
+.button {
+  text-align: center;
+}
+.button-2 {
+  height: 40px;
+  width: 120px;
+  background: none;
+  border-radius: 5px;
+  background-color: #eeeeee;
+  border: 1px solid #eeeeee;
+  color: #7848f4;
+  font-weight: 500;
+  font-size: 14px;
+  margin: 10px;
+}
+.button-2:hover {
+  background-color: #7848f4;
+  color: white;
+}
+.button-2:focus {
+  background-color: #926bf7;
+  outline: none;
+}
+.button-3 {
+  height: 40px;
+  width: 120px;
+  background: none;
+  border-radius: 5px;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  color: #000000;
+  font-weight: 500;
+  font-size: 14px;
+  margin: 10px;
+}
+.button-3:hover {
+  background-color: #eeeeee;
+  border: 1px solid #eeeeee;
+}
+.button-3:focus {
+  outline: none;
+  background-color: #e1e1e1;
+}

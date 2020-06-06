@@ -2,6 +2,9 @@
   padding-left: 60px;
   padding-right: 60px;
 }
+.navbar {
+  padding: 0px;
+}
 .banner {
   margin-top: 20px;
   margin-bottom: 40px;
