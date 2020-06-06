@@ -38,10 +38,10 @@ input[type="number"] {
 .search {
   display: flex;
   justify-content: center;
-  margin-left: 60px;
-  margin-right: 60px;
+  margin-left: 100px;
+  margin-right: 100px;
   border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   padding: 10px 10px 10px 10px;
   position: relative;
   margin-top: -60px;
@@ -67,4 +67,8 @@ input[type="number"] {
 }
 .btn-search:hover {
   background: #875af8;
+}
+h6 {
+  line-height: 15px;
+  font-size: 15px;
 }
