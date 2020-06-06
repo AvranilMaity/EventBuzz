@@ -6,6 +6,21 @@
   align-items: center;
   background-color: #f6f6f6;
 }
+.button {
+  text-align: center;
+}
+.button-2 {
+  height: 40px;
+  width: 120px;
+  background: none;
+  border-radius: 5px;
+  background-color: #7848f4;
+  border: 1px solid rgba(0, 0, 0, 0);
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 14px;
+  margin: 10px;
+}
 .ticket {
   width: 70vw;
   height: 60vh;
@@ -16,6 +31,7 @@
   display: flex;
   flex-direction: column;
   padding: 60px;
+  height: 100%;
   background-color: #7848f4;
   border-radius: 5px 0px 0px 5px;
   color: white;
@@ -25,6 +41,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
   padding: 40px;
   background-color: white;
   border-radius: 0px 5px 5px 0px;
