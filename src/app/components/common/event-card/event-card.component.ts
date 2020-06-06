@@ -12,12 +12,17 @@ import { IEvent } from 'src/app/interfaces/event';
 })
 export class EventCardComponent implements OnInit {
   @Input() eventData: IEvent;
-  constructor(private route: Router, private commonService: CommonService,
-              private userService: UserService, private organizerService: OrganizerService) {}
+  eventLocation: string = 'Pune, Maharashtra';
+  constructor(
+    private route: Router,
+    private commonService: CommonService,
+    private userService: UserService,
+    private organizerService: OrganizerService
+  ) {}
 
   ngOnInit() {}
 
-  navigateToEventDetails(){
+  navigateToEventDetails() {
     console.log('navigate to event details');
     this.route.navigate(['/eventdetails', this.eventData.eventId]);
   }

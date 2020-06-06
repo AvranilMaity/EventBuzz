@@ -1,17 +1,147 @@
-<div class="container">
+<div class="container-fluid">
   <div class="confirmation">
-    <div class="row">
-      <div class="col-md-8">
-        <div class="or">
+    <div class="row ticket">
+      <div class="col-md-6 main">
+        <div class="row event-title-main">
           <div class="col-md-12">
-            <div class="event-title-main"></div>
-            <div class="event-locaton-main"></div>
+            {{ eventTitle }}
+          </div>
+        </div>
+        <div class="row event-location-main">
+          <div class="col-md-9">
+            <p>{{ eventLocation }}</p>
+          </div>
+        </div>
+        <div class="row event-date-main">
+          <div class="col-md-3 date-time">
+            <div class="date">
+              <div class="day">{{ eventDate | date: "dd" }}</div>
+              <div class="month-year">
+                <div class="month">
+                  {{ eventDate | date: "MMM" | uppercase }}
+                </div>
+                <div class="year">{{ eventDate | date: "yyyy" }}</div>
+              </div>
+            </div>
+            <div class="time">
+              {{ eventDate | date: "h:mm a" }}
+            </div>
+          </div>
+          <div
+            class="col-md-3 separator"
+            style="display: flex; align-items: center; justify-content: center;"
+          >
+            <img
+              src="../../../../assets/images/horizontal_rule.svg"
+              style="width: 80%;"
+              alt=""
+            />
+          </div>
+          <div class="col-md-3 date-time">
+            <div class="date">
+              <div class="day">{{ eventDate | date: "dd" }}</div>
+              <div class="month-year">
+                <div class="month">
+                  {{ eventDate | date: "MMM" | uppercase }}
+                </div>
+                <div class="year">{{ eventDate | date: "yyyy" }}</div>
+              </div>
+            </div>
+            <div class="time">
+              {{ eventDate | date: "h:mm a" }}
+            </div>
           </div>
         </div>
 
-        <div class="event-footer-main"></div>
+        <div class="row event-logo-main">
+          <div class="col-md-3">
+            <img src="../../../../assets/images/white_3.png" alt="" />
+          </div>
+        </div>
       </div>
-      <div class="col-md-4"></div>
+      <div class="col-md-2 barcode-holder">
+        <div class="barcode">
+          <div style="font-size: 20px; font-weight: 500;">{{ username }}</div>
+          <h6 style="color: #2caffe;">{{ ticketType }}</h6>
+          <br />
+          <img
+            src="../../../../assets/images/barcode.svg"
+            alt=""
+            style="width: 150px;"
+          />
+        </div>
+      </div>
+      <div class="col-md-4 sub">
+        <div class="row event-title-sub">
+          <div class="col-md-12">
+            <div style="font-size: 25px; font-weight: 500;">
+              {{ eventTitle }}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div
+            class="col-md-12"
+            style="
+              display: flex;
+              justify-content: space-between;
+              padding: 0px;
+              margin: 0px;
+            "
+          >
+            <div class="date-time" style="margin: 10px 20px 10px 10px;">
+              <div class="date">
+                <div class="day">{{ eventDate | date: "dd" }}</div>
+                <div class="month-year">
+                  <div class="month">
+                    {{ eventDate | date: "MMM" | uppercase }}
+                  </div>
+                  <div class="year">{{ eventDate | date: "yyyy" }}</div>
+                </div>
+              </div>
+              <div class="time">
+                {{ eventDate | date: "h:mm a" }}
+              </div>
+            </div>
+            <div class="date-time" style="margin: 10px 10px 10px 20px;">
+              <div class="date">
+                <div class="day">{{ eventDate | date: "dd" }}</div>
+                <div class="month-year">
+                  <div class="month">
+                    {{ eventDate | date: "MMM" | uppercase }}
+                  </div>
+                  <div class="year">{{ eventDate | date: "yyyy" }}</div>
+                </div>
+              </div>
+              <div class="time">
+                {{ eventDate | date: "h:mm a" }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row event-logo-sub">
+          <div
+            class="col-md-12"
+            style="
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+            "
+          >
+            <img src="../../../../assets/images/logo.svg" alt="" />
+            <div style="font-size: 18px; font-weight: 500; margin-top: 40px;">
+              {{ username }}
+            </div>
+            <h6 style="color: #2caffe; font-size: 13px;">{{ ticketType }}</h6>
+          </div>
+        </div>
+        <div class="row event-barcode-sub">
+          <div class="col-md-12">
+            <img src="../../../../assets/images/barcode_black.svg" alt="" />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

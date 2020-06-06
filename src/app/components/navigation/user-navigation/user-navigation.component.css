@@ -5,16 +5,16 @@
 .banner {
   margin-top: 20px;
   margin-bottom: 40px;
-  background-color: #FF5B80;
+  background-color: #ff5b80;
   background-size: cover;
   height: 8vh;
   border-radius: 5px;
   color: white;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  display: -webkit-flex;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 .button {
   text-align: center;

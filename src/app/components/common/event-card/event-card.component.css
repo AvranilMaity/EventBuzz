@@ -1,8 +1,8 @@
 .card {
-  width: 300px;
+  width: 290px;
   display: grid;
-  grid-template-columns: 300px;
-  grid-template-rows: 210px 130px;
+  grid-template-columns: 290px;
+  grid-template-rows: 210px 120px;
   grid-template-areas: "image" "text";
   text-align: center;
   background-color: white;
@@ -13,47 +13,62 @@
 .card-image {
   grid-area: image;
   background-size: cover;
-  border-radius: 8px 8px 0px 0px;
+  border-radius: 5px 5px 0px 0px;
 }
 .card-text {
   grid-area: text;
   background-color: white;
   color: black;
-  border-radius: 0px 0px 8px 8px;
+  border-radius: 0px 0px 5px 5px;
   display: grid;
-  grid-template-columns: 60px 240px;
-  grid-template-rows: 130px;
+  grid-template-columns: 100px 190px;
+  grid-template-rows: 120px;
+  border-radius: 5px;
+  position: relative;
+  margin-top: -5px;
 }
 .card-text .content {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  border-radius: 5px;
 }
 
 .content-data {
   margin-right: 20px;
 }
 
+.date-block {
+  margin: 25px 25px 25px 25px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  width: ;
+}
+
 .month {
-  color: #6a7c94;
+  color: #2caffe;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 18px;
+  line-height: 20px;
 }
 .day {
-  color: #131315;
-  font-weight: 800;
-  font-size: 25px;
+  color: #7848f4;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 32px;
 }
 
 .about {
   text-align: left;
-  color: #6a7c94;
+  color: #acacac;
   font-weight: 500;
   font-size: 15px;
 }
 .title {
+  width: 70%;
+  line-height: 28px;
   text-align: left;
   color: #131315;
-  font-weight: 800;
-  font-size: 20px;
+  font-weight: 500;
+  font-size: 25px;
 }

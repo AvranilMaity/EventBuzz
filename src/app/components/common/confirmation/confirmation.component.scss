@@ -1,0 +1,124 @@
+.container-fluid {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6f6f6;
+}
+.ticket {
+  width: 70vw;
+  height: 60vh;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 60px;
+  background-color: #7848f4;
+  border-radius: 5px 0px 0px 5px;
+  color: white;
+}
+.sub {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background-color: white;
+  border-radius: 0px 5px 5px 0px;
+  color: black;
+}
+
+.event-title-main {
+  font-weight: 500;
+  font-size: 38px;
+}
+.event-location-main {
+  margin-top: 12px;
+  font-size: 13px;
+  padding-top: 0px;
+}
+.event-logo-main {
+  margin-top: auto;
+}
+.event-logo-main img {
+  width: 10vw;
+}
+.event-date-main {
+  margin-top: 10px;
+}
+.date-time {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.date {
+  display: flex;
+  justify-content: space-between;
+}
+.day {
+  font-weight: 400;
+  font-size: 45px;
+}
+.month-year {
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.month {
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 21px;
+}
+.year {
+  line-height: 16px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #2caffe;
+}
+
+.time {
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.event-title-sub h4 {
+  font-weight: 700;
+  text-align: center;
+}
+.event-logo-sub {
+  margin-top: 15px;
+}
+.event-logo-sub img {
+  width: 8vw;
+}
+.event-barcode-sub {
+  margin-top: auto;
+  text-align: center;
+}
+
+.event-barcode-sub img {
+  width: 10vw;
+}
+
+.barcode-holder {
+  background-color: #7848f4;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-right: 60px;
+}
+.barcode {
+  transform: rotateZ(270deg);
+  width: auto;
+  text-align: center;
+}

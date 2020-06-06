@@ -1,1 +1,4 @@
 /* Add application styles & imports to this file! */
+* {
+  font-family: "Barlow Condensed", sans-serif;
+}
