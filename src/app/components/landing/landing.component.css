@@ -121,3 +121,7 @@ img {
 .slide {
   border-radius: 10px;
 }
+.caption-1 {
+  top: 0;
+  bottom: auto;
+}
