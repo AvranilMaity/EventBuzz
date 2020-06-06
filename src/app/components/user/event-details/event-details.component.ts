@@ -20,6 +20,7 @@ export class EventDetailsComponent implements OnInit {
   eventData: IEvent;
   isOwner: boolean = true;
   addFriendForm: FormGroup;
+  eventId: string;
   invitedRegistrations: IRegistration[] = [];
 
   invitedUsers: Attendee[] = [
@@ -52,9 +53,9 @@ export class EventDetailsComponent implements OnInit {
     this.route.navigate(['/eventregister', this.eventId]);
   }
   loadEvent() {
-    this.eventData = this.commonService.fetchEventbyId(
-      this.activatedRoute.snapshot.data['eventId']
-    );
+    this.activatedRoute.paramMap.subscribe((params) => {
+      this.eventId = params.get('eventId');
+    });
   }
   onAddUser() {
     this.invitedUsers.push(this.addFriendForm.value);
