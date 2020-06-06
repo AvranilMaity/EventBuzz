@@ -16,7 +16,7 @@ export const appRoutes: Routes = [
   { path: 'signin', component: SignInComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'eventdetails/:eventId', component: EventDetailsComponent },
-  { path: 'eventregister', component: EventRegisterComponent },
+  { path: 'eventregister/:eventId', component: EventRegisterComponent },
   { path: 'eventaddedit', component: EventAddEditComponent },
   { path: 'dashboard', component: DashboardComponent },
   {
@@ -24,7 +24,7 @@ export const appRoutes: Routes = [
     component: RegisterEventConfirmationComponent,
   },
   { path: 'userprofile', component: UserProfileComponent },
-  { path: 'confirmation', component: ConfirmationComponent },
+  { path: 'confirmation/:eventId', component: ConfirmationComponent },
   { path: 'browseevents', component: BrowseEventsComponent },
   { path: '**', redirectTo: 'landing', pathMatch: 'full' },
 ];

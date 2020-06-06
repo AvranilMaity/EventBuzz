@@ -48,7 +48,8 @@ export class EventDetailsComponent implements OnInit {
   }
   navigateToRegister() {
     console.log('navigate to event register');
-    this.route.navigate(['/eventregister']);
+    console.log(this.activatedRoute.snapshot.data['eventId']);
+    this.route.navigate(['/eventregister', this.eventId]);
   }
   loadEvent() {
     this.eventData = this.commonService.fetchEventbyId(

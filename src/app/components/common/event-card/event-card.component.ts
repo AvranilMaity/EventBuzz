@@ -24,6 +24,6 @@ export class EventCardComponent implements OnInit {
 
   navigateToEventDetails() {
     console.log('navigate to event details');
-    this.route.navigate(['/eventdetails', this.eventData.eventId]);
+    this.route.navigate(['/eventdetails', this.eventData.eventId.toString()]);
   }
 }
