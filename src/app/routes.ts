@@ -10,6 +10,7 @@ import { RegisterEventConfirmationComponent } from './components/user/register-e
 import { BrowseEventsComponent } from './components/common/browse-events/browse-events.component';
 import { UserProfileComponent } from './components/user/user-profile/user-profile.component';
 import { ConfirmationComponent } from './components/common/confirmation/confirmation.component';
+import { AdminDashboardComponent } from './components/common/admin/admin-dashboard/admin-dashboard.component';
 
 export const appRoutes: Routes = [
   { path: 'landing', component: LandingComponent },
@@ -26,5 +27,6 @@ export const appRoutes: Routes = [
   { path: 'userprofile', component: UserProfileComponent },
   { path: 'confirmation/:eventId', component: ConfirmationComponent },
   { path: 'browseevents', component: BrowseEventsComponent },
+  { path: 'admindashboard', component: AdminDashboardComponent },
   { path: '**', redirectTo: 'landing', pathMatch: 'full' },
 ];

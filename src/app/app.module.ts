@@ -23,6 +23,7 @@ import { DashboardComponent } from './components/common/dashboard/dashboard.comp
 import { BrowseEventsComponent } from './components/common/browse-events/browse-events.component';
 import { UserProfileComponent } from './components/user/user-profile/user-profile.component';
 import { ConfirmationComponent } from './components/common/confirmation/confirmation.component';
+import { AdminDashboardComponent } from './components/common/admin/admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ConfirmationComponent } from './components/common/confirmation/confirma
     BrowseEventsComponent,
     UserProfileComponent,
     ConfirmationComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,
