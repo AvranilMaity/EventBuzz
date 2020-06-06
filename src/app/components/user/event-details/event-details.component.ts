@@ -18,7 +18,7 @@ interface Attendee {
 })
 export class EventDetailsComponent implements OnInit {
   eventData: IEvent;
-  isOwner: boolean = true;
+  isOwner: boolean = false;
   addFriendForm: FormGroup;
   eventId: string;
   invitedRegistrations: IRegistration[] = [];

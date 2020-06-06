@@ -24,6 +24,8 @@ import { BrowseEventsComponent } from './components/common/browse-events/browse-
 import { UserProfileComponent } from './components/user/user-profile/user-profile.component';
 import { ConfirmationComponent } from './components/common/confirmation/confirmation.component';
 import { FooterComponent } from './components/common/footer/footer.component';
+import { AdminDashboardComponent } from './components/common/admin/admin-dashboard/admin-dashboard.component';
+import { AdminNavigationComponent } from './components/navigation/admin-navigation/admin-navigation.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { FooterComponent } from './components/common/footer/footer.component';
     UserProfileComponent,
     ConfirmationComponent,
     FooterComponent,
+    AdminDashboardComponent,
+    AdminNavigationComponent,
   ],
   imports: [
     BrowserModule,
