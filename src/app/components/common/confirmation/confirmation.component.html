@@ -64,11 +64,21 @@
           <div style="font-size: 20px; font-weight: 500;">{{ username }}</div>
           <h6 style="color: #2caffe;">{{ ticketType }}</h6>
           <br />
-          <img
+          <!-- <img
             src="../../../../assets/images/barcode.svg"
             alt=""
             style="width: 150px;"
-          />
+          /> -->
+          <ngx-barcode6
+              [bc-format]="'MSI'"
+              [bc-value]="'12345678901231'"
+              [bc-background]="'#7848F4'"
+              [bc-line-color] = "'white'"
+              [bc-element-type]="'SVG'"
+              [bc-height] = "'32'"
+              [bc-width] = "'1'"
+            >
+            </ngx-barcode6>
         </div>
       </div>
       <div class="col-md-4 sub">
@@ -138,7 +148,16 @@
         </div>
         <div class="row event-barcode-sub">
           <div class="col-md-12">
-            <img src="../../../../assets/images/barcode_black.svg" alt="" />
+            <!-- <img src="../../../../assets/images/barcode_black.svg" alt="" /> -->
+            <ngx-barcode6
+              [bc-format]="'MSI'"
+              [bc-value]="'12345678901231'"
+              [bc-background]="'white'"
+              [bc-element-type]="'SVG'"
+              [bc-height] = "'30'"
+              [bc-width] = "'1'"
+            >
+            </ngx-barcode6>
           </div>
         </div>
       </div>

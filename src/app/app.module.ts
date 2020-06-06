@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { NgxBarcode6Module } from 'ngx-barcode6';
 
 import { AppComponent } from './app.component';
 import { SignInComponent } from './components/common/sign-in/sign-in.component';
@@ -57,6 +58,7 @@ import { AdminNavigationComponent } from './components/navigation/admin-navigati
     HttpClientModule,
     NgxDropzoneModule,
     RouterModule.forRoot(appRoutes),
+    NgxBarcode6Module,
   ],
 
   bootstrap: [AppComponent],
