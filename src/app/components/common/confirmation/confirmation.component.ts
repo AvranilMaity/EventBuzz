@@ -54,6 +54,8 @@ export class ConfirmationComponent implements OnInit {
       pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
       pdf.save('ticket.pdf'); // Generated PDF
     });
+    this.route.navigate(['/dashboard']);
+
   }
 
   loadTicket(){

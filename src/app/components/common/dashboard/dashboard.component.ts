@@ -39,21 +39,22 @@ export class DashboardComponent implements OnInit {
   }
 
   fetchRegisteredEvents(){
-    // this.userService.fetchRegisteredEvents(this.user.user).subscribe(
-    //   data=>{
-    //     console.log(data);
-    //     if(data!=null){
-    //       console.log("registered events fetched")
-    //       this.registeredEvents = data;
-    //     }
-    //     else{
-    //       console.log("no data available")
-    //     }
+    this.commonService.fetchPopularEvents().subscribe(
+      data=>{
+        console.log(data);
+        if(data!=null){
+          
+          this.registeredEvents = data;
+          console.log(this.registeredEvents);
+        }
+        else{
+          console.log("no data available")
+        }
         
-    //   },
-    //   err=>{console.log(err)},
-    //   ()=>{console.log("fetch registered events function called")}
-    // );
+      },
+      err=>{console.log(err)},
+      ()=>{console.log("fetched popular events")}
+    );
   }
 
   fetchOrganizedEvents(){
