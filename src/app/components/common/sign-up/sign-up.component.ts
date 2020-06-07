@@ -17,10 +17,11 @@ export class SignUpComponent implements OnInit {
   signUpForm: FormGroup;
   idList: string[] = ['Aadhar', 'PAN'];
   files: File[] = [];
+  signUpClicked = false;
   @ViewChild('labelImport')
   labelImport: ElementRef;
   constructor(private route: Router, private commonService: CommonService, private imageService: ImageService) {}
-
+  url:string;
   ngOnInit() {
     bsCustomFileInput.init();
     this.initForm();
@@ -56,11 +57,14 @@ export class SignUpComponent implements OnInit {
   }
 
   async onSignUp() {
+    if(!this.signUpClicked){
+
+    this.signUpClicked=true;
     console.log(this.signUpForm);
     if (this.files != null) {
-      var url: string = await this.addImage(this.files[0]);
+      this.url = await this.addImage(this.files[0]);
     }
-    console.log(url);
+    console.log(this.url);
 
     let user:IUser = {
       userId:null,
@@ -70,10 +74,11 @@ export class SignUpComponent implements OnInit {
     }
     let userDetails:IUserDetails = {
       userId:null,
+      email:this.signUpForm.controls.emailId.value,
       name: this.signUpForm.controls.name.value,
       phone:this.signUpForm.controls.phone.value,
       idType:this.signUpForm.controls.idType.value,
-      idUrl: url
+      idUrl: this.url
     }
     console.log(user);
     console.log(userDetails);
@@ -93,10 +98,12 @@ export class SignUpComponent implements OnInit {
           }
         },
         err =>{ console.log(err)},
-        () => {console.log('Click on sign up button');});
+        () => {
+      });
 
-    console.log('Click on sign up button');
+    //console.log('Click on sign up button');
     this.route.navigate(['/dashboard']);
+  }
   }
 
   navigateToSignIn() {

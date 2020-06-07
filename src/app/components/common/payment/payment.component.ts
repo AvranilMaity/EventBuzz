@@ -11,12 +11,12 @@ export class PaymentComponent implements OnInit {
 
   ngOnInit() {}
   chargeCard(token: string) {
-    const headers = new Headers({ token: token, amount: 100 });
-    this.http
-      .post('http://localhost:8080/payment/charge', {}, { headers: headers })
-      .subscribe((resp) => {
-        console.log(resp);
-      });
+    // const headers = new Headers({ token: token, amount: 100 });
+    // this.http
+    //   .post('http://localhost:8080/payment/charge', {}, { headers: headers })
+    //   .subscribe((resp) => {
+    //     console.log(resp);
+    //   });
   }
   chargeCreditCard() {
     let form = document.getElementsByTagName('form')[0];
