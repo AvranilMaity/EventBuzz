@@ -27,6 +27,7 @@ import { ConfirmationComponent } from './components/common/confirmation/confirma
 import { FooterComponent } from './components/common/footer/footer.component';
 import { AdminDashboardComponent } from './components/common/admin/admin-dashboard/admin-dashboard.component';
 import { AdminNavigationComponent } from './components/navigation/admin-navigation/admin-navigation.component';
+import { PaymentComponent } from './components/common/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { AdminNavigationComponent } from './components/navigation/admin-navigati
     FooterComponent,
     AdminDashboardComponent,
     AdminNavigationComponent,
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,

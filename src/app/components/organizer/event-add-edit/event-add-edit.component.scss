@@ -193,3 +193,32 @@ ngx-dropzone,
   top: -1px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 990px) {
+  .gayab {
+    display: none;
+  }
+  .page-data {
+    width: 88vw;
+    padding: 0px;
+  }
+
+  .section-header-title {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .section-header-content {
+    font-size: 15px;
+    color: #6a7c94;
+  }
+  .add-button {
+    position: relative;
+    margin-top: -50px;
+    width: 150px;
+  }
+}
+@media screen and (min-width: 991px) {
+  .mobile-pe-dikhega {
+    display: none;
+  }
+}
