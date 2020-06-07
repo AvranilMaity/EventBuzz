@@ -62,11 +62,12 @@ validateUser(email: string, password: string): Observable<IAuthUser>{
 }
 
 fetchEventDetailsById(eventId: string):Observable<IEvent>{
-  return null;
+  return this.http.get<IEvent[]>("https://stackeventweb-nldsh.run-ap-south1.goorm.io/getEventById?eventId="+eventId)[0];
+
 }
 
 fetchRegistrationById(registrationId:string):Observable<IRegistration>{
-  return null;
+  return this.http.get<IRegistration>("https://stackeventweb-nldsh.run-ap-south1.goorm.io/getEventById?eventId="+registrationId);
 }
 
 signOut(userId: string){

@@ -4,6 +4,7 @@ import { CommonService } from 'src/app/services/common.service';
 import { UserService } from 'src/app/services/user.service';
 import { OrganizerService } from 'src/app/services/organizer.service';
 import { IEvent } from 'src/app/interfaces/event';
+import { IAuthUser } from 'src/app/interfaces/auth-user';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,11 +14,14 @@ import { IEvent } from 'src/app/interfaces/event';
 export class DashboardComponent implements OnInit {
   registeredEvents: IEvent[];
   organizedEvents: IEvent[];
+  user:IAuthUser;
  
   constructor(private route: Router, private commonService: CommonService,
               private userService: UserService, private organizerService: OrganizerService) { }
 
   ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem('user'));
+
     this.fetchRegisteredEvents();
     this.fetchOrganizedEvents();
     console.log(this.organizedEvents);
@@ -35,12 +39,40 @@ export class DashboardComponent implements OnInit {
   }
 
   fetchRegisteredEvents(){
-    this.registeredEvents = this.userService.fetchRegisteredEvents('1');
-    //console.log(this.registeredEvents);
+    this.userService.fetchRegisteredEvents(this.user.user).subscribe(
+      data=>{
+        console.log(data);
+        if(data!=null){
+          console.log("registered events fetched")
+          this.registeredEvents = data;
+        }
+        else{
+          console.log("no data available")
+        }
+        
+      },
+      err=>{console.log(err)},
+      ()=>{console.log("fetch registered events function called")}
+    );
   }
 
   fetchOrganizedEvents(){
-    this.organizedEvents = this.userService.fetchOrganizedEvents('1');
+    this.userService.fetchOrganizedEvents(this.user.user).subscribe(
+      data=>{
+        console.log(data);
+        if(data!=null){
+          
+          this.organizedEvents = data;
+          console.log("fetched organized events");
+        }
+        else{
+          console.log("no data available")
+        }
+        
+      },
+      err=>{console.log(err)},
+      ()=>{console.log("fetched organized events function called")}
+    );
   }
 
 }
