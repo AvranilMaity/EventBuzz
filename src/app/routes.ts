@@ -27,7 +27,7 @@ export const appRoutes: Routes = [
   },
   { path: 'payment', component: PaymentComponent },
   { path: 'userprofile', component: UserProfileComponent },
-  { path: 'confirmation/:eventId', component: ConfirmationComponent },
+  { path: 'confirmation/:eventId/:registrationId', component: ConfirmationComponent },
   { path: 'browseevents', component: BrowseEventsComponent },
   { path: 'admindashboard', component: AdminDashboardComponent },
   { path: '**', redirectTo: 'landing', pathMatch: 'full' },

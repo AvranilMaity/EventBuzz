@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { IUserDetails } from '../interfaces/user-details';
 import { IAuthUser } from '../interfaces/auth-user';
 import { EventCategory } from '../utilities/constants';
+import { IRegistration } from '../interfaces/registration';
 
 @Injectable({
   providedIn: 'root'
@@ -60,8 +61,12 @@ validateUser(email: string, password: string): Observable<IAuthUser>{
   return this.http.post<IAuthUser>("https://stackeventweb-nldsh.run-ap-south1.goorm.io/signin",authUser);
 }
 
-fetchEventDetails(eventId: string){
+fetchEventDetailsById(eventId: string):Observable<IEvent>{
+  return null;
+}
 
+fetchRegistrationById(registrationId:string):Observable<IRegistration>{
+  return null;
 }
 
 signOut(userId: string){

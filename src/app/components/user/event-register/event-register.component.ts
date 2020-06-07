@@ -231,7 +231,7 @@ export class EventRegisterComponent implements OnInit {
         if (data != null) {
           console.log('registered successfully');
           console.log(data);
-          this.route.navigate(['/dashboard']);
+          this.route.navigate(['/confirmation',this.eventId, data[data.length -1].registrationId]);
         } else {
           console.log('registration failed');
         }

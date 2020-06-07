@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import * as jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
+import { Router, ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
+import { CommonService } from 'src/app/services/common.service';
+import { IRegistration } from 'src/app/interfaces/registration';
+import { IEvent } from 'src/app/interfaces/event';
 
 @Component({
   selector: 'app-confirmation',
@@ -14,12 +19,20 @@ export class ConfirmationComponent implements OnInit {
   username: string = 'Horidash Paal';
   eventDate: Date = new Date();
   ticketType: string = 'Regular';
-  constructor() {}
+  eventId:string;
+  event:IEvent;
+  registrationId:string;
+  registration:IRegistration;
+
+  constructor(private route:Router, private activatedRoute:ActivatedRoute, private userService:UserService, private commonService:CommonService) {}
 
   ngOnInit() {
     this.eventLocation = this.eventLocation.toUpperCase();
     this.username = this.username.toUpperCase();
     this.ticketType = this.ticketType.toUpperCase();
+
+    this.loadTicket();
+
   }
 
   downloadTicket() {
@@ -40,6 +53,49 @@ export class ConfirmationComponent implements OnInit {
       let position = 0;
       pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
       pdf.save('ticket.pdf'); // Generated PDF
+    });
+  }
+
+  loadTicket(){
+    this.activatedRoute.paramMap.subscribe((params) => {
+      this.eventId = params.get('eventId');
+      this.commonService.fetchEventDetailsById(this.eventId).subscribe(
+        (data) => {
+          console.log(data);
+          if (data != null) {
+            this.event = data;
+            console.log('event data fetched');
+          } else {
+            console.log('event data fetch failed');
+          }
+        },
+        (err) => {
+          console.log(err);
+        },
+        () => {
+          console.log('fetch event by id called');
+        }
+      );
+    });
+    this.activatedRoute.paramMap.subscribe((params) => {
+      this.registrationId = params.get('registrationId');
+      this.commonService.fetchRegistrationById(this.registrationId).subscribe(
+        (data) => {
+          console.log(data);
+          if (data != null) {
+            this.registration=data;
+            console.log('fetched registration by id')
+          } else {
+            console.log('fetch registration by id failed');
+          }
+        },
+        (err) => {
+          console.log(err);
+        },
+        () => {
+          console.log('fetch registration by id function called');
+        }
+      )
     });
   }
 }

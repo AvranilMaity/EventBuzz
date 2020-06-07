@@ -14,13 +14,14 @@ export class UserNavigationComponent implements OnInit {
   accountEnabled:boolean = false;
   ngOnInit() {
     var user:IAuthUser = JSON.parse(localStorage.getItem('user'));
-    if(user.user.isEnabled==null)
+    if(user!= null && user.user.isEnabled==false)
     {
-      this.accountEnabled = true;
+      this.accountEnabled = false;
     }
   }
   onSignOut(){
     console.log('Click on sign in button');
+    localStorage.removeItem('user');
     this.route.navigate(['/landing']);
   }
 
