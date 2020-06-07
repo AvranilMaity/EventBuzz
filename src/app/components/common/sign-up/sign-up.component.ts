@@ -20,8 +20,12 @@ export class SignUpComponent implements OnInit {
   signUpClicked = false;
   @ViewChild('labelImport')
   labelImport: ElementRef;
-  constructor(private route: Router, private commonService: CommonService, private imageService: ImageService) {}
-  url:string;
+  constructor(
+    private route: Router,
+    private commonService: CommonService,
+    private imageService: ImageService
+  ) {}
+  url: string;
   ngOnInit() {
     bsCustomFileInput.init();
     this.initForm();
@@ -47,7 +51,7 @@ export class SignUpComponent implements OnInit {
     });
   }
   onFileChange(files: FileList) {
-    this.files = Array.from(files)
+    this.files = Array.from(files);
   }
 
   onProceed() {
@@ -57,53 +61,54 @@ export class SignUpComponent implements OnInit {
   }
 
   async onSignUp() {
-    if(!this.signUpClicked){
+    if (!this.signUpClicked) {
+      this.signUpClicked = true;
+      console.log(this.signUpForm);
+      if (this.files != null) {
+        this.url = await this.addImage(this.files[0]);
+      }
+      console.log(this.url);
 
-    this.signUpClicked=true;
-    console.log(this.signUpForm);
-    if (this.files != null) {
-      this.url = await this.addImage(this.files[0]);
-    }
-    console.log(this.url);
-
-    let user:IUser = {
-      userId:null,
-      email: this.signUpForm.controls.emailId.value,
-      password:this.signUpForm.controls.password.value,
-      isEnabled:false,
-    }
-    let userDetails:IUserDetails = {
-      userId:null,
-      email:this.signUpForm.controls.emailId.value,
-      name: this.signUpForm.controls.name.value,
-      phone:this.signUpForm.controls.phone.value,
-      idType:this.signUpForm.controls.idType.value,
-      idUrl: this.url
-    }
-    console.log(user);
-    console.log(userDetails);
-    console.log("sign up cliked")
-    this.commonService.registerUser(user, userDetails)
-      .subscribe(
-        data => {
+      let user: IUser = {
+        userId: null,
+        email: this.signUpForm.controls.emailId.value,
+        password: this.signUpForm.controls.password.value,
+        isEnabled: false,
+      };
+      let userDetails: IUserDetails = {
+        userId: null,
+        email: this.signUpForm.controls.emailId.value,
+        name: this.signUpForm.controls.name.value,
+        phone: this.signUpForm.controls.phone.value,
+        idType: this.signUpForm.controls.idType.value,
+        idUrl: this.url,
+      };
+      console.log(user);
+      console.log(userDetails);
+      console.log('sign up cliked');
+      this.commonService.registerUser(user, userDetails).subscribe(
+        (data) => {
           console.log(data);
-          if(data.message!=null && data.message.toLowerCase() == 'yayy! new user created!')
-          {
+          if (
+            data.message != null &&
+            data.message.toLowerCase() == 'yayy! new user created!'
+          ) {
             console.log('sign up successful');
             localStorage.setItem('user', JSON.stringify(data));
             this.route.navigate(['/dashboard']);
-          }
-          else{
+          } else {
             console.log(data.message.toLowerCase());
           }
         },
-        err =>{ console.log(err)},
-        () => {
-      });
+        (err) => {
+          console.log(err);
+        },
+        () => {}
+      );
 
-    //console.log('Click on sign up button');
-    this.route.navigate(['/dashboard']);
-  }
+      //console.log('Click on sign up button');
+      this.route.navigate(['/dashboard']);
+    }
   }
 
   navigateToSignIn() {
@@ -112,11 +117,10 @@ export class SignUpComponent implements OnInit {
   }
 
   async addImage(file: File): Promise<string> {
-    if(file!=undefined){
+    if (file != undefined) {
       let url = await this.imageService.uploadImage(file, null);
       return url;
     }
     return null;
-    
   }
 }
