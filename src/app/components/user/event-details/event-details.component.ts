@@ -64,14 +64,11 @@ export class EventDetailsComponent implements OnInit {
     console.log(this.addFriendForm.value);
 
     let registration: IRegistration = {
-      registrationId: null,
-      eventId: null,
-      userId: null,
+      user:JSON.parse(localStorage.getItem('user')).user,
       name: this.addFriendForm.controls.name.value,
-      emailId: this.addFriendForm.controls.emailId.value,
+      email: this.addFriendForm.controls.emailId.value,
       ticketType: this.addFriendForm.controls.ticketType.value,
-      status: null,
-      transactionId: null,
+      status: 'Pending',
     };
     this.invitedRegistrations.push(registration);
   }

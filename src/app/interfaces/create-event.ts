@@ -3,5 +3,5 @@ import { IRegistration } from './registration';
 
 export interface ICreateEvent{
     event:IEvent;
-    registrations:IRegistration[];
+    registration:IRegistration[];
 }

@@ -1,21 +1,24 @@
+import { IUser } from './user';
+import { EventType, EventCategory, OrganizedType, HeadCount } from '../utilities/constants';
+
 // tslint:disable-next-line: no-empty-interface
 export interface IEvent{
     eventId?: number
     eventCreatedDate?: Date
-    userId? : number
+    user? : IUser
     eventName? : string
     eventDescription? : string
     eventImageUrl? : string
     eventLocation? : string
-    eventCategory? : string
+    eventCategory? : EventCategory
     eventFromDate? : Date
     eventToDate? : Date
-    organizedType? : string
+    organizedType? : OrganizedType
     organizerName? : string
-    organizerPhone? : number
+    organizerPhone? : string
     organizerEmail? : string
-    eventType? : string
-    eventHeadCount? : string
+    eventType? : EventType
+    eventHeadCount? : HeadCount
     ticketQuantity? : string
     ticketPrice? : string
     

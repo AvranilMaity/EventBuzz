@@ -38,9 +38,10 @@ export class SignInComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
-          if(data.email!=null)
+          if(data.message!=null && data.message.toLowerCase() == 'user successfully authenticated')
           {
             console.log('sign in successful');
+            localStorage.setItem('user', JSON.stringify(data));
             this.route.navigate(['/dashboard']);
           }
           else{
