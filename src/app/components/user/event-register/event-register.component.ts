@@ -6,6 +6,7 @@ import { IUser } from 'src/app/interfaces/user';
 import { FormGroup, FormControl } from '@angular/forms';
 import { IRegistration } from 'src/app/interfaces/registration';
 import { IEvent } from 'src/app/interfaces/event';
+import { TicketType } from 'src/app/utilities/constants';
 
 interface Attendee {
   name: string;
@@ -29,11 +30,7 @@ export class EventRegisterComponent implements OnInit {
   addFriendForm: FormGroup;
   promoCodeForm: FormGroup;
   invitedRegistrations: IRegistration[] = [];
-  invitedUsers: Attendee[] = [{
-    name:"Avranil",
-    ticketType:"VIP",
-    emailId:"fvgbhnj"
-  }];
+  invitedUsers: Attendee[] = [];
   availablePromoCodes: Promocode[] = [
     {
       name: 'GO',
@@ -183,12 +180,14 @@ export class EventRegisterComponent implements OnInit {
     
     let registration: IRegistration = {
       registrationId: null,
-      event: null,
-      user: null,
+      event :{
+        eventId: +this.eventId
+      },
+      user: JSON.parse(localStorage.getItem('user')).user,
       name: this.addFriendForm.controls.name.value,
       email: this.addFriendForm.controls.emailId.value,
       ticketType: this.addFriendForm.controls.ticketType.value,
-      status: null,
+      status: 'Approved',
       transactionId: null,
     }
     this.invitedRegistrations.push(registration);
@@ -212,6 +211,38 @@ export class EventRegisterComponent implements OnInit {
     console.log('navigate to event register');
     console.log(this.invitedRegistrations);
     console.log(this.invitedUsers);
+
+    let registration: IRegistration = {
+      registrationId: null,
+      event :{
+        eventId: +this.eventId
+      },
+      user: JSON.parse(localStorage.getItem('user')).user,
+      name: JSON.parse(localStorage.getItem('user')).userDetails.name,
+      email:  JSON.parse(localStorage.getItem('user')).user.email,
+      ticketType: TicketType.Regular,
+      status: 'Approved',
+      transactionId: null,
+    }
+    this.invitedRegistrations.push(registration);
+    this.userService.eventRegister(this.invitedRegistrations).subscribe(
+      (data) => {
+        console.log(data);
+        if (data != null) {
+          console.log('registered successfully');
+          console.log(data);
+          this.route.navigate(['/dashboard']);
+        } else {
+          console.log('registration failed');
+        }
+      },
+      (err) => {
+        console.log(err);
+      },
+      () => {
+        console.log('registration function called');
+      }
+    );
     this.route.navigate(['/confirmation',this.eventId]);
   }
 

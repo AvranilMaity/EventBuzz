@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
 import { IRegistration } from '../interfaces/registration';
 import { IEvent } from '../interfaces/event';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-constructor() { }
+constructor(private http:HttpClient) { }
 
-eventRegister(registration: IRegistration){
+eventRegister(registrations: IRegistration[]){
+  console.log(registrations)
+  return this.http.post<IEvent>("https://stackeventweb-nldsh.run-ap-south1.goorm.io/registerEvent",registrations);
 
 }
 
