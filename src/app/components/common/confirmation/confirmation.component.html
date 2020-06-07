@@ -4,27 +4,27 @@
       <div class="col-md-6 main">
         <div class="row event-title-main">
           <div class="col-md-12">
-            {{ eventTitle }}
+            {{ event.eventName }}
           </div>
         </div>
         <div class="row event-location-main">
           <div class="col-md-9">
-            <p>{{ eventLocation }}</p>
+            <p>{{ event.eventLocation }}</p>
           </div>
         </div>
         <div class="row event-date-main">
           <div class="col-md-3 date-time">
             <div class="date">
-              <div class="day">{{ eventDate | date: "dd" }}</div>
+              <div class="day">{{ event.eventFromDate | date: "dd" }}</div>
               <div class="month-year">
                 <div class="month">
-                  {{ eventDate | date: "MMM" | uppercase }}
+                  {{ event.eventFromDate | date: "MMM" | uppercase }}
                 </div>
-                <div class="year">{{ eventDate | date: "yyyy" }}</div>
+                <div class="year">{{ event.eventFromDate | date: "yyyy" }}</div>
               </div>
             </div>
             <div class="time">
-              {{ eventDate | date: "h:mm a" }}
+              {{ event.eventFromDate | date: "h:mm a" }}
             </div>
           </div>
           <div
@@ -39,16 +39,16 @@
           </div>
           <div class="col-md-3 date-time">
             <div class="date">
-              <div class="day">{{ eventDate | date: "dd" }}</div>
+              <div class="day">{{ event.eventToDate | date: "dd" }}</div>
               <div class="month-year">
                 <div class="month">
-                  {{ eventDate | date: "MMM" | uppercase }}
+                  {{ event.eventToDate | date: "MMM" | uppercase }}
                 </div>
-                <div class="year">{{ eventDate | date: "yyyy" }}</div>
+                <div class="year">{{ event.eventToDate | date: "yyyy" }}</div>
               </div>
             </div>
             <div class="time">
-              {{ eventDate | date: "h:mm a" }}
+              {{ event.eventToDate | date: "h:mm a" }}
             </div>
           </div>
         </div>
@@ -61,8 +61,10 @@
       </div>
       <div class="col-md-2 barcode-holder">
         <div class="barcode">
-          <div style="font-size: 20px; font-weight: 500;">{{ username }}</div>
-          <h6 style="color: #2caffe;">{{ ticketType }}</h6>
+          <div style="font-size: 20px; font-weight: 500;">
+            {{ registration.name }}
+          </div>
+          <h6 style="color: #2caffe;">{{ registration.ticketType }}</h6>
           <br />
           <!-- <img
             src="../../../../assets/images/barcode.svg"
@@ -70,22 +72,22 @@
             style="width: 150px;"
           /> -->
           <ngx-barcode6
-              [bc-format]="'CODE128'"
-              [bc-value]="'123456789012315455464654546'"
-              [bc-background]="'#7848F4'"
-              [bc-line-color] = "'white'"
-              [bc-element-type]="'SVG'"
-              [bc-height] = "'32'"
-              [bc-width] = "'1'"
-            >
-            </ngx-barcode6>
+            [bc-format]="'CODE128'"
+            [bc-value]="registrationId"
+            [bc-background]="'#7848F4'"
+            [bc-line-color]="'white'"
+            [bc-element-type]="'SVG'"
+            [bc-height]="'32'"
+            [bc-width]="'1'"
+          >
+          </ngx-barcode6>
         </div>
       </div>
       <div class="col-md-4 sub">
         <div class="row event-title-sub">
           <div class="col-md-12">
             <div style="font-size: 25px; font-weight: 500;">
-              {{ eventTitle }}
+              {{ event.eventName }}
             </div>
           </div>
         </div>
@@ -101,30 +103,32 @@
           >
             <div class="date-time" style="margin: 10px 20px 10px 10px;">
               <div class="date">
-                <div class="day">{{ eventDate | date: "dd" }}</div>
+                <div class="day">{{ event.eventFromDate | date: "dd" }}</div>
                 <div class="month-year">
                   <div class="month">
-                    {{ eventDate | date: "MMM" | uppercase }}
+                    {{ event.eventFromDate | date: "MMM" | uppercase }}
                   </div>
-                  <div class="year">{{ eventDate | date: "yyyy" }}</div>
+                  <div class="year">
+                    {{ event.eventFromDate | date: "yyyy" }}
+                  </div>
                 </div>
               </div>
               <div class="time">
-                {{ eventDate | date: "h:mm a" }}
+                {{ event.eventFromDate | date: "h:mm a" }}
               </div>
             </div>
             <div class="date-time" style="margin: 10px 10px 10px 20px;">
               <div class="date">
-                <div class="day">{{ eventDate | date: "dd" }}</div>
+                <div class="day">{{ event.eventToDate | date: "dd" }}</div>
                 <div class="month-year">
                   <div class="month">
-                    {{ eventDate | date: "MMM" | uppercase }}
+                    {{ event.eventToDate | date: "MMM" | uppercase }}
                   </div>
-                  <div class="year">{{ eventDate | date: "yyyy" }}</div>
+                  <div class="year">{{ event.eventToDate | date: "yyyy" }}</div>
                 </div>
               </div>
               <div class="time">
-                {{ eventDate | date: "h:mm a" }}
+                {{ event.eventToDate | date: "h:mm a" }}
               </div>
             </div>
           </div>
@@ -141,9 +145,11 @@
           >
             <img src="../../../../assets/images/logo.svg" alt="" />
             <div style="font-size: 18px; font-weight: 500; margin-top: 40px;">
-              {{ username }}
+              {{ registration.name }}
             </div>
-            <h6 style="color: #2caffe; font-size: 13px;">{{ ticketType }}</h6>
+            <h6 style="color: #2caffe; font-size: 13px;">
+              {{ registration.ticketType }}
+            </h6>
           </div>
         </div>
         <div class="row event-barcode-sub">
@@ -151,11 +157,11 @@
             <!-- <img src="../../../../assets/images/barcode_black.svg" alt="" /> -->
             <ngx-barcode6
               [bc-format]="'CODE128'"
-              [bc-value]="'12345678901231'"
+              [bc-value]="registrationId"
               [bc-background]="'white'"
               [bc-element-type]="'SVG'"
-              [bc-height] = "'30'"
-              [bc-width] = "'1.5'"
+              [bc-height]="'30'"
+              [bc-width]="'1.5'"
             >
             </ngx-barcode6>
           </div>
