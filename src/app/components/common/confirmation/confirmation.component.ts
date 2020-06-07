@@ -54,6 +54,8 @@ export class ConfirmationComponent implements OnInit {
       pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
       pdf.save('ticket.pdf'); // Generated PDF
     });
+    this.route.navigate(['/dashboard']);
+
   }
 
   loadTicket(){
@@ -63,7 +65,7 @@ export class ConfirmationComponent implements OnInit {
         (data) => {
           console.log(data);
           if (data != null) {
-            this.event = data;
+            this.event = data[0];
             console.log('event data fetched');
           } else {
             console.log('event data fetch failed');
@@ -78,7 +80,7 @@ export class ConfirmationComponent implements OnInit {
       );
     });
     this.activatedRoute.paramMap.subscribe((params) => {
-      this.registrationId = params.get('registrationId');
+      this.registrationId = params.get('eventRegId');
       this.commonService.fetchRegistrationById(this.registrationId).subscribe(
         (data) => {
           console.log(data);

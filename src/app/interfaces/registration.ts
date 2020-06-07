@@ -3,7 +3,7 @@ import { IEvent } from './event';
 
 // tslint:disable-next-line: no-empty-interface
 export interface IRegistration{
-    registrationId?: number
+    eventRegId?: number
     event? : IEvent
     user? : IUser
     name : string

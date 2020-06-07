@@ -35,7 +35,7 @@ fetchOrganizedEvents(user:IUser):Observable<IEvent[]>{
   //   { eventId: 0, eventName: 'Glastonbury Festival', eventDescription: 'lorem ipsum dolor si amet', eventFromDate: new Date(2020, 2, 2), eventImageUrl: 'https://www.nme.com/wp-content/uploads/2019/06/CHEMICAL-BROTHERS-ANDREW-WHITTON-NME-GLASTO19-7705-WEB-696x442.jpg'},
   //   { eventId: 0, eventName: 'Sundance Film Festival', eventDescription: 'lorem ipsum dolor si amet', eventFromDate: new Date(2020, 4, 24), eventImageUrl: 'https://upload.wikimedia.org/wikipedia/commons/7/79/Sundance_Film_Festival.jpg'},
   // ];
-
+  console.log(user);
   return this.http.post<IEvent[]>("https://stackeventweb-nldsh.run-ap-south1.goorm.io/getOrganizedEvents",user);
 
 }

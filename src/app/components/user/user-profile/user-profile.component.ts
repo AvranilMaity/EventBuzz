@@ -61,6 +61,7 @@ export class UserProfileComponent implements OnInit {
     console.log(url);
     let userDetails:IUserDetails = {
       userId:null,
+      email:null,
       name: null,
       phone:this.userProfileForm.controls.phone.value,
       idType:this.userProfileForm.controls.idType.value,
