@@ -60,7 +60,7 @@ export class EventAddEditComponent implements OnInit {
     let event: IEvent = {
       eventId: null,
       eventCreatedDate: new Date(),
-      userId: null,
+      user: JSON.parse(localStorage.getItem('user')).user,
       eventName: this.createEventForm.controls.eventName.value,
       eventDescription: this.createEventForm.controls.eventDescription.value,
       eventImageUrl: url,
@@ -76,36 +76,37 @@ export class EventAddEditComponent implements OnInit {
       ticketPrice:
         (<FormArray>this.createEventForm.get('ticketTypes')).at(0).value
           .ticketTypePrice +
-        '##' +
+        '-' +
         (<FormArray>this.createEventForm.get('ticketTypes')).at(1).value
           .ticketTypePrice,
       ticketQuantity:
         (<FormArray>this.createEventForm.get('ticketTypes')).at(0).value
           .ticketTypeQuantity +
-        '##' +
+        '-' +
         (<FormArray>this.createEventForm.get('ticketTypes')).at(1).value
           .ticketTypeQuantity,
       eventCategory: this.createEventForm.controls.eventCategory.value,
     };
     console.log(event);
     console.log(this.invitedRegistrations);
-    // this.organizerService.addEvent(event).subscribe(
-    //   (data) => {
-    //     console.log(data);
-    //     if (data != null) {
-    //       console.log('event added successfully');
-    //       this.route.navigate(['/dashboard']);
-    //     } else {
-    //       console.log('event could not be added');
-    //     }
-    //   },
-    //   (err) => {
-    //     console.log(err);
-    //   },
-    //   () => {
-    //     console.log('add event service called');
-    //   }
-    // );
+    this.organizerService.addEvent(event, this.invitedRegistrations).subscribe(
+      (data) => {
+        console.log(data);
+        if (data != null) {
+          console.log('event added successfully');
+          console.log(data);
+          this.route.navigate(['/dashboard']);
+        } else {
+          console.log('event could not be added');
+        }
+      },
+      (err) => {
+        console.log(err);
+      },
+      () => {
+        console.log('add event service called');
+      }
+    );
   }
 
   initForm() {
@@ -174,14 +175,11 @@ export class EventAddEditComponent implements OnInit {
   onAddUser(newInviteName: string, newInviteEmail: string) {
     this.invitedUsers.push(newInviteEmail);
     let registration: IRegistration = {
-      registrationId: null,
-      eventId: null,
-      userId: null,
+      user: JSON.parse(localStorage.getItem('user')).user,
       name: newInviteName,
-      emailId: newInviteEmail,
+      email: newInviteEmail,
       ticketType: null,
-      status: null,
-      transactionId: null,
+      status: 'Pending',
     };
     this.invitedRegistrations.push(registration);
   }

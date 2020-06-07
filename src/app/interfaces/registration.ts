@@ -1,10 +1,13 @@
+import { IUser } from './user';
+import { IEvent } from './event';
+
 // tslint:disable-next-line: no-empty-interface
 export interface IRegistration{
     registrationId?: number
-    eventId? : number
-    userId? : number
+    event? : IEvent
+    user? : IUser
     name : string
-    emailId : string
+    email : string
     ticketType? : string
     status? : string
     transactionId? : string

@@ -183,10 +183,10 @@ export class EventRegisterComponent implements OnInit {
     
     let registration: IRegistration = {
       registrationId: null,
-      eventId: null,
-      userId: null,
+      event: null,
+      user: null,
       name: this.addFriendForm.controls.name.value,
-      emailId: this.addFriendForm.controls.emailId.value,
+      email: this.addFriendForm.controls.emailId.value,
       ticketType: this.addFriendForm.controls.ticketType.value,
       status: null,
       transactionId: null,

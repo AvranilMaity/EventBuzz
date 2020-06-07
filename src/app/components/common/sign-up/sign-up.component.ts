@@ -77,6 +77,24 @@ export class SignUpComponent implements OnInit {
     }
     console.log(user);
     console.log(userDetails);
+    console.log("sign up cliked")
+    this.commonService.registerUser(user, userDetails)
+      .subscribe(
+        data => {
+          console.log(data);
+          if(data.message!=null && data.message.toLowerCase() == 'yayy! new user created!')
+          {
+            console.log('sign up successful');
+            localStorage.setItem('user', JSON.stringify(data));
+            this.route.navigate(['/dashboard']);
+          }
+          else{
+            console.log(data.message.toLowerCase());
+          }
+        },
+        err =>{ console.log(err)},
+        () => {console.log('Click on sign up button');});
+
     console.log('Click on sign up button');
     this.route.navigate(['/dashboard']);
   }

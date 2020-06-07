@@ -34,6 +34,7 @@ export class LandingComponent implements OnInit {
       data=>{
         console.log(data);
         if(data!=null){
+          
           this.popularEvents = data;
           console.log(this.popularEvents);
         }
