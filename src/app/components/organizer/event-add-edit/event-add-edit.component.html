@@ -581,7 +581,12 @@
           </div>
         </div>
         <div class="button" style="text-align: center; margin-top: 50px;">
-          <button type="submit" class="submit-button" style="padding: 0px;">
+          <button
+            type="submit"
+            class="submit-button"
+            style="padding: 0px;"
+            [disabled]="!createEventForm.valid"
+          >
             Submit
           </button>
         </div>

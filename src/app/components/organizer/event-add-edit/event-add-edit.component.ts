@@ -5,6 +5,7 @@ import {
   FormGroup,
   FormControl,
   AbstractControl,
+  Validators,
 } from '@angular/forms';
 import { ImageService } from 'src/app/services/image.service';
 import { OrganizerService } from 'src/app/services/organizer.service';
@@ -125,18 +126,18 @@ export class EventAddEditComponent implements OnInit {
     let ticketTypes = new FormArray([]);
 
     this.createEventForm = new FormGroup({
-      eventName: new FormControl(eventName),
-      eventDescription: new FormControl(eventDescription),
-      eventCategory: new FormControl(eventCategory),
-      eventLocation: new FormControl(eventLocation),
-      eventFromDate: new FormControl(eventFromDate),
-      eventToDate: new FormControl(eventToDate),
-      organizedType: new FormControl(organizedType),
-      organizerName: new FormControl(organizerName),
-      organizerPhone: new FormControl(organizerPhone),
-      organizerEmail: new FormControl(organizerEmail),
-      eventType: new FormControl(eventType),
-      eventHeadCount: new FormControl(eventHeadCount),
+      eventName: new FormControl(eventName, Validators.required),
+      eventDescription: new FormControl(eventDescription, Validators.required),
+      eventCategory: new FormControl(eventCategory, Validators.required),
+      eventLocation: new FormControl(eventLocation, Validators.required),
+      eventFromDate: new FormControl(eventFromDate, Validators.required),
+      eventToDate: new FormControl(eventToDate, Validators.required),
+      organizedType: new FormControl(organizedType, Validators.required),
+      organizerName: new FormControl(organizerName, Validators.required),
+      organizerPhone: new FormControl(organizerPhone, Validators.required),
+      organizerEmail: new FormControl(organizerEmail, Validators.required),
+      eventType: new FormControl(eventType, Validators.required),
+      eventHeadCount: new FormControl(eventHeadCount, Validators.required),
       ticketTypes: ticketTypes,
     });
   }
@@ -152,9 +153,9 @@ export class EventAddEditComponent implements OnInit {
     this.hasTickets = true;
     (<FormArray>this.createEventForm.get('ticketTypes')).push(
       new FormGroup({
-        ticketTypeName: new FormControl(null),
-        ticketTypeQuantity: new FormControl(null),
-        ticketTypePrice: new FormControl(null),
+        ticketTypeName: new FormControl(null, Validators.required),
+        ticketTypeQuantity: new FormControl(null, Validators.required),
+        ticketTypePrice: new FormControl(null, Validators.required),
       })
     );
     this.getControls();
