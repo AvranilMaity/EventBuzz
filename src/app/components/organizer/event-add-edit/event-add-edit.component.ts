@@ -33,6 +33,8 @@ export class EventAddEditComponent implements OnInit {
   eventTypeList: string[];
   headCountList: string[];
   invitedRegistrations: IRegistration[] = [];
+  disableAdd: boolean = false;
+  maxTicketTypes: number = 0;
   constructor(
     private route: Router,
     private imageService: ImageService,
@@ -45,7 +47,6 @@ export class EventAddEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    
     this.initForm();
     this.ticketTypesControl = this.getControls();
   }
@@ -57,7 +58,6 @@ export class EventAddEditComponent implements OnInit {
     }
     console.log(url);
     let event: IEvent = {
-
       eventId: null,
       eventCreatedDate: new Date(),
       userId: null,
@@ -73,12 +73,19 @@ export class EventAddEditComponent implements OnInit {
       organizerEmail: this.createEventForm.controls.organizerEmail.value,
       eventType: this.createEventForm.controls.eventType.value,
       eventHeadCount: this.createEventForm.controls.eventHeadCount.value,
-      ticketPrice: (<FormArray>this.createEventForm.get('ticketTypes')).at(0).value.ticketTypePrice+"##"+
-      (<FormArray>this.createEventForm.get('ticketTypes')).at(1).value.ticketTypePrice,
-      ticketQuantity: (<FormArray>this.createEventForm.get('ticketTypes')).at(0).value.ticketTypeQuantity+"##"+
-      (<FormArray>this.createEventForm.get('ticketTypes')).at(1).value.ticketTypeQuantity,
+      ticketPrice:
+        (<FormArray>this.createEventForm.get('ticketTypes')).at(0).value
+          .ticketTypePrice +
+        '##' +
+        (<FormArray>this.createEventForm.get('ticketTypes')).at(1).value
+          .ticketTypePrice,
+      ticketQuantity:
+        (<FormArray>this.createEventForm.get('ticketTypes')).at(0).value
+          .ticketTypeQuantity +
+        '##' +
+        (<FormArray>this.createEventForm.get('ticketTypes')).at(1).value
+          .ticketTypeQuantity,
       eventCategory: this.createEventForm.controls.eventCategory.value,
-
     };
     console.log(event);
     console.log(this.invitedRegistrations);
@@ -99,8 +106,6 @@ export class EventAddEditComponent implements OnInit {
     //     console.log('add event service called');
     //   }
     // );
-
-
   }
 
   initForm() {
@@ -136,6 +141,13 @@ export class EventAddEditComponent implements OnInit {
   }
 
   onAddTicket() {
+    this.maxTicketTypes += 1;
+    if (this.maxTicketTypes == 2) {
+      this.disableAdd = true;
+    } else {
+      this.disableAdd = false;
+      console.log('add' + this.maxTicketTypes);
+    }
     this.hasTickets = true;
     (<FormArray>this.createEventForm.get('ticketTypes')).push(
       new FormGroup({
@@ -145,17 +157,21 @@ export class EventAddEditComponent implements OnInit {
       })
     );
     this.getControls();
-    console.log(this.ticketTypesControl);
   }
 
   onDeleteTicket(id: number) {
+    this.maxTicketTypes -= 1;
+    console.log('sub' + this.maxTicketTypes);
+
+    this.disableAdd = false;
+
     if (this.ticketTypesControl.length == 1) {
       this.hasTickets = false;
     }
     (<FormArray>this.createEventForm.get('ticketTypes')).removeAt(id);
   }
 
-  onAddUser(newInviteName: string, newInviteEmail:string) {
+  onAddUser(newInviteName: string, newInviteEmail: string) {
     this.invitedUsers.push(newInviteEmail);
     let registration: IRegistration = {
       registrationId: null,
@@ -166,7 +182,7 @@ export class EventAddEditComponent implements OnInit {
       ticketType: null,
       status: null,
       transactionId: null,
-    }
+    };
     this.invitedRegistrations.push(registration);
   }
 
@@ -194,11 +210,10 @@ export class EventAddEditComponent implements OnInit {
   }
 
   async addImage(file: File): Promise<string> {
-    if(file!=undefined){
+    if (file != undefined) {
       let url = await this.imageService.uploadImage(file, null);
       return url;
     }
     return null;
-    
   }
 }

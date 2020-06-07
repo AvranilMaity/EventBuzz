@@ -11,6 +11,7 @@ import { BrowseEventsComponent } from './components/common/browse-events/browse-
 import { UserProfileComponent } from './components/user/user-profile/user-profile.component';
 import { ConfirmationComponent } from './components/common/confirmation/confirmation.component';
 import { AdminDashboardComponent } from './components/common/admin/admin-dashboard/admin-dashboard.component';
+import { PaymentComponent } from './components/common/payment/payment.component';
 
 export const appRoutes: Routes = [
   { path: 'landing', component: LandingComponent },
@@ -24,6 +25,7 @@ export const appRoutes: Routes = [
     path: 'registereventconfirmation',
     component: RegisterEventConfirmationComponent,
   },
+  { path: 'payment', component: PaymentComponent },
   { path: 'userprofile', component: UserProfileComponent },
   { path: 'confirmation/:eventId', component: ConfirmationComponent },
   { path: 'browseevents', component: BrowseEventsComponent },

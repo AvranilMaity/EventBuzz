@@ -14,10 +14,17 @@
   </div>
 </div>
 <div class="container">
-  <div class="page-data">
-    <form action="">
-      <div class="row search">
-        <div class="col-md-4">
+  <div class="">
+    <form
+      style="
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <div class="search">
+        <div class="search-criteria">
           <div class="form-group">
             <h6 class="p-2">Event Category</h6>
             <select class="form-control" id="eventType" #eventType>
@@ -28,13 +35,13 @@
             </select>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="search-criteria">
           <div class="form-group">
             <h6 class="p-2">After</h6>
             <input class="form-control" type="date" name="" id="" />
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="search-criteria">
           <div class="form-group">
             <h6 class="p-2">Before</h6>
             <input
@@ -48,7 +55,10 @@
         </div>
       </div>
     </form>
-
+  </div>
+</div>
+<div class="container">
+  <div class="page-data">
     <div class="row" style="padding: 50px 10px 0px 0px;">
       <div class="col-md-12 text-justify">
         <p class="page-data-title">Upcoming Events</p>

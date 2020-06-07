@@ -33,7 +33,7 @@
   background: none;
   border-radius: 5px;
   background-color: #ffffff;
-  border: 1px solid #ffffff;
+  border: 1px solid #eeeeee;
   color: #000000;
   font-weight: 500;
   font-size: 14px;
@@ -46,4 +46,15 @@
 .button-3:focus {
   outline: none;
   background-color: #e1e1e1;
+}
+
+@media screen and (max-width: 990px) {
+  .gayab {
+    display: none;
+  }
+}
+@media screen and (min-width: 991px) {
+  .mobile-pe-dikhega {
+    display: none;
+  }
 }

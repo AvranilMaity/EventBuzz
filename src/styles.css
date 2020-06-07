@@ -2,3 +2,7 @@
 * {
   font-family: "Barlow Condensed", sans-serif;
 }
+html,
+body {
+  overflow-x: hidden;
+}
