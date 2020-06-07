@@ -179,7 +179,7 @@ export class EventRegisterComponent implements OnInit {
     console.log(this.addFriendForm.value);
     
     let registration: IRegistration = {
-      registrationId: null,
+      eventRegId: null,
       event :{
         eventId: +this.eventId
       },
@@ -213,7 +213,7 @@ export class EventRegisterComponent implements OnInit {
     console.log(this.invitedUsers);
 
     let registration: IRegistration = {
-      registrationId: null,
+      eventRegId: null,
       event :{
         eventId: +this.eventId
       },
@@ -231,7 +231,7 @@ export class EventRegisterComponent implements OnInit {
         if (data != null) {
           console.log('registered successfully');
           console.log(data);
-          this.route.navigate(['/confirmation',this.eventId, data[data.length -1].registrationId]);
+          this.route.navigate(['/confirmation',this.eventId, data[data.length -1].eventRegId]);
         } else {
           console.log('registration failed');
         }

@@ -61,13 +61,13 @@ validateUser(email: string, password: string): Observable<IAuthUser>{
   return this.http.post<IAuthUser>("https://stackeventweb-nldsh.run-ap-south1.goorm.io/signin",authUser);
 }
 
-fetchEventDetailsById(eventId: string):Observable<IEvent>{
-  return this.http.get<IEvent[]>("https://stackeventweb-nldsh.run-ap-south1.goorm.io/getEventById?eventId="+eventId)[0];
+fetchEventDetailsById(eventId: string):Observable<IEvent[]>{
+  return this.http.get<IEvent[]>("https://stackeventweb-nldsh.run-ap-south1.goorm.io/getEventById?eventId="+eventId);
 
 }
 
 fetchRegistrationById(registrationId:string):Observable<IRegistration>{
-  return this.http.get<IRegistration>("https://stackeventweb-nldsh.run-ap-south1.goorm.io/getEventById?eventId="+registrationId);
+  return this.http.get<IRegistration>("https://stackeventweb-nldsh.run-ap-south1.goorm.io/findByRegistrationId?registrationId="+registrationId);
 }
 
 signOut(userId: string){

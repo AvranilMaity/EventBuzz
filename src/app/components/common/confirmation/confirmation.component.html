@@ -4,27 +4,27 @@
       <div class="col-md-6 main">
         <div class="row event-title-main">
           <div class="col-md-12">
-            {{ event.eventName }}
+            {{ event?.eventName }}
           </div>
         </div>
         <div class="row event-location-main">
           <div class="col-md-9">
-            <p>{{ event.eventLocation }}</p>
+            <p>{{ event?.eventLocation }}</p>
           </div>
         </div>
         <div class="row event-date-main">
           <div class="col-md-3 date-time">
             <div class="date">
-              <div class="day">{{ event.eventFromDate | date: "dd" }}</div>
+              <div class="day">{{ event?.eventFromDate | date: "dd" }}</div>
               <div class="month-year">
                 <div class="month">
-                  {{ event.eventFromDate | date: "MMM" | uppercase }}
+                  {{ event?.eventFromDate | date: "MMM" | uppercase }}
                 </div>
-                <div class="year">{{ event.eventFromDate | date: "yyyy" }}</div>
+                <div class="year">{{ event?.eventFromDate | date: "yyyy" }}</div>
               </div>
             </div>
             <div class="time">
-              {{ event.eventFromDate | date: "h:mm a" }}
+              {{ event?.eventFromDate | date: "h:mm a" }}
             </div>
           </div>
           <div
@@ -39,16 +39,16 @@
           </div>
           <div class="col-md-3 date-time">
             <div class="date">
-              <div class="day">{{ event.eventToDate | date: "dd" }}</div>
+              <div class="day">{{ event?.eventToDate | date: "dd" }}</div>
               <div class="month-year">
                 <div class="month">
-                  {{ event.eventToDate | date: "MMM" | uppercase }}
+                  {{ event?.eventToDate | date: "MMM" | uppercase }}
                 </div>
-                <div class="year">{{ event.eventToDate | date: "yyyy" }}</div>
+                <div class="year">{{ event?.eventToDate | date: "yyyy" }}</div>
               </div>
             </div>
             <div class="time">
-              {{ event.eventToDate | date: "h:mm a" }}
+              {{ event?.eventToDate | date: "h:mm a" }}
             </div>
           </div>
         </div>
@@ -64,7 +64,7 @@
           <div style="font-size: 20px; font-weight: 500;">
             {{ registration.name }}
           </div>
-          <h6 style="color: #2caffe;">{{ registration.ticketType }}</h6>
+          <h6 style="color: #2caffe;">{{ registration?.ticketType }}</h6>
           <br />
           <!-- <img
             src="../../../../assets/images/barcode.svg"
@@ -87,7 +87,7 @@
         <div class="row event-title-sub">
           <div class="col-md-12">
             <div style="font-size: 25px; font-weight: 500;">
-              {{ event.eventName }}
+              {{ event?.eventName }}
             </div>
           </div>
         </div>
@@ -103,32 +103,32 @@
           >
             <div class="date-time" style="margin: 10px 20px 10px 10px;">
               <div class="date">
-                <div class="day">{{ event.eventFromDate | date: "dd" }}</div>
+                <div class="day">{{ event?.eventFromDate | date: "dd" }}</div>
                 <div class="month-year">
                   <div class="month">
-                    {{ event.eventFromDate | date: "MMM" | uppercase }}
+                    {{ event?.eventFromDate | date: "MMM" | uppercase }}
                   </div>
                   <div class="year">
-                    {{ event.eventFromDate | date: "yyyy" }}
+                    {{ event?.eventFromDate | date: "yyyy" }}
                   </div>
                 </div>
               </div>
               <div class="time">
-                {{ event.eventFromDate | date: "h:mm a" }}
+                {{ event?.eventFromDate | date: "h:mm a" }}
               </div>
             </div>
             <div class="date-time" style="margin: 10px 10px 10px 20px;">
               <div class="date">
-                <div class="day">{{ event.eventToDate | date: "dd" }}</div>
+                <div class="day">{{ event?.eventToDate | date: "dd" }}</div>
                 <div class="month-year">
                   <div class="month">
-                    {{ event.eventToDate | date: "MMM" | uppercase }}
+                    {{ event?.eventToDate | date: "MMM" | uppercase }}
                   </div>
-                  <div class="year">{{ event.eventToDate | date: "yyyy" }}</div>
+                  <div class="year">{{ event?.eventToDate | date: "yyyy" }}</div>
                 </div>
               </div>
               <div class="time">
-                {{ event.eventToDate | date: "h:mm a" }}
+                {{ event?.eventToDate | date: "h:mm a" }}
               </div>
             </div>
           </div>
