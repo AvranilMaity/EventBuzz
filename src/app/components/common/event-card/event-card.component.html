@@ -1,7 +1,7 @@
 <div class="card" (click)="navigateToEventDetails()">
   <div
     class="card-image"
-    style="background-image: url({{ eventData.eventImageUrl }} )"
+    style="background: url({{eventData.eventImageUrl}}); background-size: cover;"
   ></div>
   <div class="card-text">
     <div class="content date-block">
@@ -13,10 +13,10 @@
     <div class="content">
       <div class="content-data">
         <div class="title">
-          {{ eventData.eventName }}
+          {{ eventData?.eventName }}
         </div>
         <div class="about">
-          {{ eventLocation }}
+          {{ eventData?.eventLocation }}
         </div>
       </div>
     </div>
