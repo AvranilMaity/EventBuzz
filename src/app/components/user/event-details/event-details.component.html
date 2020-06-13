@@ -1,5 +1,5 @@
 <app-user-navigation></app-user-navigation>
-<div class="container banner">
+<div class="container banner" style="background: url({{eventData.eventImageUrl}}); background-size: cover;">
   <div class="page-data">
     <div class="row">
       <div class="col-md-8">
@@ -7,11 +7,10 @@
         <p class="event-title">
           {{ eventData?.eventName }}
         </p>
-        <p class="event-organizer">By Avranil Maity</p>
+        <p class="event-organizer">{{eventData.organizerName}}</p>
         <br />
         <p class="event-address">
-          A-407, Yashwin, Hinjewadi Phase II <br />Pune, Maharashtra, Pin:
-          411057
+          {{eventData.eventLocation}}
         </p>
         <p class="event-map">View Map</p>
       </div>
@@ -53,17 +52,7 @@
       <div class="col-md-8 text-justify" style="padding-right: 100px;">
         <p class="page-data-title">Description</p>
         <p class="page-data-content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente
-          necessitatibus reiciendis deleniti quis laboriosam nemo ad hic! Omnis
-          doloribus, libero facilis repellat soluta veritatis commodi, suscipit
-          sed temporibus nostrum alias. Necessitatibus architecto itaque modi ea
-          repellat laudantium molestias adipisci exercitationem officia?
-          <br />
-          <br />
-          Omnis ipsam eaque ipsum a quibusdam vitae aliquid, eius dolore ducimus
-          voluptatem pariatur distinctio provident dolorem laudantium minus at.
-          Doloremque, nemo cum architecto tempore fugit quibusdam repudiandae
-          esse officiis.
+          {{eventData.eventDescription}}
         </p>
         <br />
         <p class="page-data-title">Event Timings</p>
@@ -184,7 +173,7 @@
         </div>
         <br /><br />
         <p class="page-data-title">
-          Eta Tor Baaper Biyer Event Page
+          You are invited to join us at
         </p>
         <p class="page-data-content">
           A-407, Yashwin, Hinjewadi Phase II Pune, Maharashtra, Pin: 411057

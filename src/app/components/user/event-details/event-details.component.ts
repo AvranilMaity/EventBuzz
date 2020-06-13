@@ -57,7 +57,26 @@ export class EventDetailsComponent implements OnInit {
   loadEvent() {
     this.activatedRoute.paramMap.subscribe((params) => {
       this.eventId = params.get('eventId');
+      console.log(this.eventId);
+      
     });
+    this.commonService.fetchPopularEvents().subscribe(
+      data=>{
+        console.log(data);
+        if(data!=null){
+          
+          this.eventData = data[1];
+          console.log(this.eventData);
+          
+        }
+        else{
+          console.log("no data available")
+        }
+        
+      },
+      err=>{console.log(err)},
+      ()=>{console.log("fetched event details")}
+    );
   }
   onAddUser() {
     this.invitedUsers.push(this.addFriendForm.value);

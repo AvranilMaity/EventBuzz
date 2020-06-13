@@ -61,11 +61,11 @@ export class ConfirmationComponent implements OnInit {
   loadTicket(){
     this.activatedRoute.paramMap.subscribe((params) => {
       this.eventId = params.get('eventId');
-      this.commonService.fetchEventDetailsById(this.eventId).subscribe(
+      this.commonService.fetchPopularEvents().subscribe(
         (data) => {
           console.log(data);
           if (data != null) {
-            this.event = data[0];
+            this.event = data[1];
             console.log('event data fetched');
           } else {
             console.log('event data fetch failed');

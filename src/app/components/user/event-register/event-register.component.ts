@@ -243,7 +243,7 @@ export class EventRegisterComponent implements OnInit {
         console.log('registration function called');
       }
     );
-    this.route.navigate(['/confirmation',this.eventId]);
+    //this.route.navigate(['/confirmation',this.eventId]);
   }
 
   backToEventPage(){
