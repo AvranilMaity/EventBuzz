@@ -133,11 +133,11 @@ export class EventAddEditComponent implements OnInit {
       eventFromDate: new FormControl(eventFromDate, Validators.required),
       eventToDate: new FormControl(eventToDate, Validators.required),
       organizedType: new FormControl(organizedType, Validators.required),
-      organizerName: new FormControl(organizerName, Validators.required),
-      organizerPhone: new FormControl(organizerPhone, Validators.required),
-      organizerEmail: new FormControl(organizerEmail, Validators.required),
+      organizerName: new FormControl(organizerName),
+      organizerPhone: new FormControl(organizerPhone),
+      organizerEmail: new FormControl(organizerEmail),
       eventType: new FormControl(eventType, Validators.required),
-      eventHeadCount: new FormControl(eventHeadCount, Validators.required),
+      eventHeadCount: new FormControl(eventHeadCount),
       ticketTypes: ticketTypes,
     });
   }
@@ -151,11 +151,12 @@ export class EventAddEditComponent implements OnInit {
       console.log('add' + this.maxTicketTypes);
     }
     this.hasTickets = true;
+    let ticketArray = ['Regular', 'VIP'];
     (<FormArray>this.createEventForm.get('ticketTypes')).push(
       new FormGroup({
-        ticketTypeName: new FormControl(null, Validators.required),
-        ticketTypeQuantity: new FormControl(null, Validators.required),
-        ticketTypePrice: new FormControl(null, Validators.required),
+        ticketTypeName: new FormControl(ticketArray[this.maxTicketTypes - 1]),
+        ticketTypeQuantity: new FormControl(null),
+        ticketTypePrice: new FormControl(null),
       })
     );
     this.getControls();

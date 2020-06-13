@@ -90,11 +90,17 @@
         <p class="page-data-title">Popular Events</p>
         <br /><br />
         <div class="row">
-          <div class="cards-container" *ngFor="let event of popularEvents">
-            <app-event-card
-              class="col-md-4"
-              [eventData]="event"
-            ></app-event-card>
+          <div
+            class="cards-container col-md-4"
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              vertical-align: middle;
+            "
+            *ngFor="let event of popularEvents"
+          >
+            <app-event-card [eventData]="event"></app-event-card>
           </div>
         </div>
       </div>

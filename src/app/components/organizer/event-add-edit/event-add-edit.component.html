@@ -87,6 +87,7 @@
                     id="eventCategory"
                     formControlName="eventCategory"
                   >
+                    <option value="" disabled selected>--Select--</option>
                     <option *ngFor="let eventCategory of eventCategoryList">
                       {{ eventCategory }}
                     </option>
@@ -304,6 +305,7 @@
                     formControlName="organizedType"
                     #organizedType
                   >
+                    <option value="" disabled selected>--Select--</option>
                     <option *ngFor="let organizedType of organizedTypeList">
                       {{ organizedType }}
                     </option>
@@ -404,13 +406,14 @@
                     formControlName="eventType"
                     #eventType
                   >
+                    <option value="" disabled selected>--Select--</option>
                     <option *ngFor="let eventType of eventTypeList">
                       {{ eventType }}
                     </option>
                   </select>
                 </div>
 
-                <div class="open-event">
+                <div class="open-event" *ngIf="eventType.value == 'Open'">
                   <div class="form-group">
                     <h6 class="p-2">Head Count</h6>
                     <input
@@ -423,6 +426,7 @@
                       #eventType
                     />
                     <datalist id="headCountList">
+                      <option value="" disabled selected>--Select--</option>
                       <option *ngFor="let i of headCountList">
                         {{ i }}
                       </option>
@@ -485,7 +489,7 @@
                           name="ticket-type-name"
                           id="ticket-type-name"
                           formControlName="ticketTypeName"
-                          placeholder="Regular, VIP, etc."
+                          disabled
                         />
                       </div>
                       <div class="form-group col-3">
@@ -585,7 +589,7 @@
             type="submit"
             class="submit-button"
             style="padding: 0px;"
-            [disabled]="createEventForm.valid"
+            [disabled]="!createEventForm.valid"
           >
             Submit
           </button>
