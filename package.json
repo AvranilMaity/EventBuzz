@@ -25,7 +25,7 @@
     "firebase": "^7.15.0",
     "html2canvas": "^1.0.0-rc.5",
     "jsbarcode": "^3.11.0",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "ngx-barcode6": "^1.0.10",
     "ngx-dropzone": "^2.2.2",
     "rxjs": "~6.5.4",
